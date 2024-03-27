@@ -4,8 +4,8 @@ import { BrowserRouter, Routes, Route, Link} from "react-router-dom";
 
 
 import NavBar from './components/NavBar';
-import HomePage from './pages/HomePage';
-import ClassPage from './pages/ClassPage';
+import HomePage from './pages/HomePage.js';
+import ClassPage from './pages/ClassPage.js';
 
 
 // App is the root component of our application and as children contain all our pages

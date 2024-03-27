@@ -1,0 +1,41 @@
+*{
+  font-family: 'cool', verdana;
+  text-decoration: none;
+}
+
+.navbar{
+  background: #39628c;
+  font-family: inter;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.navdiv{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbarlinks{
+  list-style-type: none;
+  display: inline-block;
+}
+
+.navbarlinks a{
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 25px;
+}
+
+.navbarlinkshome{
+  list-style-type: none;
+  display: inline-block;
+}
+
+.navbarlinkshome a{
+  color: #F8CEBF;
+  font-size: 18px;
+  font-weight: bold;
+  margin-right: 25px;
+}
