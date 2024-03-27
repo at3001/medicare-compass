@@ -1,0 +1,10 @@
+{
+    "_comment": "Connection to db (when we do this in the future)",
+    "rds_host": "",
+    "rds_port": "",
+    "rds_user": "",
+    "rds_password" : "",
+    "rds_db": "",
+    "server_host": "localhost",
+    "server_port":"8080"
+  }
