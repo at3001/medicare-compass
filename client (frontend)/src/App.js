@@ -3,7 +3,6 @@ import { BrowserRouter, Routes, Route, Link} from "react-router-dom";
 /* NEED TO EDIT THIS!! JUST OUTLINE FOR NOW */
 
 
-import NavBar from './components/NavBar';
 import HomePage from './pages/HomePage.js';
 import ClassPage from './pages/ClassPage.js';
 
