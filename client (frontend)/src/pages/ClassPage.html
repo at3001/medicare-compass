@@ -2,6 +2,8 @@
     <head>
         <title>Course Page</title>
         <link rel="stylesheet" href="./style.css">
+        <link rel="shortcut icon" type="x-icon" href="../images/browserLogo.png">
+        <script src="https://kit.fontawesome.com/16d262b39f.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <nav class="navbar">
@@ -20,10 +22,30 @@
             <div class="progress-bar" style="width: 6%;">6%</div>
         </div>
         <div class="content-container">
-            <h2 class="content-title">介绍 Introduction</h2>
-            <p class="content-info">🔹 欢迎！这网站将教您开始使用 Medicare 的基础知识。</p>
-            <p class="content-info">🔹 Welcome! This website will teach you the basics of getting started with Medicare.</p>
+            <div class="content-container-title">
+                <h2 class="content-title">介绍 Introduction</h2>
+            </div>
+            <div class="content-container-body">
+                <div class="content-container-left">
+                    <i class="fa-solid fa-volume-low"></i>
+                    <p class="content-info">欢迎！这网站将教您开始使用 <a class="in-text-hyperlink" href="#">Medicare</a> 的基础知识。</p>
+                </div>
+                <div class="content-container-right">
+                    <i class="fa-solid fa-volume-low"></i>
+                    <p class="content-info">Welcome! This website will teach you the basics of getting started with <a class="in-text-hyperlink" href="#">Medicare</a>.</p>
+                </div>
+            </div>
         </div>
-        
+        <div class="button-container">
+            <button class="continue-button">Continue</button>
+        </div>
+        <ul class="progressbar-bottom">
+            <li class="active">Introduction<br>介绍</li>
+            <li>What is Medicare?<br>Medicare是什么?</li>
+            <li>What plans can I choose?<br>可以选择哪些保险计划?</li>
+            <li>How do I enroll?<br>我该如何报名?</li>
+            <li>Where can I learn more?<br>哪里可以学更多?</li>
+            <li>My info & questions<br>我的信息和问题</li>
+        </ul>
     </body>
 </html>
