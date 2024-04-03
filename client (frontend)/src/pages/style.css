@@ -79,10 +79,14 @@
 }
 
 .navbarlinkshome a{
-  color: #F8CEBF;
   font-size: 18px;
   font-weight: bold;
   margin-right: 25px;
+  color: white;
+}
+
+#selected a{
+  color: #F8CEBF;
 }
 
 .button-container {
