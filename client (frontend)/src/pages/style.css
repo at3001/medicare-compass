@@ -128,7 +128,7 @@
 .content-container{
   background-color: #eeeeee;
   width: 80%; 
-  height: 35vh; /* added height for scroll bar in content container */
+  height: 80vh; /* added height for scroll bar in content container */
   margin: 10px auto;
   padding-left: 30px;
   padding-right: 30px;
@@ -140,7 +140,7 @@
   grid-template-rows: auto 1fr;
   grid-template-columns: 1fr;
   gap: 10px;
-  padding-bottom: 250px;
+  padding-bottom: 1px;
   overflow: auto; /* added scroll bar in content container */
 }
 
@@ -177,7 +177,7 @@ i {
   color: black; 
   font-size: 40px;
   margin-top: 10px; 
-  margin-bottom: 16px;
+  margin-bottom: 5px;
 }
 
 .content-info {
@@ -205,11 +205,13 @@ i {
   display: none;
 }
 
-
 .in-text-hyperlink {
   text-decoration: underline;
   text-decoration-color: #F8CEBF;
   color: #39628c; 
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 .continue-button {
