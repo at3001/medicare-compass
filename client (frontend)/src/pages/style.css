@@ -63,12 +63,12 @@
   margin-right: 25px;
 }
 
-.navbarlinkshome{
+.navbarlinksactive{
   list-style-type: none;
   display: inline-block;
 }
 
-.navbarlinkshome a{
+.navbarlinksactive a{
   color: #F8CEBF;
   font-size: 18px;
   font-weight: bold;
