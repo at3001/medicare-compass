@@ -269,24 +269,50 @@ i {
   background: #6B85D6; /* Slightly lighter blue on hover */
 }
 
+.form-container{
+
+}
+
 .question {
-  color: black;
-  line-height: 1.6;
-  padding: 4px 0;
-  margin-left: 10px;
-  padding: 5px;
-  text-align: left;
-  font-family: Arial, sans-serif;
-  font-size: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  align-items: center; 
+  justify-content: center;
+  margin: auto;
   border-style: solid;
   border-width: 4px;
   border-color: #3B5998;
   border-radius: 10px;
+  width: 95%;
+  padding-left: 20px;
 }
+
+.question-head {
+  color: black;
+  line-height: 1.6;
+  padding: 4px 0;
+  margin-left: 10px;
+  text-align: left;
+  font-family: Arial, sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.question-sub {
+  color: black;
+  line-height: 1.6;
+  padding: 4px 0;
+  margin-left: 10px;
+  text-align: left;
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+}
+
 
 .birthdate {
   font-family: Arial, sans-serif;
-  font-size: 20px;
+  font-size: 22px;
   text-align: center;
   margin: 0 auto;
   display: block;

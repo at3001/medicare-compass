@@ -11,6 +11,7 @@ function showNextSentence() {
     for (let i = 0; i < currentIndex; i++) {
         sentencesEng[i].classList.remove('hidden');
         sentencesCn[i].classList.remove('hidden');
+        // to do: add increase to progress bar
     }
 }
 
