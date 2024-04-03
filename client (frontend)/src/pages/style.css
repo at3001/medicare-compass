@@ -240,7 +240,7 @@
   line-height: 1.6;
   padding: 4px 0;
   text-align: left;
-  display: inline-block;
+  display: inline;
   font-family: Arial, sans-serif;
   font-size: 20px;
 }
@@ -369,6 +369,13 @@
   display: block;
 }
 
+.medicare-visual{
+  width: 80%;
+  height: auto;
+  margin: 0 auto;
+  padding: 10px;
+}
+
 .card {
   background-color: #eeeeee;
   padding-top: 20px;
@@ -387,7 +394,7 @@
   font-size: 180px;
   margin-top: 15px;
   margin-bottom: 15px;
-  color: #39628c;
+  color: #8e959b;
 }
 
 .card-content h1 {
