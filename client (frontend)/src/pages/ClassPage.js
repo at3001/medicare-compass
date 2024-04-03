@@ -1,22 +1,8 @@
-const sentencesEng = document.querySelectorAll('#content-info-eng span');
-const sentencesCn = document.querySelectorAll('#content-info-cn span');
+const bitesLeft = document.querySelectorAll('#bite-left');
+const bitesRight = document.querySelectorAll('#bite-right');
 const continueBtn = document.getElementById('continue-btn');
 let currentIndex = 0;
 
-const bitesLeft = document.querySelectorAll('#bite-left');
-const bitesRight = document.querySelectorAll('#bite-right');
-
-function showNextSentence() {
-    if (currentIndex < sentencesEng.length) {
-        currentIndex++;
-    }
-
-    for (let i = 0; i < currentIndex; i++) {
-        sentencesEng[i].classList.remove('hidden');
-        sentencesCn[i].classList.remove('hidden');
-        // to do: add increase to progress bar
-    }
-}
 
 function showNextBite() {
     if (currentIndex < bitesRight.length) {
@@ -28,6 +14,10 @@ function showNextBite() {
         bitesRight[i].classList.remove('hidden');
         // to do: add increase to progress bar
     }
+
+    // content container scrolls to bottom
+    var elem = document.getElementsByClassName('content-container')[0];
+    elem.scrollTop = elem.scrollHeight;
 }
 
 
