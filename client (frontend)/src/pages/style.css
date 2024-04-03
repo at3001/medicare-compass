@@ -180,12 +180,19 @@ i {
   margin-bottom: 5px;
 }
 
+.content-subtitle {
+  color: #385682; 
+  font-size: 35px;
+  margin-top: 10px; 
+  margin-bottom: 5px;
+}
+
 .content-info {
   color: black;
   line-height: 1.6;
   padding: 4px 0;
   text-align: left;
-  display: inline-block;
+  display: inline;
   font-family: Arial, sans-serif;
   font-size: 20px;
 }
