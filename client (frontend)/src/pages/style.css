@@ -119,6 +119,11 @@
   margin: 10px;
 }
 
+#selected-langauge {
+  background-color: #39628c;
+  color: white;
+}
+
 .search-language-button {
   width: 200px;
   height: 90px;
@@ -362,23 +367,6 @@
   text-align: center;
   margin: 0 auto;
   display: block;
-}
-
-.search-language-button {
-  width: 200px;
-  height: 90px;
-  background-color: #D1EBE9;
-  border: none;
-  border-radius: 20px;
-  color: #39628c; 
-  font-size: 24px;
-  cursor: pointer; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-  transition: all 0.3s;
-  text-align: center;
-  display: inline-block;
-  font-family: Arial, sans-serif;
-  margin: 10px;
 }
 
 .card {
