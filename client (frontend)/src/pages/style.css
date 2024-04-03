@@ -169,7 +169,8 @@ i {
   justify-content: left;
   font-size: 18px;
   width: 30px;
-  color: #39628c; 
+  color: #39628c;
+  padding-right: 5px; 
 }
 
 .content-title {
