@@ -198,7 +198,7 @@
 .content-container-body {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  gap: 20px;
   align-items: baseline; 
 }
 
@@ -237,12 +237,13 @@
 
 .content-info {
   color: black;
-  line-height: 1.6;
+  line-height: 1.5;
   padding: 4px 0;
   text-align: left;
   display: inline;
   font-family: Arial, sans-serif;
   font-size: 20px;
+  margin: 0;
 }
 
 .content-bullet {

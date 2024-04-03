@@ -5,7 +5,7 @@ let currentIndex = 0;
 
 
 function showNextBite() {
-    if (currentIndex < bitesRight.length) {
+    if (currentIndex < bitesLeft.length) {
         currentIndex++;
     }
 
