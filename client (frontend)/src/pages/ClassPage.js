@@ -1,5 +1,5 @@
-const bitesLeft = document.querySelectorAll('#bite-left');
-const bitesRight = document.querySelectorAll('#bite-right');
+const bitesLeft = document.getElementsByClassName('bite-left');
+const bitesRight = document.getElementsByClassName('bite-right');
 const continueBtn = document.getElementById('continue-btn');
 let currentIndex = 0;
 
