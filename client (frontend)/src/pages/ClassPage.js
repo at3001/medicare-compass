@@ -20,5 +20,12 @@ function showNextBite() {
     elem.scrollTop = elem.scrollHeight;
 }
 
+function increaseProgress() {
+    var progressBar = document.getElementById('progress-bar');
+    var currentWidth = progressBar.style.width || (100 / (bitesLeft.length + 1)) + '%';
+    var newWidth = parseFloat(currentWidth) + (100 / (bitesLeft.length + 1)); // Increase width by 10%
+    progressBar.style.width = newWidth + '%';
+  }
 
 continueBtn.addEventListener('click', showNextBite);
+continueBtn.addEventListener('click', increaseProgress);
