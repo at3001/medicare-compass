@@ -28,14 +28,12 @@
             <div class="content-container-body">
                 <div class="content-container-left">
                     <i class="fa-solid fa-volume-low volume-icon"></i>
-                    <p id="content-info-cn" class="content-info">
-                        欢迎！这网站将教您开始使用 <span id = 'tip_one' class = "tooltip" onclick = "showReadingAid(event, 'one')">Medicare 
-                            <span id = "aid_one" class = "tooltiptext"> Medicare 是针对 65 岁或以上人群的美国联邦健康保险计划。 </span></span> 的基础知识。
-                        课程结束时，您将：
-                        <span class="content-bullet hidden bite-left">了解什么是 Medicare 以及您可以选择哪些类型的健康保险计划</span>
-                        <span class="content-bullet hidden bite-left">了解您需要采取哪些步骤进行注册以及何时需要采取这些步骤</span>
-                        <span class="content-bullet hidden bite-left">收到您的 Medicare 信息和问题的打印件以供将来参考</span>
-                        <span class="content-info hidden bite-left">为了确保本课程根据您的需求定制, <span style="font-weight: bold; font-family: Arial"> 让我们回答几个问题：</span> </span>
+                    <p id="content-info-arabic" class="content-info">
+                        مرحباً! سيعلمك هذا الموقع أساسيات البدء في برنامج Medicare. بحلول نهاية الدورة، سوف:
+                        <span class="content-bullet hidden bite-left">افهم ما هو برنامج Medicare وما هي أنواع خطط التأمين الصحي التي يمكنك الاختيار من بينها</span>
+                        <span class="content-bullet hidden bite-left">افهم الخطوات التي يتعين عليك اتخاذها للتسجيل ومتى يتعين عليك اتخاذها</span>
+                        <span class="content-bullet hidden bite-left">احصل على نسخة مطبوعة من معلومات Medicare والأسئلة الخاصة بك للرجوع إليها في المستقبل</span>
+                        <span class="content-info hidden bite-left">للتأكد من أن هذه الدورة مخصصة لاحتياجاتك، دعنا نجيب على بعض الأسئلة:</span> </span>
                     </p>
                 </div>
                 <div class="content-container-right">
@@ -54,7 +52,7 @@
             <form class="form-container">
                 <div class="question hidden bite-left">
                     <p id="question-text">
-                        <span class="question-head">你出生日期是哪一天?</span>
+                        <span class="question-head">ما هو تاريخ ميلادك؟</span>
                         <br>
                         <span class="question-sub">What is your birth date?</span>
                     </p>
@@ -62,56 +60,56 @@
                 </div>
                 <div class="question hidden bite-left">
                     <p id="question-text">
-                        <span class="question-head">您的美国移民身份是什么？</span>
+                        <span class="question-head">ما هو وضع الهجرة الخاص بك إلى الولايات المتحدة؟</span>
                         <br>
                         <span class="question-sub">What is your US immigration status?</span>
                     </p>
                     <div id="immigration-status" class="question-options bite-right">
-                        <button type="button" class="option-button" onclick="selectOption('citizen', this, 'immigration-status')">美国公民<br>US citizen</button>
-                        <button type="button" class="option-button" onclick="selectOption('green card holder', this, 'immigration-status')">绿卡持有者5+年<br>Green Card holder for 5+ years</button>
-                        <button type="button" class="option-button" onclick="selectOption('other', this, 'immigration-status')">其他<br>Other</button>
+                        <button type="button" class="option-button" onclick="selectOption('citizen', this, 'immigration-status')">مواطن أمريكي<br>US citizen</button>
+                        <button type="button" class="option-button" onclick="selectOption('green card holder', this, 'immigration-status')">حامل البطاقة الخضراء لمدة تزيد عن 5 سنوات<br>Green Card holder for 5+ years</button>
+                        <button type="button" class="option-button" onclick="selectOption('other', this, 'immigration-status')">آخر<br>Other</button>
                         <input type="hidden" id="immigration-input">
                     </div>
                 </div>
                 <div class="question hidden bite-left">
                     <p id="question-text">
-                        <span class="question-head">您目前有健康保险吗？</span>
+                        <span class="question-head">هل لديك تأمين صحي حاليا؟</span>
                         <br>
                         <span class="question-sub">Do you currently have health insurance?</span>
                     </p>
                     <div id="current-insurance" class="question-options bite-right">
-                        <button type="button" class="option-button" onclick="selectOption('yes', this, 'current-insurance')">有<br>Yes</button>
-                        <button type="button" class="option-button" onclick="selectOption('no', this, 'current-insurance')">没有<br>No</button>
+                        <button type="button" class="option-button" onclick="selectOption('yes', this, 'current-insurance')">نعم<br>Yes</button>
+                        <button type="button" class="option-button" onclick="selectOption('no', this, 'current-insurance')">لا<br>No</button>
                         <input type="hidden" id="current-insurance-input">
                     </div>
                 </div>
                 <div class="question hidden bite-left">
                     <p id="question-text">
-                        <span class="question-head">您有什么类型的健康保险？</span>
+                        <span class="question-head">ما هو نوع التأمين الصحي لديك؟</span>
                         <br>
                         <span class="question-sub">What type of health insurance do you have?</span>
                     </p>
                     <div id="insurance-type" class="question-options bite-right">
-                        <button type="button" class="option-button" onclick="selectOption('employer', this, 'insurance-type')">雇主保险<br>Employer insurance</button>
-                        <button type="button" class="option-button" onclick="selectOption('obamacare', this, 'insurance-type')">奥巴马医改<br>Obamacare</button>
-                        <button type="button" class="option-button" onclick="selectOption('other', this, 'insurance-type')">其他<br>Other</button>
+                        <button type="button" class="option-button" onclick="selectOption('employer', this, 'insurance-type')">تأمين صاحب العمل<br>Employer insurance</button>
+                        <button type="button" class="option-button" onclick="selectOption('obamacare', this, 'insurance-type')">أوباماكير<br>Obamacare</button>
+                        <button type="button" class="option-button" onclick="selectOption('other', this, 'insurance-type')">آخر<br>Other</button>
                         <input type="hidden" id="insurance-type-input">
                     </div>
                 </div>
                 <div class="question hidden bite-left" style="grid-template-columns: 1.1fr 1fr;">
                     <p id="question-text">
-                        <span class="question-head">对于雇主保险：您的退休年龄是多少？</span>
+                        <span class="question-head">لتأمين صاحب العمل: ما هو السن الذي ستتقاعد فيه؟</span>
                         <br>
                         <span class="question-sub">For employer insurance: What age will you retire?</span>
                     </p>
-                    <input id="retirement-age" class="short-answer hidden bite-right" type="number"  placeholder="年龄 Age">
+                    <input id="retirement-age" class="short-answer hidden bite-right" type="number"  placeholder="عمر Age">
                 </div>
             </form>
             <div class="content-container-body">
                 <div class="content-container-left hidden bite-left">
                     <i class="fa-solid fa-volume-low volume-icon"></i>
                     <p id="content-info-cn" class="content-info">
-                        谢谢你！ 根据您的回复，以下是您的 Medicare 旅程的<span style="font-weight: bold; font-family: Arial">建议时间表</span>：
+                        شكرًا لك! بناءً على إجاباتك، فيما يلي جدول زمني موصى به لرحلة Medicare الخاصة بك:
                     </p>
                 </div>
                 <div class="content-container-right hidden bite-right">
@@ -121,11 +119,11 @@
                     </p>
                 </div>
                 <div class="hidden bite-left">
-                    <h3 class="content-subtitle">您的Medicare时间表</h3>
+                    <h3 class="content-subtitle" style="font-size:28px;">الجدول الزمني للرعاية الطبية الخاصة بك</h3>
                     <div class="content-container-right">
                         <div class="number-ball">1</div>
                         <p id="content-info-eng" class="content-info">
-                            <span style="font-weight: bold; font-family: Arial">现在:</span> 了解什么是 Medicare 并了解您的计划选项。 本课程将帮助您做到这一点！
+                            الآن: تعرف على ماهية برنامج Medicare وافهم خيارات خطتك. هذه الدورة سوف تساعدك على القيام بذلك!
                         </p>
                     </div>
                 </div>
@@ -140,8 +138,7 @@
                 <div class="content-container-left hidden bite-left">
                         <div class="number-ball">2</div>
                         <p id="content-info-eng" class="content-info">
-                            <span style="font-weight: bold; font-family: Arial">2025年7月 - 2026年1月:</span> 在<span id = 'tip_three' class = "tooltip" onclick = "showReadingAid(event, 'three')">最初投保期间 
-                                <span id = "aid_three" class = "tooltiptext"> 您的最初投保期间是您第一次参加 Medicare 的机会。 这是一个 7 个月的时期，从您 65 岁之前 3 个月开始，到您 65 岁之后 3 个月结束。我们根据您提供的出生日期计算您的初始注册期限。 </span></span>.，注册社会保障福利并加入 Medicare。 如果您在此期间未注册，您可能会在以后面临<a class="in-text-hyperlink" href="#">滞纳金</a>。 如果您对注册流程不确定，我们建议您与健康保险代理人合作。
+                            يوليو 2025 - يناير 2026: قم بالتسجيل للحصول على مزايا الضمان الاجتماعي والتسجيل في Medicare خلال فترة التسجيل الأولية. إذا لم تقم بالتسجيل خلال هذه الفترة، فقد تواجه عقوبات متأخرة لاحقًا. نوصي بالعمل مع وكيل التأمين الصحي إذا لم تكن متأكدًا من عملية التسجيل.
                         </p>
                 </div>
                 <div class="content-container-right hidden bite-right">
@@ -153,7 +150,7 @@
                 <div class="content-container-left hidden bite-left">
                     <div class="number-ball">3</div>
                     <p id="content-info-eng" class="content-info">
-                        <span style="font-weight: bold; font-family: Arial">2026年7月15号 - 2026年12月7号:</span> 重新评估您选择的 Medicare 计划，并确定您是否希望在 <a class="in-text-hyperlink" href="#">Medicare 开放投保期间</a>更改您的承保范围。
+                        15 أكتوبر 2026 - 7 ديسمبر 2026: أعد تقييم خطة Medicare التي حددتها وحدد ما إذا كنت ترغب في إجراء تغييرات في التغطية الخاصة بك خلال فترة التسجيل المفتوحة في Medicare.
                     </p>
                 </div>
                 <div class="hidden bite-right">
@@ -164,7 +161,7 @@
                 <div class="content-container-left hidden bite-left">
                     <i class="fa-solid fa-volume-low volume-icon"></i>
                     <p id="content-info-cn" class="content-info">
-                        现在您知道了关键日期和截止日期，让我们开始了解 Medicare！
+                        الآن بعد أن عرفت التواريخ والمواعيد النهائية الرئيسية، فلنبدأ في التعرف على برنامج Medicare!
                     </p>
                 </div>
                 <div class="content-container-right hidden bite-right">
@@ -176,7 +173,7 @@
             </div>
         </div>
         <div class="button-container">
-            <button id="continue-btn" class="continue-button" onclick="nextSection('WhatIsMedicare.html'); showNextBite(); increaseProgress()">Continue</button>
+            <button id="continue-btn" class="continue-button" onclick="nextSection('WhatIsMedicare-arabic.html'); showNextBite(); increaseProgress()">Continue</button>
         </div>
         <ul class="progressbar-bottom">
             <li class="active">Introduction<br>介绍</li>
