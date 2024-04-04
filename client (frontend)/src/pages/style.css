@@ -219,12 +219,13 @@
 }
 
 .number-ball {
+  /* need to fix, formatting is weird */
   width: 30px; 
   height: 30px;
   line-height: 30px;
   border-radius: 50%;
-  background-color: #39628c; /* Blue color */
-  color: #fff; /* White text color */
+  background-color: #39628c; 
+  color: #fff;
   text-align: center;
   font-size: 18px;
   margin-right: 15px; 

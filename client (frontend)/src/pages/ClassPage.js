@@ -28,8 +28,9 @@ function increaseProgress() {
     var currentWidth = progressBar.style.width;
     
     var newWidth = parseFloat(currentWidth) + (100 / (bitesLeft.length + 1)); // Increase width by 10%
+    // progressBar.textContent = currentWidth;
     progressBar.style.width = newWidth + '%';
-    // progressBar.textContent = newWidth;
+    
   }
 
 function nextSection(url) {
