@@ -1,0 +1,193 @@
+<html>
+    <head>
+        <title>Course Page</title>
+        <link rel="stylesheet" href="./style.css">
+        <link rel="shortcut icon" type="x-icon" href="../images/browserLogo.png">
+        <script src="https://kit.fontawesome.com/16d262b39f.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="navdiv">
+                <ul>
+                    <li class="navbarlinks"><a href="HomePage.html">Home</a></li>
+                    <li id="selected" class="navbarlinks"><a href="ClassPage.html">Medicare Overview</a></li>
+                    <li class="navbarlinks"><a href="#">About</a></li>
+                </ul>
+                <div class="logo"><a href="#">
+                    <img src="../images/logo.png" alt="Medicare Compass Logo" width="200" style="border-radius: 15px;">
+                </a></div>
+            </div>
+        </nav>
+        <div class="progress-bar-container">
+            <div id="progress-bar" class="progress-bar" style="width:7.143%"></div>
+        </div>
+        <div class="content-container">
+            <div class="content-container-title">
+                <h2 class="content-title">介绍 Introduction</h2>
+            </div>
+            <div class="content-container-body">
+                <div class="content-container-left">
+                    <i class="fa-solid fa-volume-low volume-icon"></i>
+                    <p id="content-info-cn" class="content-info">
+                        欢迎！这网站将教您开始使用 <span id = 'tip_one' class = "tooltip" onclick = "showReadingAid(event, 'one')">Medicare 
+                            <span id = "aid_one" class = "tooltiptext"> Medicare 是针对 65 岁或以上人群的美国联邦健康保险计划。 </span></span> 的基础知识。
+                        课程结束时，您将：
+                        <span class="content-bullet hidden bite-left">了解什么是 Medicare 以及您可以选择哪些类型的健康保险计划</span>
+                        <span class="content-bullet hidden bite-left">了解您需要采取哪些步骤进行注册以及何时需要采取这些步骤</span>
+                        <span class="content-bullet hidden bite-left">收到您的 Medicare 信息和问题的打印件以供将来参考</span>
+                        <span class="content-info hidden bite-left">为了确保本课程根据您的需求定制, <span style="font-weight: bold; font-family: Arial"> 让我们回答几个问题：</span> </span>
+                    </p>
+                </div>
+                <div class="content-container-right">
+                    <i class="fa-solid fa-volume-low volume-icon"></i>
+                        <p id="content-info-eng" class="content-info">
+                            Welcome! This website will teach you the basics of getting started with <span id = 'tip_two' class = "tooltip" onclick = "showReadingAid(event, 'two')">Medicare 
+                                <span id = "aid_two" class = "tooltiptext"> Medicare is a US federal health insurance program for people age 65 or older. </span></span>.
+                            By the end of the course, you will: 
+                            <span class="content-bullet hidden bite-right">Understand what Medicare is and what types of health insurance plans you can choose from</span>
+                            <span class="content-bullet hidden bite-right">Understand what steps you need to take to enroll and when you need to take them </span>
+                            <span class="content-bullet hidden bite-right">Receive a printout of your Medicare information and questions to reference for the future </span>
+                            <span class="content-info hidden bite-right">To make sure this course is customized to your needs, <span style="font-weight: bold; font-family: Arial"> let’s answer a few questions:</span> </span>
+                        </p>
+                </div>
+            </div>
+            <form class="form-container">
+                <div class="question hidden bite-left">
+                    <p id="question-text">
+                        <span class="question-head">你出生日期是哪一天?</span>
+                        <br>
+                        <span class="question-sub">What is your birth date?</span>
+                    </p>
+                    <input id="birthdate" class="birthdate hidden bite-right" type="date"  name="birthdate" max="2024-12-31">
+                </div>
+                <div class="question hidden bite-left">
+                    <p id="question-text">
+                        <span class="question-head">您的美国移民身份是什么？</span>
+                        <br>
+                        <span class="question-sub">What is your US immigration status?</span>
+                    </p>
+                    <div id="immigration-status" class="question-options bite-right">
+                        <button type="button" class="option-button" onclick="selectOption('citizen', this, 'immigration-status')">美国公民<br>US citizen</button>
+                        <button type="button" class="option-button" onclick="selectOption('green card holder', this, 'immigration-status')">绿卡持有者5+年<br>Green Card holder for 5+ years</button>
+                        <button type="button" class="option-button" onclick="selectOption('other', this, 'immigration-status')">其他<br>Other</button>
+                        <input type="hidden" id="immigration-input">
+                    </div>
+                </div>
+                <div class="question hidden bite-left">
+                    <p id="question-text">
+                        <span class="question-head">您目前有健康保险吗？</span>
+                        <br>
+                        <span class="question-sub">Do you currently have health insurance?</span>
+                    </p>
+                    <div id="current-insurance" class="question-options bite-right">
+                        <button type="button" class="option-button" onclick="selectOption('yes', this, 'current-insurance')">有<br>Yes</button>
+                        <button type="button" class="option-button" onclick="selectOption('no', this, 'current-insurance')">没有<br>No</button>
+                        <input type="hidden" id="current-insurance-input">
+                    </div>
+                </div>
+                <div class="question hidden bite-left">
+                    <p id="question-text">
+                        <span class="question-head">您有什么类型的健康保险？</span>
+                        <br>
+                        <span class="question-sub">What type of health insurance do you have?</span>
+                    </p>
+                    <div id="insurance-type" class="question-options bite-right">
+                        <button type="button" class="option-button" onclick="selectOption('employer', this, 'insurance-type')">雇主保险<br>Employer insurance</button>
+                        <button type="button" class="option-button" onclick="selectOption('obamacare', this, 'insurance-type')">奥巴马医改<br>Obamacare</button>
+                        <button type="button" class="option-button" onclick="selectOption('other', this, 'insurance-type')">其他<br>Other</button>
+                        <input type="hidden" id="insurance-type-input">
+                    </div>
+                </div>
+                <div class="question hidden bite-left" style="grid-template-columns: 1.1fr 1fr;">
+                    <p id="question-text">
+                        <span class="question-head">对于雇主保险：您的退休年龄是多少？</span>
+                        <br>
+                        <span class="question-sub">For employer insurance: What age will you retire?</span>
+                    </p>
+                    <input id="retirement-age" class="short-answer hidden bite-right" type="number"  placeholder="年龄 Age">
+                </div>
+            </form>
+            <div class="content-container-body">
+                <div class="content-container-left hidden bite-left">
+                    <i class="fa-solid fa-volume-low volume-icon"></i>
+                    <p id="content-info-cn" class="content-info">
+                        谢谢你！ 根据您的回复，以下是您的 Medicare 旅程的<span style="font-weight: bold; font-family: Arial">建议时间表</span>：
+                    </p>
+                </div>
+                <div class="content-container-right hidden bite-right">
+                    <i class="fa-solid fa-volume-low volume-icon"></i>
+                    <p id="content-info-eng" class="content-info">
+                        Thank you! Based on your responses, below is a <span style="font-weight: bold; font-family: Arial">recommended timeline</span> for your Medicare journey:
+                    </p>
+                </div>
+                <div class="hidden bite-left">
+                    <h3 class="content-subtitle">您的Medicare时间表</h3>
+                    <div class="content-container-right">
+                        <div class="number-ball">1</div>
+                        <p id="content-info-eng" class="content-info">
+                            <span style="font-weight: bold; font-family: Arial">现在:</span> 了解什么是 Medicare 并了解您的计划选项。 本课程将帮助您做到这一点！
+                        </p>
+                    </div>
+                </div>
+                <div class="hidden bite-right">
+                    <h3 class="content-subtitle">Your Medicare Timeline</h3>
+                    <div class="content-container-right">
+                        <p id="content-info-eng" class="content-info">
+                            <span style="font-weight: bold; font-family: Arial">Now:</span> Learn what Medicare is and understand your plan options. This course will help you do this!
+                        </p>    
+                    </div>
+                </div>
+                <div class="content-container-left hidden bite-left">
+                        <div class="number-ball">2</div>
+                        <p id="content-info-eng" class="content-info">
+                            <span style="font-weight: bold; font-family: Arial">2025年7月 - 2026年1月:</span> 在<span id = 'tip_three' class = "tooltip" onclick = "showReadingAid(event, 'three')">最初投保期间 
+                                <span id = "aid_three" class = "tooltiptext"> 您的最初投保期间是您第一次参加 Medicare 的机会。 这是一个 7 个月的时期，从您 65 岁之前 3 个月开始，到您 65 岁之后 3 个月结束。我们根据您提供的出生日期计算您的初始注册期限。 </span></span>.，注册社会保障福利并加入 Medicare。 如果您在此期间未注册，您可能会在以后面临<a class="in-text-hyperlink" href="#">滞纳金</a>。 如果您对注册流程不确定，我们建议您与健康保险代理人合作。
+                        </p>
+                </div>
+                <div class="content-container-right hidden bite-right">
+                    <p id="content-info-eng" class="content-info">
+                            <span style="font-weight: bold; font-family: Arial">July 2025 - Jan 2026:</span> Sign up for social security benefits and enroll in Medicare during your <span id = 'tip_four' class = "tooltip" onclick = "showReadingAid(event, 'four')">initial enrollment period 
+                                    <span id = "aid_four" class = "tooltiptext"> Your Initial Enrollment Period is your first chance to sign up for Medicare. It is a 7-month period that starts 3 months before you turn 65 and ends 3 months after you turn 65. We calculated your initial enrollment period based on the birth date you provided.. </span></span>. If you do not enroll during this period, you may face <a class="in-text-hyperlink" href="#">late penalties</a> later on. We recommend working with a health insurance agent if you are unsure about the enrollment process. 
+                    </p>
+                </div>
+                <div class="content-container-left hidden bite-left">
+                    <div class="number-ball">3</div>
+                    <p id="content-info-eng" class="content-info">
+                        <span style="font-weight: bold; font-family: Arial">2026年7月15号 - 2026年12月7号:</span> 重新评估您选择的 Medicare 计划，并确定您是否希望在 <a class="in-text-hyperlink" href="#">Medicare 开放投保期间</a>更改您的承保范围。
+                    </p>
+                </div>
+                <div class="hidden bite-right">
+                    <p id="content-info-eng" class="content-info">
+                        <span style="font-weight: bold; font-family: Arial">Oct 15, 2026 - Dec 7, 2026:</span> Reevaluate the Medicare plan you selected and determine if you would like to make changes in your coverage during <a class="in-text-hyperlink" href="#">Medicare’s open enrollment period</a>. 
+                    </p>
+                </div>
+                <div class="content-container-left hidden bite-left">
+                    <i class="fa-solid fa-volume-low volume-icon"></i>
+                    <p id="content-info-cn" class="content-info">
+                        现在您知道了关键日期和截止日期，让我们开始了解 Medicare！
+                    </p>
+                </div>
+                <div class="content-container-right hidden bite-right">
+                    <i class="fa-solid fa-volume-low volume-icon"></i>
+                    <p id="content-info-eng" class="content-info">
+                        Now that you know your key dates and deadlines, let’s start learning about Medicare!
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="button-container">
+            <button id="continue-btn" class="continue-button" onclick="nextSection('WhatIsMedicare.html'); showNextBite(); increaseProgress()">Continue</button>
+        </div>
+        <ul class="progressbar-bottom">
+            <li class="active">Introduction<br>介绍</li>
+            <li>What is Medicare?<br>Medicare是什么?</li>
+            <li>What plans can I choose?<br>可以选择哪些保险计划?</li>
+            <li>How do I enroll?<br>我该如何报名?</li>
+            <li>Where can I learn more?<br>哪里可以学更多?</li>
+            <li>My info & questions<br>我的信息和问题</li>
+        </ul>
+    </body>
+    <script src="ClassPage.js"></script>
+    <script type = "module" src = "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.es.js"></script>
+
+</html>
