@@ -34,3 +34,17 @@ function increaseProgress() {
 
 continueBtn.addEventListener('click', showNextBite);
 continueBtn.addEventListener('click', increaseProgress);
+
+function selectOption(option, clickedButton, question) {
+    // store selected input
+    var queryInput = '#' + question + ' input';
+    document.querySelectorAll(queryInput)[0].value = option;
+
+    // change button formatting to selected
+    var queryButton = '#' + question + ' button';
+    var buttons = document.querySelectorAll(queryButton);
+    buttons.forEach(function(button) {
+        button.classList.remove('option-button-select');
+      });
+    clickedButton.classList.add('option-button-select');
+  }

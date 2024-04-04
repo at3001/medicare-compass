@@ -19,7 +19,7 @@
             </div>
         </nav>
         <div class="progress-bar-container">
-            <div id="progress-bar" class="progress-bar"></div>
+            <div id="progress-bar" class="progress-bar" style="width:7.143%"></div>
         </div>
         <div class="content-container">
             <div class="content-container-title">
@@ -50,13 +50,26 @@
                 </div>
             </div>
             <form class="form-container">
-                <div class="hidden question bite-left">
+                <div class="question hidden bite-left">
                     <p id="question-text">
                         <span class="question-head">你出生日期是哪一天?</span>
                         <br>
                         <span class="question-sub">What is your birth date?</span>
                     </p>
-                    <input class="birthdate hidden bite-right" type="date"  name="birthdate" max="2024-12-31">
+                    <input id="birthdate" class="birthdate hidden bite-right" type="date"  name="birthdate" max="2024-12-31">
+                </div>
+                <div class="question hidden bite-left">
+                    <p id="question-text">
+                        <span class="question-head">您的美国移民身份是什么？</span>
+                        <br>
+                        <span class="question-sub">What is your US immigration status?</span>
+                    </p>
+                    <div id="immigration-status" class="question-options bite-right">
+                        <button type="button" class="option-button" onclick="selectOption('citizen', this, 'immigration-status')">美国公民<br>US citizen</button>
+                        <button type="button" class="option-button" onclick="selectOption('green card holder', this, 'immigration-status')">绿卡持有者5+年<br>Green Card holder for 5+ years</button>
+                        <button type="button" class="option-button" onclick="selectOption('other', this, 'immigration-status')">其他<br>Other</button>
+                        <input type="hidden" id="immigration-input">
+                    </div>
                 </div>
             </form>
         </div>

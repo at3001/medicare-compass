@@ -226,7 +226,7 @@
 }
 
 .content-subtitle {
-  color: #385682; 
+  color: #39628c; 
   font-size: 32px;
   margin-top: 10px; 
   margin-bottom: 5px;
@@ -327,11 +327,13 @@
 
 .question {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.5fr;
   gap: 10px;
   align-items: center; 
   justify-content: center;
   margin: auto;
+  margin-top: 10px;
+  margin-bottom: 30px;
   border-style: solid;
   border-width: 4px;
   border-color: #3B5998;
@@ -368,6 +370,35 @@
   text-align: center;
   margin: 0 auto;
   display: block;
+}
+
+.question-options {
+  display: flex;
+  justify-content: space-between;
+  /* padding: 20px; */
+}
+
+.option-button {
+  width: 35%;
+  background-color: white;
+  border-style: solid;
+  border-color:#39628c;
+  border-width: 3px;
+  border-radius: 5px;
+  color: #39628c; 
+  font-size: 20px;
+  cursor: pointer; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  transition: all 0.3s;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  margin: 10px;
+  padding: 5px;
+}
+
+.option-button-select {
+  background-color: #39628c;
+  color: white;
 }
 
 .medicare-visual{
