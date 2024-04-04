@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Page content has been loaded');
     // You can perform actions like modifying the DOM, fetching data, etc.
     console.log(window.location.pathname);
-    if (window.location.pathname == '/client%20(frontend)/src/pages/ClassPage.html') {
+    if ((window.location.pathname == '/client%20(frontend)/src/pages/ClassPage.html') || (window.location.pathname == '/client%20(frontend)/src/pages/ClassPage-arabic.html')) {
         if (tutorialAidCompleted == false) {
 
             const overlay = document.createElement('div');
@@ -168,7 +168,12 @@ document.addEventListener('DOMContentLoaded', function() {
             text.style.height = '200px';
             text.style.color = '#C27760';
             text.style.fontFamily = 'Arial, Helvetica, sans-serif';
-            text.textContent = "单击突出显示部分以获取有关整个课程中某些术语和概念的更多详细信息 \n Click highlights to get more details on certain terms and concepts throughout the course";
+            if (window.location.pathname == '/client%20(frontend)/src/pages/ClassPage.html') {
+                text.textContent = "单击突出显示部分以获取有关整个课程中某些术语和概念的更多详细信息 \n Click highlights to get more details on certain terms and concepts throughout the course";
+            }
+            else {
+                text.textContent = "انقر فوق النقاط البارزة للحصول على مزيد من التفاصيل حول مصطلحات ومفاهيم معينة خلال الدورة التدريبية \n Click highlights to get more details on certain terms and concepts throughout the course";
+            }
             text.style.zindex = '10000';
             text.style.fontSize = '25px';
             document.body.appendChild(text);
@@ -210,7 +215,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
         }
-    } else if (window.location.pathname == '/client%20(frontend)/src/pages/WhatIsMedicare.html') {
+    } else if ((window.location.pathname == '/client%20(frontend)/src/pages/WhatIsMedicare.html') || (window.location.pathname == '/client%20(frontend)/src/pages/WhatIsMedicare-arabic.html')) {
         if (tutorialNoteCompleted == false) {
 
             const overlay = document.createElement('div');
@@ -232,7 +237,12 @@ document.addEventListener('DOMContentLoaded', function() {
             text_note.style.height = '200px';
             text_note.style.color = '#C27760';
             text_note.style.fontFamily = 'Arial, Helvetica, sans-serif';
-            text_note.innerHTML = "对任何您可能不清楚的地方留下注释或问题<br>Write and save a note or question on anything you might be unclear on to reference them with your insurance agent";
+            if (window.location.pathname == '/client%20(frontend)/src/pages/WhatIsMedicare.html') {
+                text_note.innerHTML = "对任何您可能不清楚的地方留下注释或问题<br>Write and save a note or question on anything you might be unclear on to reference them with your insurance agent";
+            }
+            else {
+                text_note.innerHTML = "اكتب واحفظ ملاحظة أو سؤالاً حول أي شيء قد لا تكون واضحًا بشأنه للرجوع إليه مع وكيل التأمين الخاص بك<br>Write and save a note or question on anything you might be unclear on to reference them with your insurance agent";
+            }
             text_note.style.textAlign = 'center';
             text_note.style.zindex = '10000';
             text_note.style.fontSize = '25px';
