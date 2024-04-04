@@ -178,6 +178,7 @@
   padding-left: 30px;
   padding-right: 30px;
   padding-top: 1px;
+  padding-bottom: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   font-family: Arial, sans-serif;
@@ -185,7 +186,6 @@
   grid-template-rows: auto 1fr;
   grid-template-columns: 1fr;
   gap: 10px;
-  padding-bottom: 1px;
   overflow: auto; /* added scroll bar in content container */
 }
 
@@ -387,7 +387,6 @@
 .question-options {
   display: flex;
   justify-content: space-between;
-  /* padding: 20px; */
 }
 
 .option-button {
