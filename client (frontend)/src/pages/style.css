@@ -23,7 +23,7 @@
 }
 
 .HomePageText{
-  margin-top: 30px;
+  margin-top: 15px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -43,15 +43,15 @@
 
 .titleText{
   color: #39628c;
-  font-size: 60px;
+  font-size: 50px;
   font-family: serif;
   font-weight: 2000;
 }
 
 .titleSubtext{
-  margin-top: 70px;
+  margin-top: 40px;
   color: #39628c;
-  font-size: 50px;
+  font-size: 35px;
   font-family: inter;
 }
 
