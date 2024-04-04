@@ -3,6 +3,8 @@ const bitesRight = document.getElementsByClassName('bite-right');
 const continueBtn = document.getElementById('continue-btn');
 let currentIndex = 0;
 
+var tutorialNoteCompleted = false;
+var tutorialAidCompleted = false;
 
 function showNextBite() {
     if (currentIndex < bitesLeft.length) {
