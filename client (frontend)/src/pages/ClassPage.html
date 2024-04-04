@@ -140,12 +140,14 @@
                 <div class="content-container-left hidden bite-left">
                         <div class="number-ball">2</div>
                         <p id="content-info-eng" class="content-info">
-                            <span style="font-weight: bold; font-family: Arial">2025年7月 - 2026年1月:</span> 在<a class="in-text-hyperlink" href="#">最初投保期间</a>，注册社会保障福利并加入 Medicare。 如果您在此期间未注册，您可能会在以后面临<a class="in-text-hyperlink" href="#">滞纳金</a>。 如果您对注册流程不确定，我们建议您与健康保险代理人合作。
+                            <span style="font-weight: bold; font-family: Arial">2025年7月 - 2026年1月:</span> 在<span id = 'tip_three' class = "tooltip" onclick = "showReadingAid(event, 'three')">最初投保期间 
+                                <span id = "aid_three" class = "tooltiptext"> 您的最初投保期间是您第一次参加 Medicare 的机会。 这是一个 7 个月的时期，从您 65 岁之前 3 个月开始，到您 65 岁之后 3 个月结束。我们根据您提供的出生日期计算您的初始注册期限。 </span></span>.，注册社会保障福利并加入 Medicare。 如果您在此期间未注册，您可能会在以后面临<a class="in-text-hyperlink" href="#">滞纳金</a>。 如果您对注册流程不确定，我们建议您与健康保险代理人合作。
                         </p>
                 </div>
                 <div class="content-container-right hidden bite-right">
                     <p id="content-info-eng" class="content-info">
-                        <span style="font-weight: bold; font-family: Arial">July 2025 - Jan 2026:</span> Sign up for social security benefits and enroll in Medicare during your <a class="in-text-hyperlink" href="#">initial enrollment period</a>. If you do not enroll during this period, you may face <a class="in-text-hyperlink" href="#">late penalties</a> later on. We recommend working with a health insurance agent if you are unsure about the enrollment process. 
+                            <span style="font-weight: bold; font-family: Arial">July 2025 - Jan 2026:</span> Sign up for social security benefits and enroll in Medicare during your <span id = 'tip_four' class = "tooltip" onclick = "showReadingAid(event, 'four')">initial enrollment period 
+                                    <span id = "aid_four" class = "tooltiptext"> Your Initial Enrollment Period is your first chance to sign up for Medicare. It is a 7-month period that starts 3 months before you turn 65 and ends 3 months after you turn 65. We calculated your initial enrollment period based on the birth date you provided.. </span></span>. If you do not enroll during this period, you may face <a class="in-text-hyperlink" href="#">late penalties</a> later on. We recommend working with a health insurance agent if you are unsure about the enrollment process. 
                     </p>
                 </div>
                 <div class="content-container-left hidden bite-left">
@@ -186,4 +188,6 @@
         </ul>
     </body>
     <script src="ClassPage.js"></script>
+    <script type = "module" src = "https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.es.js"></script>
+
 </html>
