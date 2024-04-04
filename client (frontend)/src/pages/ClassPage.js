@@ -32,8 +32,11 @@ function increaseProgress() {
     // progressBar.textContent = newWidth;
   }
 
-continueBtn.addEventListener('click', showNextBite);
-continueBtn.addEventListener('click', increaseProgress);
+function nextSection(url) {
+    if (continueBtn.textContent === "Next section") {
+        window.location.href = url;
+    }
+}
 
 function selectOption(option, clickedButton, question) {
     // store selected input
