@@ -28,6 +28,12 @@
             <div class="content-container-body">
                 <div class="content-container-left">
                     <i class="fa-solid fa-volume-low"></i>
+                    <button id = 'note_button_one' class = "note-taking-button" onclick = "noteTakeAction(event, 'one')">take note</button>
+
+                    <div id = "note_one" class="input-box-container">
+                        <textarea id = "text_one" type="text" placeholder="Enter text here..." class="input-field"></textarea>
+                        <button class="submit-button" onclick="submitNote(event, 'one')">Submit</button>
+                    </div>
                     <p id="content-info-cn" class="content-info">
                         Medicare 是针对 65 岁或以上人群的美国联邦健康保险计划。
                         <span class="content-info hidden bite-left">超过一半的美国人通过雇主获得健康保险； 然而，许多雇主在员工退休后停止提供这些福利。</span>
@@ -44,6 +50,12 @@
                 </div>
                 <div class="content-container-left hidden bite-left">
                     <i class="fa-solid fa-volume-low"></i>
+                    <button class = "note-taking-button" onclick="noteTakeAction(event, 'two')">take note</button>
+
+                    <div id = "note_two" class="input-box-container">
+                        <textarea id = "text_two" type="text" placeholder="Enter text here..." class="input-field"></textarea>
+                        <button class="submit-button" onclick = "submitNote(event, 'two')">Submit</button>
+                    </div>
                     <p id="content-info-cn" class="content-info">
                         本节将涵盖有关 Medicare 的以下问题：
                         <span class="hidden bite-left">
