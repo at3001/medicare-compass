@@ -71,6 +71,39 @@
                         <input type="hidden" id="immigration-input">
                     </div>
                 </div>
+                <div class="question hidden bite-left">
+                    <p id="question-text">
+                        <span class="question-head">您目前有健康保险吗？</span>
+                        <br>
+                        <span class="question-sub">Do you currently have health insurance?</span>
+                    </p>
+                    <div id="current-insurance" class="question-options bite-right">
+                        <button type="button" class="option-button" onclick="selectOption('yes', this, 'current-insurance')">有<br>Yes</button>
+                        <button type="button" class="option-button" onclick="selectOption('no', this, 'current-insurance')">没有<br>No</button>
+                        <input type="hidden" id="current-insurance-input">
+                    </div>
+                </div>
+                <div class="question hidden bite-left">
+                    <p id="question-text">
+                        <span class="question-head">您有什么类型的健康保险？</span>
+                        <br>
+                        <span class="question-sub">What type of health insurance do you have?</span>
+                    </p>
+                    <div id="insurance-type" class="question-options bite-right">
+                        <button type="button" class="option-button" onclick="selectOption('employer', this, 'insurance-type')">雇主保险<br>Employer insurance</button>
+                        <button type="button" class="option-button" onclick="selectOption('obamacare', this, 'insurance-type')">奥巴马医改<br>Obamacare</button>
+                        <button type="button" class="option-button" onclick="selectOption('other', this, 'insurance-type')">其他<br>Other</button>
+                        <input type="hidden" id="insurance-type-input">
+                    </div>
+                </div>
+                <div class="question hidden bite-left" style="grid-template-columns: 1.1fr 1fr;">
+                    <p id="question-text">
+                        <span class="question-head">对于雇主保险：您的退休年龄是多少？</span>
+                        <br>
+                        <span class="question-sub">For employer insurance: What age will you retire?</span>
+                    </p>
+                    <input id="retirement-age" class="short-answer hidden bite-right" type="number"  placeholder="年龄 Age">
+                </div>
             </form>
         </div>
         <div class="button-container">

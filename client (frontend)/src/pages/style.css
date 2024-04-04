@@ -370,6 +370,18 @@
   text-align: center;
   margin: 0 auto;
   display: block;
+  width: 30%;
+  height: 50%;
+}
+
+.short-answer {
+  font-family: Arial, sans-serif;
+  font-size: 22px;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+  width: 30%;
+  height: 50%;
 }
 
 .question-options {
