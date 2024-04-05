@@ -32,7 +32,7 @@
 
                     <div id = "note_one" class="input-box-container">
                         <textarea id = "text_one" type="text" placeholder="Enter text here..." class="input-field"></textarea>
-                        <button class="submit-button" onclick="submitNote(event, 'one')">Submit</button>
+                        <button class="submit-button" onclick="submitNote(event, 'one', 0)">Submit</button>
                     </div>
                     <p id="content-info-cn" class="content-info">
                         Medicare 是针对 65 岁或以上人群的美国联邦健康保险计划。
@@ -54,7 +54,7 @@
 
                     <div id = "note_two" class="input-box-container">
                         <textarea id = "text_two" type="text" placeholder="Enter text here..." class="input-field"></textarea>
-                        <button class="submit-button" onclick = "submitNote(event, 'two')">Submit</button>
+                        <button class="submit-button" onclick = "submitNote(event, 'two', 2)">Submit</button>
                     </div>
                     <p id="content-info-cn" class="content-info">
                         本节将涵盖有关 Medicare 的以下问题：
@@ -183,7 +183,7 @@
             <div class="bite-right"></div>
         </div>
         <div class="button-container">
-            <button id="continue-btn" class="continue-button"onclick="nextSection('#'); showNextBite(); increaseProgress()">Continue</button>
+            <button id="continue-btn" class="continue-button"onclick="nextSection('InfoPrintPage.html'); showNextBite(); increaseProgress()">Continue</button>
         </div>
         <ul class="progressbar-bottom">
             <li>Introduction<br>介绍</li>
@@ -195,4 +195,6 @@
         </ul>
     </body>
     <script src="ClassPage.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+
 </html>

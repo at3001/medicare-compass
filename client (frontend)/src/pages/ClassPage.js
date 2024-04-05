@@ -3,6 +3,8 @@ const bitesRight = document.getElementsByClassName('bite-right');
 const continueBtn = document.getElementById('continue-btn');
 let currentIndex = 0;
 
+var noteDict = {};
+
 var tutorialNoteCompleted = false;
 var tutorialAidCompleted = false;
 
@@ -103,31 +105,50 @@ function noteTakeAction(event, reference) {
     }
 }
 
-function submitNote(event, reference) {
+
+
+// Need to fix this to get the right elements;
+function submitNote(event, reference, num) {
     // Get the text from the user input
     userNote = document.getElementById("text_" + reference).value;
 
     // Get the text
     parentDiv = document.getElementById("note_" + reference).parentNode;
 
-    // var textParagraphChinese = parentDiv.querySelector('#content-info-cn').textContent;
-    // var textParagraphEnglish = parentDiv.querySelector('#content-info-eng').textContent;
-
-    // doc.setFontSize(30);
-    // doc.text(userNote, 10, 20);
-    // doc.setFontSize(20);
-    // doc.text(textParagraphChinese, 10, 20);
-    // doc.text(textParagraphChinese, 10, 20);
-
-    // Now add this to the file (code TBD)
-
+    var textParagraphChinese = document.getElementsByClassName("content-info")[num].textContent;
+    var textParagraphEnglish = document.getElementsByClassName("content-info")[num+1].textContent;
+    console.log(textParagraphEnglish);
+    noteDict[userNote] = [textParagraphChinese, textParagraphEnglish];
+    console.log("notedict here")
+    console.log(JSON.stringify(noteDict));
     document.getElementById("text_" + reference).value = "Your note has been submitted!";
 
     // This makes the whole thing dissapear after a certain time lag
     setTimeout(function() {
         document.getElementById("note_" + reference).style.visibility = 'hidden';
-      }, 1000); // 3000 milliseconds = 3 seconds
+        document.getElementById("text_" + reference).value = "";
 
+      }, 1000);
+
+    
+
+}
+
+function speak(event, num){
+    // const utterance = new SpeechSynthesisUtterance(document.getElementsByClassName('content-info')[num*2].textContent);
+    textUtterance = document.getElementsByClassName('content-info')[num*2].textContent;
+    console.log(textUtterance);
+    const utterance = new SpeechSynthesisUtterance(textUtterance);
+
+    // Optionally set some properties
+    utterance.pitch = 1; // Range between 0 and 2
+    utterance.rate = 1; // Range between 0.1 (slow) and 10 (fast)
+    utterance.volume = 1; // Range between 0 and 1
+
+    // Choose a voice from speechSynthesis.getVoices()
+    utterance.voice = speechSynthesis.getVoices().find(voice => voice.lang === 'en-US');
+
+    speechSynthesis.speak(utterance);
 }
 
 const noteElems = document.getElementsByClassName("input-box-container");
@@ -139,6 +160,43 @@ for (let i = 0; i < noteElems.length; i++){
         // noteElems[i].style.display = "block";
     });
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    if (window.location.pathname == '/client%20(frontend)/src/pages/InfoPrintPage.html'){
+        console.log("pdf fired")
+        // Create the PDF file
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+
+        pos = 10;
+        dif = 10;
+
+        for (let key in noteDict){
+            console.log(key);
+            doc.text(noteDict[key][0], 10, pos);
+            pos = pos + dif;
+            doc.text(noteDict[key][1], 10, pos);
+            pos = pos + dif;
+            doc.text("\n");
+            doc.text(key, 10, 10);
+            pos = pos + dif;
+        }
+
+        // Now we will do what is appropriate to display the PDF preview
+
+        const dataUrl = doc.output('datauristring');
+        
+        document.getElementById('pdf-preview').src = dataUrl;
+
+        document.getElementById('download-btn').addEventListener('click', function() {
+    
+            doc.save("sample-document.pdf");
+        });
+
+    }
+
+
+});
 
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -155,18 +213,20 @@ document.addEventListener('DOMContentLoaded', function() {
             overlay.style.left = '0';
             overlay.style.width = '100%';
             overlay.style.height = '100%';
-            overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'; // Semi-transparent black
+            overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.7)'; // Semi-transparent black
             overlay.style.zIndex = '9999'; // Ensure it's above other content
             document.body.appendChild(overlay);
             
             const text = document.createElement('div');
             text.style.position = 'fixed';
             text.style.transform = 'translate(-50%, -50%)';
-            text.style.top = '60%';
+            text.style.top = '55%';
+            text.style.textAlign = 'center';
             text.style.left = '50%';
             text.style.width = '600px';
             text.style.height = '200px';
-            text.style.color = '#C27760';
+            text.style.color = '#E59981';
+            text.style.fontWeight = 'bold';
             text.style.fontFamily = 'Arial, Helvetica, sans-serif';
             if (window.location.pathname == '/client%20(frontend)/src/pages/ClassPage.html') {
                 text.textContent = "单击突出显示部分以获取有关整个课程中某些术语和概念的更多详细信息 \n Click highlights to get more details on certain terms and concepts throughout the course";
@@ -176,7 +236,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             text.style.zindex = '10000';
             text.style.fontSize = '25px';
-            document.body.appendChild(text);
+            overlay.appendChild(text);
 
             var readingAid = document.getElementById("tip_one");
             var readingAidTwo = document.getElementById("tip_two")
@@ -199,8 +259,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 if (tutorialAidCompleted == false) {
                     console.log('fired')
+                    overlay.removeChild(text);
                     document.body.removeChild(overlay);
-                    document.body.removeChild(text);
+                    // document.body.removeChild(text);
                     readingAid.style.backgroundColor = 'initial'; // Set background color
 
                     readingAid.style.zIndex = 'initial';
@@ -224,18 +285,21 @@ document.addEventListener('DOMContentLoaded', function() {
             overlay.style.left = '0';
             overlay.style.width = '100%';
             overlay.style.height = '100%';
-            overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.5)'; // Semi-transparent black
+            overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.7)'; // Semi-transparent black
             overlay.style.zIndex = '9999'; // Ensure it's above other content
             document.body.appendChild(overlay);
+
+
             
             const text_note = document.createElement('div');
             text_note.style.position = 'fixed';
             text_note.style.transform = 'translate(-50%, -50%)';
             text_note.style.top = '55%';
-            text_note.style.left = '80%';
+            text_note.style.left = '75%';
             text_note.style.width = '600px';
             text_note.style.height = '200px';
-            text_note.style.color = '#C27760';
+            text_note.style.color = '#E59981';
+            text_note.style.fontWeight = 'bold';
             text_note.style.fontFamily = 'Arial, Helvetica, sans-serif';
             if (window.location.pathname == '/client%20(frontend)/src/pages/WhatIsMedicare.html') {
                 text_note.innerHTML = "对任何您可能不清楚的地方留下注释或问题<br>Write and save a note or question on anything you might be unclear on to reference them with your insurance agent";
@@ -244,9 +308,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 text_note.innerHTML = "اكتب واحفظ ملاحظة أو سؤالاً حول أي شيء قد لا تكون واضحًا بشأنه للرجوع إليه مع وكيل التأمين الخاص بك<br>Write and save a note or question on anything you might be unclear on to reference them with your insurance agent";
             }
             text_note.style.textAlign = 'center';
-            text_note.style.zindex = '10000';
+            text_note.style.zindex = '100000';
             text_note.style.fontSize = '25px';
-            document.body.appendChild(text_note);
+            overlay.appendChild(text_note);
 
             // const text_submit = document.createElement('div');
             // text_submit.style.position = 'fixed';
@@ -273,8 +337,10 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 if (tutorialNoteCompleted == false) {
                     console.log('fired')
-                    document.body.removeChild(text_note);
+                    overlay.removeChild(text_note);
                     document.body.removeChild(overlay);
+                    // document.body.removeChild(text_note);
+
 
                     noteButton.style.zIndex = 'initial';
 
