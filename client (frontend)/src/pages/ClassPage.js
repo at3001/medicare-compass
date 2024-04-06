@@ -115,13 +115,16 @@ function submitNote(event, reference, num) {
     // Get the text
     parentDiv = document.getElementById("note_" + reference).parentNode;
 
-    var textParagraphChinese = document.getElementsByClassName("content-info")[num].textContent;
-    var textParagraphEnglish = document.getElementsByClassName("content-info")[num+1].textContent;
+    var textParagraphChinese = document.getElementById("content-info-cn-"+reference).textContent;
+    var textParagraphEnglish = document.getElementById("content-info-eng-"+reference).textContent;
     console.log(textParagraphEnglish);
     noteDict[userNote] = [textParagraphChinese, textParagraphEnglish];
     console.log("notedict here")
     console.log(JSON.stringify(noteDict));
     document.getElementById("text_" + reference).value = "Your note has been submitted!";
+
+
+    localStorage.setItem('noteDict', JSON.stringify(noteDict));
 
     // This makes the whole thing dissapear after a certain time lag
     setTimeout(function() {
@@ -167,19 +170,40 @@ document.addEventListener('DOMContentLoaded', function() {
         // Create the PDF file
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF();
+        
+        noteDict = JSON.parse(localStorage.getItem('noteDict'));
 
-        pos = 10;
+
+        console.log(JSON.stringify(noteDict));
+
+        doc.setFontSize(20);
+        doc.text("Your Notes and Timeline", 60, 15);
+        
+
+        pos = 30;
         dif = 10;
 
         for (let key in noteDict){
-            console.log(key);
-            doc.text(noteDict[key][0], 10, pos);
+            doc.setFontSize(14);
+            doc.setFont("helvetica", "bold");
+
+            doc.text(key, 10, pos);
             pos = pos + dif;
-            doc.text(noteDict[key][1], 10, pos);
-            pos = pos + dif;
-            doc.text("\n");
-            doc.text(key, 10, 10);
-            pos = pos + dif;
+
+            console.log(JSON.stringify(noteDict[key][1]));
+            
+            doc.setFont("helvetica", "italic");
+            doc.setFontSize(12);
+            temp = JSON.stringify(noteDict[key][1]);
+            temp2 = temp.replace(/\s+/g, ' ').trim();
+            temp2 = temp2.replace(/\\n/g, '');
+
+            const lines = doc.splitTextToSize(temp2, 180); 
+            doc.text(lines, 10, pos);
+
+            pos = pos + lines.length * 6;
+
+            
         }
 
         // Now we will do what is appropriate to display the PDF preview
@@ -190,7 +214,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         document.getElementById('download-btn').addEventListener('click', function() {
     
-            doc.save("sample-document.pdf");
+            doc.save("medicare-compass-mynotes.pdf");
         });
 
     }
