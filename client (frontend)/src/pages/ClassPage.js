@@ -117,10 +117,8 @@ function submitNote(event, reference, num) {
 
     var textParagraphChinese = document.getElementById("content-info-cn-"+reference).textContent;
     var textParagraphEnglish = document.getElementById("content-info-eng-"+reference).textContent;
-    console.log(textParagraphEnglish);
+
     noteDict[userNote] = [textParagraphChinese, textParagraphEnglish];
-    console.log("notedict here")
-    console.log(JSON.stringify(noteDict));
     document.getElementById("text_" + reference).value = "Your note has been submitted!";
 
 
@@ -133,22 +131,17 @@ function submitNote(event, reference, num) {
 
       }, 1000);
 
-    
-
 }
 
+// This is something we are not doing for now. Mock function w/ help from ChatGPT
 function speak(event, num){
-    // const utterance = new SpeechSynthesisUtterance(document.getElementsByClassName('content-info')[num*2].textContent);
     textUtterance = document.getElementsByClassName('content-info')[num*2].textContent;
     console.log(textUtterance);
     const utterance = new SpeechSynthesisUtterance(textUtterance);
+    utterance.pitch = 1; 
+    utterance.rate = 1; 
+    utterance.volume = 1; 
 
-    // Optionally set some properties
-    utterance.pitch = 1; // Range between 0 and 2
-    utterance.rate = 1; // Range between 0.1 (slow) and 10 (fast)
-    utterance.volume = 1; // Range between 0 and 1
-
-    // Choose a voice from speechSynthesis.getVoices()
     utterance.voice = speechSynthesis.getVoices().find(voice => voice.lang === 'en-US');
 
     speechSynthesis.speak(utterance);
@@ -159,62 +152,53 @@ const noteElems = document.getElementsByClassName("input-box-container");
 for (let i = 0; i < noteElems.length; i++){
 
     noteElems[i].addEventListener('click', function(event) {
-        // event.stopPropagation();
-        // noteElems[i].style.display = "block";
     });
 }
 
 document.addEventListener('DOMContentLoaded', function() {
     if (window.location.pathname == '/client%20(frontend)/src/pages/InfoPrintPage.html'){
         console.log("pdf fired")
-        // Create the PDF file
+
         const { jsPDF } = window.jspdf;
-        const doc = new jsPDF();
+        const notes_pdf = new jsPDF();
         
         noteDict = JSON.parse(localStorage.getItem('noteDict'));
 
-
-        console.log(JSON.stringify(noteDict));
-
-        doc.setFontSize(20);
-        doc.text("Your Notes and Timeline", 60, 15);
+        notes_pdf.setFontSize(20);
+        notes_pdf.text("Your Notes and Timeline", 60, 15);
         
-
         pos = 30;
         dif = 10;
 
         for (let key in noteDict){
-            doc.setFontSize(14);
-            doc.setFont("helvetica", "bold");
+            notes_pdf.setFontSize(14);
+            notes_pdf.setFont("helvetica", "bold");
 
-            doc.text(key, 10, pos);
+            notes_pdf.text(key, 10, pos);
             pos = pos + dif;
-
-            console.log(JSON.stringify(noteDict[key][1]));
             
-            doc.setFont("helvetica", "italic");
-            doc.setFontSize(12);
+            notes_pdf.setFont("helvetica", "italic");
+
+            notes_pdf.setFontSize(12);
+
             temp = JSON.stringify(noteDict[key][1]);
             temp2 = temp.replace(/\s+/g, ' ').trim();
             temp2 = temp2.replace(/\\n/g, '');
 
-            const lines = doc.splitTextToSize(temp2, 180); 
-            doc.text(lines, 10, pos);
+            var splitText = notes_pdf.splitTextToSize(temp2, 180); 
+            notes_pdf.text(splitText, 10, pos);
 
-            pos = pos + lines.length * 6;
+            pos = pos + splitText.length * 6;
 
             
         }
-
-        // Now we will do what is appropriate to display the PDF preview
-
-        const dataUrl = doc.output('datauristring');
+        const tempPdf = notes_pdf.output('datauristring');
         
-        document.getElementById('pdf-preview').src = dataUrl;
+        document.getElementById('pdf-preview').src = tempPdf;
 
         document.getElementById('download-btn').addEventListener('click', function() {
     
-            doc.save("medicare-compass-mynotes.pdf");
+            notes_pdf.save("medicare-compass-mynotes.pdf");
         });
 
     }
@@ -237,8 +221,8 @@ document.addEventListener('DOMContentLoaded', function() {
             overlay.style.left = '0';
             overlay.style.width = '100%';
             overlay.style.height = '100%';
-            overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.7)'; // Semi-transparent black
-            overlay.style.zIndex = '9999'; // Ensure it's above other content
+            overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+            overlay.style.zIndex = '500';
             document.body.appendChild(overlay);
             
             const text = document.createElement('div');
@@ -265,32 +249,29 @@ document.addEventListener('DOMContentLoaded', function() {
             var readingAid = document.getElementById("tip_one");
             var readingAidTwo = document.getElementById("tip_two")
 
-            readingAid.style.backgroundColor = '#F8CEBF'; // Set background color
+            readingAid.style.backgroundColor = '#F8CEBF'; 
 
             readingAid.style.fontWeight = 'bold';
 
             readingAid.style.zIndex = '10000000';
 
-            readingAidTwo.style.backgroundColor = '#F8CEBF'; // Set background color
+            readingAidTwo.style.backgroundColor = '#F8CEBF'; 
 
             readingAidTwo.style.fontWeight = 'bold';
 
             readingAidTwo.style.zIndex = '10000000';
 
             document.addEventListener('click', function(event) {
-                // Check if the click target is the overlay or its child elements
-                    // If not, remove the overlay
                 
                 if (tutorialAidCompleted == false) {
                     console.log('fired')
                     overlay.removeChild(text);
                     document.body.removeChild(overlay);
-                    // document.body.removeChild(text);
-                    readingAid.style.backgroundColor = 'initial'; // Set background color
+                    readingAid.style.backgroundColor = 'initial';
 
                     readingAid.style.zIndex = 'initial';
             
-                    readingAidTwo.style.backgroundColor = 'initial'; // Set background color
+                    readingAidTwo.style.backgroundColor = 'initial';
         
                     readingAidTwo.style.zIndex = 'initial';
 
@@ -309,8 +290,8 @@ document.addEventListener('DOMContentLoaded', function() {
             overlay.style.left = '0';
             overlay.style.width = '100%';
             overlay.style.height = '100%';
-            overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.7)'; // Semi-transparent black
-            overlay.style.zIndex = '9999'; // Ensure it's above other content
+            overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+            overlay.style.zIndex = '9999'; 
             document.body.appendChild(overlay);
 
 
@@ -336,35 +317,17 @@ document.addEventListener('DOMContentLoaded', function() {
             text_note.style.fontSize = '25px';
             overlay.appendChild(text_note);
 
-            // const text_submit = document.createElement('div');
-            // text_submit.style.position = 'fixed';
-            // text_submit.style.transform = 'translate(-50%, -50%)';
-            // text_submit.style.top = '80%';
-            // text_submit.style.left = '90%';
-            // text_submit.style.width = '600px';
-            // text_submit.style.height = '200px';
-            // text_submit.style.color = '#C27760';
-            // text_submit.style.fontFamily = 'Arial, Helvetica, sans-serif';
-            // text_submit.textContent = "您的所有笔记将保存在“我的信息和问题”中，以便您稍后返回查看 <br> All your notes will be saved in “My info & questions” so you can come back to them and review them with your agent";
-            // text_submit.style.zindex = '10000';
-            // text_submit.style.fontSize = '25px';
-            // document.body.appendChild(text_submit);
-
             var noteButton = document.getElementById("note_button_one");
 
             noteButton.style.zIndex = '1000000';
 
 
             document.addEventListener('click', function(event) {
-                // Check if the click target is the overlay or its child elements
-                    // If not, remove the overlay
-                
+
                 if (tutorialNoteCompleted == false) {
                     console.log('fired')
                     overlay.removeChild(text_note);
                     document.body.removeChild(overlay);
-                    // document.body.removeChild(text_note);
-
 
                     noteButton.style.zIndex = 'initial';
 
