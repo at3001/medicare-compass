@@ -158,6 +158,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const { jsPDF } = window.jspdf;
         const notes_pdf = new jsPDF();
+
+        notes_pdf.addFileToVFS('../images/chinesebase64.txt', 'chinese');
+        notes_pdf.addFont('../images/chinese_font.ttf', 'chinese', 'normal');
         
         noteDict = JSON.parse(localStorage.getItem('noteDict'));
 
@@ -187,6 +190,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
             pos = pos + splitText.length * 6;
 
+            notes_pdf.setFont('chinese', 'normal');
+            temp = JSON.stringify(noteDict[key][0]);
+            temp2 = temp.replace(/\s+/g, ' ').trim();
+            temp2 = temp2.replace(/\\n/g, '');
+
+            var splitText = notes_pdf.splitTextToSize(temp2, 180); 
+            notes_pdf.text(splitText, 10, pos);
+
+            pos = pos + splitText.length * 6;
             
         }
         const tempPdf = notes_pdf.output('datauristring');
