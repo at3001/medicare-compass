@@ -106,13 +106,9 @@ function noteTakeAction(event, reference) {
 }
 
 
-
-// Need to fix this to get the right elements;
 function submitNote(event, reference, num) {
-    // Get the text from the user input
     userNote = document.getElementById("text_" + reference).value;
 
-    // Get the text
     parentDiv = document.getElementById("note_" + reference).parentNode;
 
     var textParagraphChinese = document.getElementById("content-info-cn-"+reference).textContent;
@@ -208,9 +204,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Your code here
     console.log('Page content has been loaded');
-    // You can perform actions like modifying the DOM, fetching data, etc.
     console.log(window.location.pathname);
     if ((window.location.pathname == '/client%20(frontend)/src/pages/ClassPage.html') || (window.location.pathname == '/client%20(frontend)/src/pages/ClassPage-arabic.html')) {
         if (tutorialAidCompleted == false) {
