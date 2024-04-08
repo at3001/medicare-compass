@@ -264,6 +264,11 @@ document.addEventListener('DOMContentLoaded', function() {
             notes_pdf.text(splitText, 10, pos);
 
             pos = pos + splitText.length * 6;
+
+            if (pos >= 200){
+                notes_pdf.addPage();
+                pos = 15;
+            }
             
         }
         const tempPdf = notes_pdf.output('datauristring');
