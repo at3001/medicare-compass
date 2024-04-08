@@ -151,6 +151,7 @@ for (let i = 0; i < noteElems.length; i++){
     });
 }
 
+
 document.addEventListener('DOMContentLoaded', function() {
     if (window.location.pathname == '/client%20(frontend)/src/pages/InfoPrintPage.html'){
         console.log("pdf fired")
@@ -337,4 +338,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 });
+
 
