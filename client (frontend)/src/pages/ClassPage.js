@@ -4,6 +4,8 @@ const continueBtn = document.getElementById('continue-btn');
 let currentIndex = 0;
 
 var noteDict = {};
+var timeline_cn = [];
+var timeline_eng = [];
 
 var tutorialNoteCompleted = false;
 var tutorialAidCompleted = false;
@@ -41,6 +43,32 @@ function nextSection(url) {
     if (continueBtn.textContent === "Next section") {
         window.location.href = url;
     }
+}
+
+function saveTimeline(event){
+    console.log('save fired');
+
+    if (document.getElementById('continue-btn').textContent == "Next section"){
+        cn_one = document.getElementById('content-info-cn-timeline1').textContent;
+        cn_two = document.getElementById('content-info-cn-timeline2').textContent;
+        cn_three = document.getElementById('content-info-cn-timeline3').textContent;
+    
+        eng_one = document.getElementById('content-info-eng-timeline1').textContent;
+        eng_two = document.getElementById('content-info-eng-timeline2').textContent;
+        eng_three = document.getElementById('content-info-eng-timeline3').textContent;
+    
+        timeline_cn.push(cn_one);
+        timeline_cn.push(cn_two);
+        timeline_cn.push(cn_three);
+    
+        timeline_eng.push(eng_one);
+        timeline_eng.push(eng_two);
+        timeline_eng.push(eng_three);
+    
+        localStorage.setItem('timeline_cn', JSON.stringify(timeline_cn));
+        localStorage.setItem('timeline_eng', JSON.stringify(timeline_eng));
+    }
+    
 }
 
 function selectOption(option, clickedButton, question) {
@@ -165,10 +193,47 @@ document.addEventListener('DOMContentLoaded', function() {
         noteDict = JSON.parse(localStorage.getItem('noteDict'));
 
         notes_pdf.setFontSize(20);
-        notes_pdf.text("Your Notes and Timeline", 60, 15);
+        notes_pdf.text("Your Medicare Timeline", 60, 15);
+
+        notes_pdf.setFontSize(14);
+
+        // This is really bad code -- gonna change this to more scalable but jsut trying out for now;
+        timeline_cn = JSON.parse(localStorage.getItem('timeline_cn'));
+        timeline_eng = JSON.parse(localStorage.getItem('timeline_eng'));
+
+        console.log(timeline_cn);
         
         pos = 30;
         dif = 10;
+
+
+        for(let i = 0; i < timeline_cn.length; i++){
+            cn_text = timeline_cn[i].replace(/\s+/g, ' ').trim();
+            cn_text = cn_text.replace(/\\n/g, '');
+            cn_text = notes_pdf.splitTextToSize(cn_text, 40);
+
+            eng_text = timeline_eng[i].replace(/\s+/g, ' ').trim();
+            eng_text = eng_text.replace(/\\n/g, '');
+            eng_text = notes_pdf.splitTextToSize(eng_text, 60);
+
+            notes_pdf.setFont('chinese', 'normal');
+            notes_pdf.text(cn_text, 10, pos);
+            notes_pdf.setFont('helvetica', 'normal');
+            notes_pdf.text(eng_text, 130, pos);
+
+            pos = pos + Math.max(cn_text.length, eng_text.length) * 6;
+
+            if (pos >= 200) {
+                notes_pdf.addPage();
+                pos = 15;
+            }
+        }
+
+        pos = pos + 20;
+        notes_pdf.setFontSize(20);
+        notes_pdf.text("Your Course Notes", 60, pos);
+
+        pos = pos + 10;
 
         for (let key in noteDict){
             notes_pdf.setFontSize(14);
