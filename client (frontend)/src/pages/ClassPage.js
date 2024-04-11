@@ -161,16 +161,23 @@ function submitNote(event, reference, num) {
 
 }
 
-// This is something we are not doing for now. Mock function w/ help from ChatGPT
-function speak(event, num){
-    textUtterance = document.getElementsByClassName('content-info')[num*2].textContent;
+function speak(event, lang, reference){
+    if(lang == "cn"){
+        textUtterance = document.getElementById("content-info-cn-" + reference).textContent;
+    } else{
+        textUtterance = document.getElementById("content-info-eng-" + reference).textContent;
+    }
+
     console.log(textUtterance);
     const utterance = new SpeechSynthesisUtterance(textUtterance);
+    if (lang == "cn"){
+        utterance.lang = "zh-CN";
+    }
     utterance.pitch = 1; 
     utterance.rate = 1; 
     utterance.volume = 1; 
 
-    utterance.voice = speechSynthesis.getVoices().find(voice => voice.lang === 'en-US');
+    utterance.voice = speechSynthesis.getVoices().find(voice => voice.lang === 'zh-CN');
 
     speechSynthesis.speak(utterance);
 }
