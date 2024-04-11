@@ -170,14 +170,16 @@ function speak(event, lang, reference){
 
     console.log(textUtterance);
     const utterance = new SpeechSynthesisUtterance(textUtterance);
+
+    language = 'en-US'
     if (lang == "cn"){
-        utterance.lang = "zh-CN";
+        language = "zh-CN";
     }
     utterance.pitch = 1; 
     utterance.rate = 1; 
     utterance.volume = 1; 
 
-    utterance.voice = speechSynthesis.getVoices().find(voice => voice.lang === 'zh-CN');
+    utterance.voice = speechSynthesis.getVoices().find(voice => voice.lang === language);
 
     speechSynthesis.speak(utterance);
 }
