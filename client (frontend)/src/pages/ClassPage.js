@@ -67,6 +67,10 @@ function saveTimeline(event){
     
         localStorage.setItem('timeline_cn', JSON.stringify(timeline_cn));
         localStorage.setItem('timeline_eng', JSON.stringify(timeline_eng));
+
+        whole_timeline = document.getElementById("timeline-container");
+        localStorage.setItem("whole_timeline", whole_timeline);
+
     }
     
 }
@@ -179,7 +183,17 @@ for (let i = 0; i < noteElems.length; i++){
     });
 }
 
+function htmlToCanvas(elementId) {
+    // Find the HTML element by ID
+    var element = localStorage.getItem("whole_timeline");
+    console.log(element);
 
+
+    // Use html2canvas library to convert the HTML content to canvas
+    return html2canvas(element);
+}
+
+// Need to change this to have HTML code so it looks better.
 document.addEventListener('DOMContentLoaded', function() {
     if (window.location.pathname == '/client%20(frontend)/src/pages/InfoPrintPage.html'){
         console.log("pdf fired")
@@ -193,9 +207,8 @@ document.addEventListener('DOMContentLoaded', function() {
         noteDict = JSON.parse(localStorage.getItem('noteDict'));
 
         notes_pdf.setFontSize(20);
-        notes_pdf.text("Your Medicare Timeline", 60, 15);
+        notes_pdf.text("Information & Questions Form", 60, 15);
 
-        notes_pdf.setFontSize(14);
 
         // This is really bad code -- gonna change this to more scalable but jsut trying out for now;
         timeline_cn = JSON.parse(localStorage.getItem('timeline_cn'));
@@ -206,30 +219,52 @@ document.addEventListener('DOMContentLoaded', function() {
         pos = 30;
         dif = 10;
 
+        notes_pdf.setFont('chinese', 'normal');
+        notes_pdf.setFontSize(12);
 
-        for(let i = 0; i < timeline_cn.length; i++){
-            cn_text = timeline_cn[i].replace(/\s+/g, ' ').trim();
-            cn_text = cn_text.replace(/\\n/g, '');
-            cn_text = notes_pdf.splitTextToSize(cn_text, 40);
+        timelineUrl = "../images/timeline_img.png";
+        notes_pdf.addImage(timelineUrl, 'PNG', 10, 20, 180, 150);
 
-            eng_text = timeline_eng[i].replace(/\s+/g, ' ').trim();
-            eng_text = eng_text.replace(/\\n/g, '');
-            eng_text = notes_pdf.splitTextToSize(eng_text, 60);
+        notes_pdf.addPage();
 
-            notes_pdf.setFont('chinese', 'normal');
-            notes_pdf.text(cn_text, 10, pos);
-            notes_pdf.setFont('helvetica', 'normal');
-            notes_pdf.text(eng_text, 130, pos);
+        // for(let i = 0; i < timeline_cn.length; i++){
+        //     cn_text = timeline_cn[i].replace(/\s+/g, ' ').trim();
+        //     cn_text = cn_text.replace(/\\n/g, '');
+        //     cn_text = notes_pdf.splitTextToSize(cn_text, 180);
 
-            pos = pos + Math.max(cn_text.length, eng_text.length) * 6;
+        //     notes_pdf.text(cn_text, 10, pos);
+            
+        //     console.log(cn_text.length);
+            
+        //     pos = pos + notes_pdf.getTextDimensions(cn_text).h + 10;
 
-            if (pos >= 200) {
-                notes_pdf.addPage();
-                pos = 15;
-            }
-        }
+        //     if (pos >= 200) {
+        //         notes_pdf.addPage();
+        //         pos = 15;
+        //     }
+        // }
 
-        pos = pos + 20;
+        // notes_pdf.setFont('helvetica', 'normal');
+
+        // for(let i = 0; i < timeline_cn.length; i++){
+           
+        //     eng_text = timeline_eng[i].replace(/\s+/g, ' ').trim();
+        //     eng_text = eng_text.replace(/\\n/g, '');
+        //     eng_text = notes_pdf.splitTextToSize(eng_text, 180);
+
+        //     notes_pdf.text(eng_text, 10, pos);
+
+        //     // pos = pos + eng_text.length * 6;
+        //     pos = pos + notes_pdf.getTextDimensions(eng_text).h + 10;
+
+        //     if (pos >= 200) {
+        //         notes_pdf.addPage();
+        //         pos = 15;
+        //     }
+        // }
+
+        // pos = pos + 20;
+        notes_pdf.setFont("helvetica", "normal");
         notes_pdf.setFontSize(20);
         notes_pdf.text("Your Course Notes", 60, pos);
 
