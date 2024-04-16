@@ -94,12 +94,12 @@ function checkImmigrationStatus(age) {
 
     else if (immigration !== "other" && age >= 63 && age < 65) {
         document.getElementById('timeline-one-eng').textContent = 
-            "Learn about Medicare and make a plan. According to your responses, you will be age 65 soon, which is when people become eligible for Medicare. Use this course to start your research now!"
+            "Learn about Medicare and make a plan. According to your responses, you will be age 65 soon, which is when people become eligible for Medicare. Use this course to start your research now!";
     }
 
     else if (immigration !== "other" && age < 63) {
         document.getElementById('timeline-one-eng').textContent = 
-            "Be aware of your timeline and when to start planning."
+            "Be aware of your timeline and when to start planning. Most people become eligible for Medicare at age 65. Based on your responses, you still have " + (65-age) + " years before you reach this age - but it's never too early to start learning! We recommend seriously planning for Medicare at least one year before turning 65.";
     }
     
 
