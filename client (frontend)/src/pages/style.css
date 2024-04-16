@@ -12,7 +12,7 @@
   background: #39628c;
   padding-left: 15px;
   padding-right: 15px;
-  padding: 5px;
+  /* padding: 5px; */
 }
 
 .navdiv{
@@ -46,19 +46,19 @@
 
 .titleText{
   color: #39628c;
-  font-size: 50px;
+  font-size: 5vh;
   font-weight: 700;
 }
 
 .titleSubtext{
-  margin-top: 40px;
+  /* margin-top: 2.3vh; */
   color: #39628c;
-  font-size: 35px;
+  font-size: 2vw;
   font-weight: 500;
 }
 
 .mainPara{
-  font-size: 30px;
+  font-size: 1.8vw;
   margin-right: 70px;
   margin-left: 70px;
   font-weight: 500;
@@ -71,9 +71,9 @@
 
 .navbarlinks a{
   color: white;
-  font-size: 18px;
+  font-size: 1.2vw;
   font-weight: bold;
-  margin-right: 25px;
+  margin-right: 5vw;
 }
 
 .navbarlinksactive{
@@ -82,9 +82,9 @@
 }
 
 .navbarlinkshome a{
-  font-size: 18px;
+  font-size: 1.2vw;
   font-weight: bold;
-  margin-right: 25px;
+  margin-right: 5vw;
   color: white;
 }
 
@@ -97,28 +97,33 @@
 }
 
 .card-container {
+  display: flex;
   text-align: center;
+  align-items: start;
+  justify-content: center;
 }
 
 .search-button-container {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 3vh;
 }
 
 .language-button {
-  width: 300px;
-  height: 150px;
+  width: 20vw;
+  height: 17vh;
   background-color: #D1EBE9;
   border: none;
   border-radius: 20px;
   color: #39628c; 
-  font-size: 36px;
+  font-size: 2vw;
   cursor: pointer; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
   transition: all 0.3s;
   text-align: center;
   display: inline-block;
-  margin: 10px;
+  /* margin: 5vw; */
+  margin-left: 3vw;
+  margin-right: 3vw;
 }
 
 #selected-langauge {
@@ -127,13 +132,13 @@
 }
 
 .search-language-button {
-  width: 200px;
-  height: 90px;
+  width: 10vw;
+  height: 10vh;
   background-color: #D1EBE9;
   border: none;
   border-radius: 20px;
   color: #39628c; 
-  font-size: 24px;
+  font-size: 1.3vw;
   cursor: pointer; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
   transition: all 0.3s;
@@ -148,20 +153,24 @@
 }
 
 .progress-bar-container {
-  margin-top: 10px;
-  width: 80%;
+  width: 93%;
+  margin-top: 2.5vh;
+  margin-bottom:2.5vh;
+  margin-left: auto;
+  margin-right: auto;
   background-color: #385682;
   border-radius: 10px;
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
   overflow: hidden;
-  display: inline-block;
-  justify-content: center;
+  display: flex;
+  justify-content: left;
   align-items: center;
-  margin-left: 160px;
+  position: relative;
 }
 
 .progress-bar {
-  height: 20px;
+  display: inline-block;
+  height: 2.5vh;
   background-color: #5297FF;
   line-height: 20px;
   color: white;
@@ -173,9 +182,9 @@
 
 .content-container{
   background-color: #eeeeee;
-  width: 85%; 
+  width: 90vw; 
   height: 60vh; /* added height for scroll bar in content container */
-  margin: 10px auto;
+  margin: auto;
   padding-left: 30px;
   padding-right: 30px;
   padding-top: 1px;
@@ -214,8 +223,7 @@
   display: flex;
   align-items: baseline;
   justify-content: left;
-  font-size: 18px;
-  width: 30px;
+  width: 4%;
   color: #39628c;
   padding-right: 3px; 
   flex-shrink: 0;
@@ -286,7 +294,7 @@
   text-decoration: underline;
   text-decoration-color: #F8CEBF;
   color: #39628c;
-  font-size: 20px;
+  font-size: 1.3vw;
   font-weight: bold;
 }
 
@@ -323,7 +331,7 @@
 
 .content-title {
   color: black; 
-  font-size: 40px;
+  font-size: 2.6vw;
   margin-top: 10px; 
   margin-bottom: 5px;
   font-weight: 650;
@@ -343,21 +351,19 @@
   line-height: 1.5;
   padding: 4px 0;
   text-align: left;
-  /* display: inline; */
-  font-family: Arial, sans-serif;
-  font-size: 20px;
+  font-size: 1.3vw;
   margin: 0;
 }
 
 
 .content-bullet {
   color: black;
-  line-height: 1.6;
+  line-height: 1.5;
   padding: 4px 0;
   margin-left: 40px;
   text-align: left;
   display: list-item;
-  font-size: 20px;
+  font-size: 1.3vw;
 }
 
 .hidden {
@@ -368,45 +374,49 @@
   text-decoration: underline;
   text-decoration-color: #F8CEBF;
   color: #39628c; 
-  font-size: 20px;
+  font-size: 1.3vw;
   font-weight: bold;
 }
 
 .continue-button {
-  width: 200px;
-  height: 40px;
+  width: 10vw;
+  height: 5vh;
   background-color: #39628c;
   border: none;
   border-radius: 5px;
   color: white; 
-  font-size: 20px;
+  font-size: 1.3vw;
   cursor: pointer; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
   transition: all 0.3s;
   text-align: center;
   display: inline-block;
-  margin: 10px;
-  margin-top: 20px;
+  /* margin: 10px; */
+  margin-top: 2vh;
+  margin-bottom: 2vh;
 }
 
 .progressbar-bottom {
-  width: 90%;
+  width: 90vw;
+  height: 10vh;
   list-style-type: none;
   display: flex;
   padding: 0;
-  margin: 0;
+  margin: auto;
   background: #E6E6E6; /* Light gray background */
   border-radius: 10px;
   overflow: hidden;
   align-items: center;
   justify-content: center;
-  margin-left: 80px;
-  margin-top: 20px;
+  /* margin-left: 80px;
+  margin-top: 20px; */
 }
 
 .progressbar-bottom li {
   flex: auto;
+  display: flex;
   justify-content: center;
+  align-items: center;
   width: 30px;
   height: 60px;
   text-align: center;
@@ -416,7 +426,7 @@
   color: #3B5998;
   transition: background-color 0.3s;
   border-right: 3px solid white; /* White border between items */
-  font-size: 17px;
+  font-size: 1.1vw;
 }
 
 .progressbar-bottom li.active {
@@ -459,7 +469,7 @@
   padding: 4px 0;
   margin-left: 10px;
   text-align: left;
-  font-size: 30px;
+  font-size: 1.6vw;
   font-weight: bold;
 }
 
@@ -469,12 +479,12 @@
   padding: 4px 0;
   margin-left: 10px;
   text-align: left;
-  font-size: 20px;
+  font-size: 1.3vw;
 }
 
 
 .birthdate {
-  font-size: 22px;
+  font-size: 1.6vw;
   text-align: center;
   margin: 0 auto;
   display: block;
@@ -504,7 +514,7 @@
   border-width: 3px;
   border-radius: 5px;
   color: #39628c; 
-  font-size: 20px;
+  font-size: 1.3vw;
   cursor: pointer; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
   transition: all 0.3s;
@@ -527,46 +537,50 @@
 
 .card {
   background-color: #ececec;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 2vh;
+  padding-bottom: 2vh;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 400px;
-  height: 400px;
-  margin: 10px;
+  width: 21vw;
+  height: 50vh;
+  margin-left: 2.5vw;
+  margin-right: 2.5vw;
+  margin-top: 3vh;
   text-align: center;
   display: inline-block;
 }
 
 
 #search-icon {
-  font-size: 100px;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  font-size: 11vh;
+  margin-top: 1.7vh;
+  margin-bottom: 1.7vh;
   color: #899096;
 }
 
 .card-content h1 {
   color: #39628c;
-  margin-bottom: 15px;
+  margin-bottom: 3vh;
+  font-size: 3vh;
 }
 
 .card-content p {
-  margin-top: 25px;
+  /* margin-top: 25px; */
   color: #39628c;
-  margin-bottom: 20px;
-  margin-left: 15px;
-  margin-right: 15px;
+  /* margin-bottom: 20px; */
+  margin-left: 2vw;
+  margin-right: 2vw;
+  font-size: 2.2vh;
 }
 
 .btn {
-  width: 300px;
-  height: 60px;
+  width: 17vw;
+  height: 8vh;
   background-color: #39628c;
   border: none;
   border-radius: 10px;
   color: #ffffff; 
-  font-size: 20px;
+  font-size: 2.4vh;
   cursor: pointer; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
   transition: all 0.3s;
