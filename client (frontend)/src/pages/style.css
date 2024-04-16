@@ -184,8 +184,8 @@
   width: 90vw; 
   height: 60vh; /* added height for scroll bar in content container */
   margin: auto;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 2.5vw;
+  padding-right: 2.5vw;
   padding-top: 1px;
   padding-bottom: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -206,7 +206,7 @@
 .content-container-body {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  /* gap: 0.1vw; */
   align-items: baseline; 
 }
 
@@ -323,7 +323,7 @@
   color: #fff;
   text-align: center;
   font-size: 1.1vw;
-  margin-right: 15px; 
+  margin-right: 0.8vw; 
   justify-content: center;
   align-items: center;
   display:flex;
@@ -381,7 +381,7 @@
 }
 
 .continue-button {
-  width: 10vw;
+  width: 15vw;
   height: 5vh;
   background-color: #39628c;
   border: none;
@@ -392,8 +392,11 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
   transition: all 0.3s;
   text-align: center;
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   /* margin: 10px; */
+  margin: auto;
   margin-top: 2vh;
   margin-bottom: 2vh;
 }
@@ -495,7 +498,7 @@
 }
 
 .short-answer {
-  font-size: 22px;
+  font-size: 1.3vw;
   text-align: center;
   margin: 0 auto;
   display: block;
