@@ -84,12 +84,22 @@ function checkImmigrationStatus(age) {
 
     if (immigration === "other" && age < 65) {
         document.getElementById('timeline-now-eng').textContent = 
-            "Become eligible for Medicare. There is a possibility you will not be eligible for Medicare when you turn 65 because of your current immigration status. Once you become either a US citizen or a Green Card holder with 5+ years of continuous US residency, you will be eligible for Medicare at age 65.";
+            "Become eligible for Medicare. There is a possibility you will not be eligible for Medicare when you turn 65 because of your current immigration status. Once you become either a US citizen or a Green Card holder with 5+ years of continuous US residency, you will be eligible for Medicare when you turn 65.";
     }
 
-    if (immigration === "other" && age >= 65) {
+    else if (immigration === "other" && age >= 65) {
         document.getElementById('timeline-now-eng').textContent = 
             "Become eligible for Medicare. There is a possibility you are not be eligible for Medicare despite reaching 65 because of your current immigration status. Once you become either a US citizen or a Green Card holder with 5+ years of continuous US residency, you will be eligible for Medicare.";
+    }
+
+    else if (immigration !== "other" && age >= 63 && age < 64) {
+        document.getElementById('timeline-now-eng').textContent = 
+            "Learn what Medicare is and understand your options. According to your responses, you will be age 65 in about " + (65-age) + " years, which is the age most people become eligible for Medicare. Use this course to start your research now!"
+    }
+
+    else if (immigration !== "other" && age >= 64 && age < 65) {
+        document.getElementById('timeline-now-eng').textContent = 
+            "Learn what Medicare is and understand your options. According to your responses, you will be age 65 in one year or less, which is the age most people become eligible for Medicare. Use this course to start your research now!"
     }
     
 
