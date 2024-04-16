@@ -42,8 +42,24 @@ function increaseProgress() {
 
 // dynamic timeline
 
-function calculateEnrollmentPeriod() {
-    var birthdate = document.getElementById('birthdate').value;
+function generateTimeline() {
+    var birthdate = new Date (document.getElementById('birthdate').value);
+    
+    // calculate current age
+    var today = new Date();
+    var age = today.getFullYear() - birthdate.getFullYear();
+    var monthDiff = today.getMonth() - birthdate.getMonth();
+    
+    // If the birth month is after the current month or if it's the same month but the birth day is after today's day
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthdate.getDate())) {
+        age--;
+    }
+
+    calculateEnrollmentPeriod (birthdate);
+    checkImmigrationStatus(age);
+}
+
+function calculateEnrollmentPeriod(birthdate) {
     var startdate = new Date(birthdate);
     startdate.setFullYear(startdate.getFullYear() + 65, startdate.getMonth() - 3, 1);
     var enddate = new Date(startdate);
@@ -59,8 +75,24 @@ function calculateEnrollmentPeriod() {
     var startdateFormattedCn = startdate.getFullYear() + "年" + (startdate.getMonth()+1) + "月";
     var enddateFormattedCn = enddate.getFullYear() + "年" + (enddate.getMonth()+1) + "月";
     
-    document.getElementById('enrollment_period_eng').textContent = startdateFormattedEng + " - " + enddateFormattedEng + ":";
-    document.getElementById('enrollment_period_cn').textContent = startdateFormattedCn + " - " + enddateFormattedCn + ":";
+    document.getElementById('enrollment-period-eng').textContent = startdateFormattedEng + " - " + enddateFormattedEng + ":";
+    document.getElementById('enrollment-period-cn').textContent = startdateFormattedCn + " - " + enddateFormattedCn + ":";
+}
+
+function checkImmigrationStatus(age) {
+    var immigration = document.getElementById('immigration-input').value;
+
+    if (immigration === "other" && age < 65) {
+        document.getElementById('timeline-now-eng').textContent = 
+            "Become eligible for Medicare. There is a possibility you will not be eligible for Medicare when you turn 65 because of your current immigration status. Once you become either a US citizen or a Green Card holder with 5+ years of continuous US residency, you will be eligible for Medicare at age 65.";
+    }
+
+    if (immigration === "other" && age >= 65) {
+        document.getElementById('timeline-now-eng').textContent = 
+            "Become eligible for Medicare. There is a possibility you are not be eligible for Medicare despite reaching 65 because of your current immigration status. Once you become either a US citizen or a Green Card holder with 5+ years of continuous US residency, you will be eligible for Medicare.";
+    }
+    
+
 }
 
 // Akshat's functions

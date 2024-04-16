@@ -79,7 +79,7 @@
                     </p>
                     <div id="immigration-status" class="question-options bite-right">
                         <button type="button" class="option-button" onclick="selectOption('citizen', this, 'immigration-status')">美国公民<br>US citizen</button>
-                        <button type="button" class="option-button" onclick="selectOption('green card holder', this, 'immigration-status')">绿卡持有者5+年<br>Green Card holder for 5+ years</button>
+                        <button type="button" class="option-button" onclick="selectOption('green card', this, 'immigration-status')">绿卡持有者5+年<br>Green Card holder for 5+ years</button>
                         <button type="button" class="option-button" onclick="selectOption('other', this, 'immigration-status')">其他<br>Other</button>
                         <input type="hidden" id="immigration-input">
                     </div>
@@ -136,7 +136,7 @@
                     <div class="content-container-left">
                         <div class="number-ball">1</div>
                         <p id="content-info-cn-three" class="content-info">
-                            <span style="font-weight: bold; font-family: Arial">现在:</span> 了解什么是 Medicare 并了解您的计划选项。 本课程将帮助您做到这一点！
+                            <span style="font-weight: bold; font-family: Arial">现在: </span><span id="timeline-now-cn">了解什么是 Medicare 并了解您的计划选项。 本课程将帮助您做到这一点！</span>
                         </p>
                     </div>
                 </div>
@@ -144,7 +144,7 @@
                     <h3 class="content-subtitle">Your Medicare Timeline</h3>
                     <div class="content-container-right">
                         <p id="content-info-eng-three" class="content-info">
-                            <span style="font-weight: bold; font-family: Arial">Now:</span> Learn what Medicare is and understand your plan options. This course will help you do this!
+                            <span style="font-weight: bold; font-family: Arial">Now: </span><span id="timeline-now-eng">Learn what Medicare is and understand your plan options. This course will help you do this!</span>
                         </p>    
                     </div>
                 </div>
@@ -152,7 +152,7 @@
                     <div class="content-container-left">
                         <div class="number-ball">2</div>
                         <p id="content-info-cn-four" class="content-info">
-                            <span id = "enrollment_period_cn" style="font-weight: bold; font-family: Arial">2025年7月 - 2026年1月:</span> 在<span id = 'tip_three' class = "tooltip" onclick = "showReadingAid(event, 'three')">最初投保期间
+                            <span id = "enrollment-period-cn" style="font-weight: bold; font-family: Arial">2025年7月 - 2026年1月:</span> 在<span id = 'tip_three' class = "tooltip" onclick = "showReadingAid(event, 'three')">最初投保期间
                             <span id = "aid_three" class = "tooltiptext"> 您的最初投保期间是您第一次参加 Medicare 的机会。 这是一个 7 个月的时期，从您 65 岁之前 3 个月开始，到您 65 岁之后 3 个月结束。我们根据您提供的出生日期计算您的初始注册期限。</span></span>，注册社会保障福利并加入 Medicare。 如果您在此期间未注册，您可能会在以后面临<a class="in-text-hyperlink" href="#">滞纳金</a>。 如果您对注册流程不确定，我们建议您与健康保险代理人合作。
                         </p>
                     </div>
@@ -160,7 +160,7 @@
                 <div class="hidden bite-right">
                     <div class="content-container-right">
                         <p id="content-info-eng-four" class="content-info">
-                                <span id = "enrollment_period_eng" style="font-weight: bold; font-family: Arial">July 2025 - Jan 2026:</span> Sign up for social security benefits and enroll in Medicare during your <span id = 'tip_four' class = "tooltip" onclick = "showReadingAid(event, 'four')">initial enrollment period 
+                                <span id = "enrollment-period-eng" style="font-weight: bold; font-family: Arial">July 2025 - Jan 2026:</span> Sign up for social security benefits and enroll in Medicare during your <span id = 'tip_four' class = "tooltip" onclick = "showReadingAid(event, 'four')">initial enrollment period 
                                 <span id = "aid_four" class = "tooltiptext"> Your Initial Enrollment Period is your first chance to sign up for Medicare. It is a 7-month period that starts 3 months before you turn 65 and ends 3 months after you turn 65. We calculated your initial enrollment period based on the birth date you provided.. </span>
                                 </span>. If you do not enroll during this period, you may face <a class="in-text-hyperlink" href="#">late penalties</a> later on. We recommend working with a health insurance agent if you are unsure about the enrollment process. 
                         </p>
@@ -196,7 +196,7 @@
             </div>
         </div>
         <div class="button-container">
-            <button id="continue-btn" type="button" class="continue-button" onclick="nextSection('WhatIsMedicare.html'); saveTimeline(event); showNextBite(); increaseProgress(); calculateEnrollmentPeriod()">Continue</button>
+            <button id="continue-btn" type="button" class="continue-button" onclick="nextSection('WhatIsMedicare.html'); saveTimeline(event); showNextBite(); increaseProgress(); generateTimeline()">Continue</button>
         </div>
         <ul class="progressbar-bottom">
             <li class="active"><a href="ClassPage.html">Introduction<br>介绍</a></li>
