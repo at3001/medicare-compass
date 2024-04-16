@@ -224,7 +224,7 @@
   justify-content: left;
   width: 4%;
   color: #39628c;
-  padding-right: 3px; 
+  /* padding-right: 3px;  */
   flex-shrink: 0;
   font-size: 1.3vw;
 }
@@ -315,17 +315,19 @@
 
 .number-ball {
   /* need to fix, formatting is weird */
-  width: 30px; 
-  height: 30px;
+  width: 2vw; 
+  height: 2vw;
   line-height: 30px;
   border-radius: 50%;
   background-color: #39628c; 
   color: #fff;
   text-align: center;
-  font-size: 18px;
+  font-size: 1.1vw;
   margin-right: 15px; 
   justify-content: center;
-  position: relative;
+  align-items: center;
+  display:flex;
+  /* position: relative; */
   flex-shrink: 0;
 }
 
