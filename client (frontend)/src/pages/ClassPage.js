@@ -55,8 +55,9 @@ function generateTimeline() {
         age--;
     }
 
-    calculateEnrollmentPeriod (birthdate);
+    var initialEnrollmentEnd = calculateEnrollmentPeriod (birthdate);
     checkImmigrationStatus(age);
+    writeTimelineThree(initialEnrollmentEnd);
 }
 
 function calculateEnrollmentPeriod(birthdate) {
@@ -77,6 +78,8 @@ function calculateEnrollmentPeriod(birthdate) {
     
     document.getElementById('enrollment-period-eng').textContent = startdateFormattedEng + " - " + enddateFormattedEng + ":";
     document.getElementById('enrollment-period-cn').textContent = startdateFormattedCn + " - " + enddateFormattedCn + ":";
+
+    return enddate;
 }
 
 function checkImmigrationStatus(age) {
@@ -84,7 +87,7 @@ function checkImmigrationStatus(age) {
 
     if (immigration === "other" && age < 65) {
         document.getElementById('timeline-one-eng').textContent = 
-            "Become eligible for Medicare. There is a possibility you will not be eligible for Medicare when you turn 65 because of your current immigration status. Once you become either a US citizen or a Green Card holder with 5+ years of continuous US residency, you will be eligible for Medicare when you turn 65.";
+            "Become eligible for Medicare. It is possible you will not be eligible for Medicare when you turn 65 because of your current immigration status. Once you become either a US citizen or a Green Card holder with 5+ years of continuous US residency, you will be eligible for Medicare when you turn 65.";
     }
 
     else if (immigration === "other" && age >= 65) {
@@ -101,8 +104,22 @@ function checkImmigrationStatus(age) {
         document.getElementById('timeline-one-eng').textContent = 
             "Be aware of your timeline and when to start planning. Most people become eligible for Medicare at age 65. Based on your responses, you still have " + (65-age) + " years before you reach this age - but it's never too early to start learning! We recommend seriously planning for Medicare at least one year before turning 65.";
     }
-    
+}
 
+function writeTimelineThree(initialEnrollmentEnd) {
+    var openEnrollmentStart = new Date("10/15/2024");
+    openEnrollmentStart.setFullYear(initialEnrollmentEnd.getFullYear()+1);
+    var openEnrollmentEnd = new Date ("12/07/2024");
+    openEnrollmentEnd.setFullYear(openEnrollmentStart.getFullYear());
+
+    const dateOptions = {
+        month: "short",
+        year: "numeric"
+    }
+    var openEnrollmentStartFormattedEng = openEnrollmentStart.toLocaleDateString('en-US', dateOptions);
+    var openEnrollmentEndFormattedEng = openEnrollmentEnd.toLocaleDateString('en-US', dateOptions);
+    
+    document.getElementById('timeline-three-head-eng').textContent = openEnrollmentStartFormattedEng + " - " + openEnrollmentEndFormattedEng + ":";
 }
 
 // Akshat's functions
