@@ -10,6 +10,8 @@ var timeline_eng = [];
 var tutorialNoteCompleted = false;
 var tutorialAidCompleted = false;
 
+// Lilly's functions
+
 function showNextBite() {
     if (currentIndex < bitesLeft.length) {
         currentIndex++;
@@ -36,8 +38,32 @@ function increaseProgress() {
     var newWidth = parseFloat(currentWidth) + (100 / (bitesLeft.length + 1)); // Increase width by 10%
     // progressBar.textContent = currentWidth;
     progressBar.style.width = newWidth + '%';
-    
   }
+
+// dynamic timeline
+
+function calculateEnrollmentPeriod() {
+    var birthdate = document.getElementById('birthdate').value;
+    var startdate = new Date(birthdate);
+    startdate.setFullYear(startdate.getFullYear() + 65, startdate.getMonth() - 3, 1);
+    var enddate = new Date(startdate);
+    enddate.setMonth(enddate.getMonth()+6);
+
+    const dateOptions = {
+        month: "short",
+        year: "numeric"
+    }
+    var startdateFormattedEng = startdate.toLocaleDateString('en-US', dateOptions);
+    var enddateFormattedEng = enddate.toLocaleDateString('en-US', dateOptions);
+
+    var startdateFormattedCn = startdate.getFullYear() + "年" + (startdate.getMonth()+1) + "月";
+    var enddateFormattedCn = enddate.getFullYear() + "年" + (enddate.getMonth()+1) + "月";
+    
+    document.getElementById('enrollment_period_eng').textContent = startdateFormattedEng + " - " + enddateFormattedEng + ":";
+    document.getElementById('enrollment_period_cn').textContent = startdateFormattedCn + " - " + enddateFormattedCn + ":";
+}
+
+// Akshat's functions
 
 function nextSection(url) {
     if (continueBtn.textContent === "Next section") {
