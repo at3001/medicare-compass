@@ -72,7 +72,7 @@
   color: white;
   font-size: 1.2vw;
   font-weight: bold;
-  margin-right: 5vw;
+  margin-right: 4vw;
 }
 
 .navbarlinksactive{
@@ -565,6 +565,7 @@
   color: #39628c;
   margin-bottom: 3vh;
   font-size: 3vh;
+  font-weight: 700;
 }
 
 .card-content p {
