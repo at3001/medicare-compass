@@ -88,21 +88,29 @@ function checkImmigrationStatus(age) {
     if (immigration === "other" && age < 65) {
         document.getElementById('timeline-one-eng').textContent = 
             "Become eligible for Medicare. It is possible you will not be eligible for Medicare when you turn 65 because of your current immigration status. Once you become either a US citizen or a Green Card holder with 5+ years of continuous US residency, you will be eligible for Medicare when you turn 65.";
+        document.getElementById('timeline-one-cn').textContent =
+            "获得 Medicare 资格。 由于您当前的移民身份，当您年满 65 岁时，您可能没有资格享受 Medicare。 一旦您成为美国公民或在美国连续居住 5 年以上的绿卡持有者，您在年满 65 岁时就有资格享受 Medicare。";
     }
 
     else if (immigration === "other" && age >= 65) {
         document.getElementById('timeline-one-eng').textContent = 
             "Become eligible for Medicare. There is a possibility you are not be eligible for Medicare despite reaching 65 because of your current immigration status. Once you become either a US citizen or a Green Card holder with 5+ years of continuous US residency, you will be eligible for Medicare.";
+        document.getElementById('timeline-one-cn').textContent =
+            "获得 Medicare 资格。 尽管您年满 65 岁，但由于您当前的移民身份，您可能没有资格享受 Medicare。 一旦您成为美国公民或在美国连续居住 5 年以上的绿卡持有者，您将有资格享受 Medicare。";
     }
 
     else if (immigration !== "other" && age >= 63 && age < 65) {
         document.getElementById('timeline-one-eng').textContent = 
             "Learn about Medicare and make a plan. According to your responses, you will be age 65 soon, which is when people become eligible for Medicare. Use this course to start your research now!";
+        document.getElementById('timeline-one-cn').textContent =
+            "了解 Medicare 并制定计划。 根据您的回答，您很快就会年满 65 岁，届时人们就有资格享受 Medicare。 现在就使用本课程开始您的研究！";
     }
 
     else if (immigration !== "other" && age < 63) {
         document.getElementById('timeline-one-eng').textContent = 
             "Be aware of your timeline and when to start planning. Most people become eligible for Medicare at age 65. Based on your responses, you still have " + (65-age) + " years before you reach this age - but it's never too early to start learning! We recommend seriously planning for Medicare at least one year before turning 65.";
+        document.getElementById('timeline-one-cn').textContent = 
+            "请注意您的时间表以及何时开始计划。 大多数人在 65 岁时就有资格享受 Medicare。根据您的回答，您距离达到此年龄还有" + (65-age) + "年 - 但开始学习永远不会太早！ 我们建议在 65 岁之前至少一年认真规划 Medicare。";
     }
 }
 
@@ -114,12 +122,17 @@ function writeTimelineThree(initialEnrollmentEnd) {
 
     const dateOptions = {
         month: "short",
-        year: "numeric"
+        day: "numeric",
+        year: "numeric",
     }
     var openEnrollmentStartFormattedEng = openEnrollmentStart.toLocaleDateString('en-US', dateOptions);
     var openEnrollmentEndFormattedEng = openEnrollmentEnd.toLocaleDateString('en-US', dateOptions);
     
+    var openEnrollmentStartFormattedCn = openEnrollmentStart.getFullYear() + "年" + (openEnrollmentStart.getMonth()+1) + "月" + (openEnrollmentStart.getDate()) + "号";
+    var openEnrollmentEndFormattedCn = openEnrollmentEnd.getFullYear() + "年" + (openEnrollmentEnd.getMonth()+1) + "月" + (openEnrollmentEnd.getDate()) + "号";
+    
     document.getElementById('timeline-three-head-eng').textContent = openEnrollmentStartFormattedEng + " - " + openEnrollmentEndFormattedEng + ":";
+    document.getElementById('timeline-three-head-cn').textContent = openEnrollmentStartFormattedCn + " - " + openEnrollmentEndFormattedCn + ":";
 }
 
 // Akshat's functions
