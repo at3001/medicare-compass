@@ -22,9 +22,17 @@ function showNextBite() {
         bitesRight[i].classList.remove('hidden');
     }
 
-    // content container scrolls to bottom
-    var elem = document.getElementsByClassName('content-container')[0];
-    elem.scrollTop = elem.scrollHeight;
+    if (bitesLeft[currentIndex-1].classList.contains("section")) {
+        // content container scrolls to next section
+        var section = document.getElementsByClassName('section')[0];
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+        else {
+            // content container scrolls to bottom
+            var elem = document.getElementsByClassName('content-container')[0];
+            elem.scrollTop = elem.scrollHeight;
+        }
+    
 
     if (currentIndex === bitesLeft.length) {
         continueBtn.textContent = "Next section";
