@@ -294,6 +294,8 @@
   color: #39628c;
   font-size: 1.3vw;
   font-weight: bold;
+  z-index: 1;
+  position: relative;
 }
 
 .tooltip .tooltiptext {

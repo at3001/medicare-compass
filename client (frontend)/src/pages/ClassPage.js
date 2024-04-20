@@ -316,9 +316,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const { jsPDF } = window.jspdf;
         const notes_pdf = new jsPDF();
+        const display_pdf = new jsPDF();
+
+        var first_page_flag = false;
 
         notes_pdf.addFileToVFS('../images/chinesebase64.txt', 'chinese');
         notes_pdf.addFont('../images/chinese_font.ttf', 'chinese', 'normal');
+
+        display_pdf.addFileToVFS('../images/chinesebase64.txt', 'chinese');
+        display_pdf.addFont('../images/chinese_font.ttf', 'chinese', 'normal');
+        
         
         noteDict = JSON.parse(localStorage.getItem('noteDict'));
 
@@ -340,6 +347,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         timelineUrl = "../images/timeline_img.png";
         notes_pdf.addImage(timelineUrl, 'PNG', 10, 20, 180, 150);
+
+        first_page_pdf = notes_pdf;
 
         notes_pdf.addPage();
 
@@ -384,7 +393,12 @@ document.addEventListener('DOMContentLoaded', function() {
         notes_pdf.setFontSize(20);
         notes_pdf.text("Your Course Notes", 60, pos);
 
+        display_pdf.setFont("helvetica", "normal");
+        display_pdf.setFontSize(20);
+        display_pdf.text("Your Course Notes", 60, pos);
+
         pos = pos + 10;
+        pos_2 = pos
 
         for (let key in noteDict){
             notes_pdf.setFontSize(14);
@@ -416,15 +430,54 @@ document.addEventListener('DOMContentLoaded', function() {
 
             pos = pos + splitText.length * 6;
 
+            if (first_page_flag == false){
+                display_pdf.setFontSize(14);
+                display_pdf.setFont("helvetica", "bold");
+
+                display_pdf.text(key, 10, pos_2);
+                pos_2 = pos_2 + dif;
+                
+                display_pdf.setFont("helvetica", "italic");
+
+                display_pdf.setFontSize(12);
+
+                temp = JSON.stringify(noteDict[key][1]);
+                temp2 = temp.replace(/\s+/g, ' ').trim();
+                temp2 = temp2.replace(/\\n/g, '');
+
+                var splitText = display_pdf.splitTextToSize(temp2, 180); 
+                display_pdf.text(splitText, 10, pos_2);
+
+                pos_2 = pos_2 + splitText.length * 6;
+
+                display_pdf.setFont('chinese', 'normal');
+                temp = JSON.stringify(noteDict[key][0]);
+                temp2 = temp.replace(/\s+/g, ' ').trim();
+                temp2 = temp2.replace(/\\n/g, '');
+
+                var splitText = display_pdf.splitTextToSize(temp2, 180); 
+                display_pdf.text(splitText, 10, pos_2);
+
+                pos_2 = pos_2 + splitText.length * 6;
+
+
+            }
+
             if (pos >= 200){
                 notes_pdf.addPage();
+                first_page_flag = true;
                 pos = 15;
             }
+
+            
             
         }
-        const tempPdf = notes_pdf.output('datauristring');
+        const tempPdf = display_pdf.output('datauristring');
+        const doc = new jsPDF();
         
         document.getElementById('pdf-preview').src = tempPdf;
+
+        
 
         document.getElementById('download-btn').addEventListener('click', function() {
     
@@ -450,7 +503,7 @@ document.addEventListener('DOMContentLoaded', function() {
             overlay.style.width = '100%';
             overlay.style.height = '100%';
             overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
-            overlay.style.zIndex = '500';
+            overlay.style.zIndex = '5';
             document.body.appendChild(overlay);
             
             const text = document.createElement('div');
@@ -470,7 +523,7 @@ document.addEventListener('DOMContentLoaded', function() {
             else {
                 text.textContent = "انقر فوق النقاط البارزة للحصول على مزيد من التفاصيل حول مصطلحات ومفاهيم معينة خلال الدورة التدريبية \n Click highlights to get more details on certain terms and concepts throughout the course";
             }
-            text.style.zindex = '10000';
+            text.style.zIndex = '10000';
             text.style.fontSize = '25px';
             overlay.appendChild(text);
 
@@ -481,13 +534,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
             readingAid.style.fontWeight = 'bold';
 
-            readingAid.style.zIndex = '10000000';
+            readingAid.style.zIndex = '1000';
 
             readingAidTwo.style.backgroundColor = '#F8CEBF'; 
 
             readingAidTwo.style.fontWeight = 'bold';
 
-            readingAidTwo.style.zIndex = '10000000';
+            readingAidTwo.style.zIndex = '1000';
 
             document.addEventListener('click', function(event) {
                 

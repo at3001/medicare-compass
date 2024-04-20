@@ -52,14 +52,16 @@
                         </p>
                 </div>
                 <div class="content-container-left hidden bite-left">
-                    <i id = "cn_one" class="fa-solid fa-volume-low volume-icon" onclick = "speak(event, 'cn', 'one')"></i>
-                    <p id="content-info-cn-one" class="content-info">
+                    <i id = "cn_onepointfive" class="fa-solid fa-volume-low volume-icon" onclick = "speak(event, 'cn', 'onepointfive')"></i>
+                    <p id="content-info-cn-onepointfive" class="content-info">
                         <span class="content-info">为了确保本课程根据您的需求定制, <span style="font-weight: bold; font-family: Arial"> 让我们回答几个问题：</span> </span>
                     </p>
                 </div>
                 <div class="content-container-right hidden bite-right">
-                    <i id = "cn_one" class="fa-solid fa-volume-low volume-icon" onclick = "speak(event, 'cn', 'one')"></i>
+                    <i id = "eng_onepointfive" class="fa-solid fa-volume-low volume-icon" onclick = "speak(event, 'eng', 'onepointfive')"></i>
+                    <p id = "content-info-eng-onepointfive" class = "content-info">
                     <span class="content-info">To make sure this course is customized to your needs, <span style="font-weight: bold; font-family: Arial"> let’s answer a few questions:</span> </span>
+                </p>
                 </div>
             </div>
             <form id="questionnaire" class="form-container hidden bite-left section">
@@ -120,14 +122,14 @@
             </form>
             <div id = "timeline-container" class="content-container-body">
                 <div class="content-container-left hidden bite-left">
-                    <i class="fa-solid fa-volume-low volume-icon"></i>
+                    <i id = "cn_two" class="fa-solid fa-volume-low volume-icon" onclick = "speak(event, 'cn', 'two')"></i>
                     <p id="content-info-cn-two" class="content-info">
                         谢谢你！ 根据您的回复，以下是您的 Medicare 旅程的<span style="font-weight: bold; font-family: Arial">建议时间表</span>：
                     </p>
                 </div>
                 <div class="content-container-right hidden bite-right">
-                    <i class="fa-solid fa-volume-low volume-icon"></i>
-                    <p id="content-info-eng-two" class="content-info">
+                    <i id = "eng_two" class="fa-solid fa-volume-low volume-icon" onclick = "speak(event, 'eng', 'two')"></i>
+                    <p id = "content-info-eng-two" class = "content-info">
                         Thank you! Based on your responses, below is a <span style="font-weight: bold; font-family: Arial">recommended timeline</span> for your Medicare journey:
                     </p>
                 </div>
@@ -135,6 +137,7 @@
                     <h3 class="content-subtitle">您的Medicare时间表</h3>
                     <div class="content-container-left">
                         <div class="number-ball">1</div>
+                        <i id = "cn_three" class="fa-solid fa-volume-low volume-icon" onclick = "speak(event, 'cn', 'three')"></i>
                         <p id="content-info-cn-three" class="content-info">
                             <span id="timeline-one-head-cn" style="font-weight: bold; font-family: Arial">现在: </span><span id="timeline-one-cn">了解什么是 Medicare 并了解您的计划选项。 本课程将帮助您做到这一点！</span>
                         </p>
@@ -143,6 +146,7 @@
                 <div class="hidden bite-right">
                     <h3 class="content-subtitle">Your Medicare Timeline</h3>
                     <div class="content-container-right">
+                        <i id = "eng_three" class="fa-solid fa-volume-low volume-icon" onclick = "speak(event, 'eng', 'three')"></i>
                         <p id="content-info-eng-three" class="content-info">
                             <span id="timeline-one-head-eng" style="font-weight: bold; font-family: Arial">Now: </span><span id="timeline-one-eng">Learn what Medicare is and understand your plan options. This course will help you do this!</span>
                         </p>    
@@ -151,6 +155,7 @@
                 <div class="hidden bite-left">
                     <div class="content-container-left">
                         <div class="number-ball">2</div>
+                        <i id = "cn_four" class="fa-solid fa-volume-low volume-icon" onclick = "speak(event, 'cn', 'four')"></i>
                         <p id="content-info-cn-four" class="content-info">
                             <span id = "enrollment-period-cn" style="font-weight: bold; font-family: Arial">2025年7月 - 2026年1月:</span> <span id="timeline-two-cn">在<span id = 'tip_three' class = "tooltip" onclick = "showReadingAid(event, 'three')">最初投保期间
                             <span id = "aid_three" class = "tooltiptext"> 您的最初投保期间是您第一次参加 Medicare 的机会。 这是一个 7 个月的时期，从您 65 岁之前 3 个月开始，到您 65 岁之后 3 个月结束。我们根据您提供的出生日期计算您的初始注册期限。</span></span>，注册社会保障福利并加入 Medicare。 如果您在此期间未注册，您可能会在以后面临<a class="in-text-hyperlink" href="#">滞纳金</a>。 如果您对注册流程不确定，我们建议您与健康保险代理人合作。</span>
@@ -159,6 +164,7 @@
                 </div>
                 <div class="hidden bite-right">
                     <div class="content-container-right">
+                        <i id = "eng_four" class="fa-solid fa-volume-low volume-icon" onclick = "speak(event, 'eng', 'four')"></i>
                         <p id="content-info-eng-four" class="content-info">
                                 <span id = "enrollment-period-eng" style="font-weight: bold; font-family: Arial">July 2025 - Jan 2026:</span> <span id="timeline-two-eng">Enroll in Medicare during your <span id = 'tip_four' class = "tooltip" onclick = "showReadingAid(event, 'four')">initial enrollment period
                                 <span id = "aid_four" class = "tooltiptext"> Your Initial Enrollment Period is your first chance to sign up for Medicare. It is a 7-month period that starts 3 months before you turn 65 and ends 3 months after you turn 65. We calculated your initial enrollment period based on the birth date you provided.</span>
@@ -169,6 +175,8 @@
                 <div class="hidden bite-left">
                     <div class="content-container-left">
                         <div class="number-ball">3</div>
+                        <i id = "cn_five" class="fa-solid fa-volume-low volume-icon" onclick = "speak(event, 'cn', 'five')"></i>
+
                         <p id="content-info-cn-five" class="content-info">
                             <span id="timeline-three-head-cn" style="font-weight: bold; font-family: Arial">2026年7月15号 - 2026年12月7号:</span> <span id="timeline-three-cn">重新评估您选择的 Medicare 计划，并确定您是否希望在 <a class="in-text-hyperlink" href="#">Medicare 开放投保期间</a>更改您的承保范围。</span>
                         </p>
@@ -176,19 +184,21 @@
                 </div>
                 <div class="hidden bite-right">
                     <div class="content-container-right">
+                        <i id = "eng_five" class="fa-solid fa-volume-low volume-icon" onclick = "speak(event, 'eng', 'five')"></i>
+
                         <p id="content-info-eng-five" class="content-info">
                             <span id="timeline-three-head-eng" style="font-weight: bold; font-family: Arial">Oct 15, 2026 - Dec 7, 2026:</span> <span id="timeline-three-eng">Reevaluate the Medicare plan you selected and determine if you would like to make changes in your coverage during <a class="in-text-hyperlink" href="#">Medicare’s open enrollment period</a>.</span>
                         </p>
                     </div>
                 </div>
                 <div class="content-container-left hidden bite-left">
-                    <i class="fa-solid fa-volume-low volume-icon"></i>
+                    <i id = "cn_six" class="fa-solid fa-volume-low volume-icon" onclick = "speak(event, 'cn', 'six')"></i>
                     <p id="content-info-cn-six" class="content-info">
                         现在您知道了关键日期和截止日期，让我们开始了解 Medicare！
                     </p>
                 </div>
                 <div class="content-container-right hidden bite-right">
-                    <i class="fa-solid fa-volume-low volume-icon"></i>
+                    <i id = "eng_six" class="fa-solid fa-volume-low volume-icon" onclick = "speak(event, 'eng', 'six')"></i>
                     <p id="content-info-eng-six" class="content-info">
                         Now that you know your key dates and deadlines, let’s start learning about Medicare!
                     </p>
