@@ -94,7 +94,7 @@
                     </p>
                     <div id="current-insurance" class="question-options">
                         <button type="button" class="option-button" onclick="selectOption('yes', this, 'current-insurance'); showQuestion('question-four-container')">有<br>Yes</button>
-                        <button type="button" class="option-button" onclick="selectOption('no', this, 'current-insurance'); hideQuestion('question-four-container')">没有<br>No</button>
+                        <button type="button" class="option-button" onclick="selectOption('no', this, 'current-insurance'); hideQuestion('question-four-container'); hideQuestion('question-five-container'); deselectOptions('insurance-type');">没有<br>No</button>
                         <input type="hidden" id="current-insurance-input">
                     </div>
                 </div>

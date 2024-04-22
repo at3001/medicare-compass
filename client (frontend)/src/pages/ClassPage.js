@@ -166,6 +166,20 @@ function selectOption(option, clickedButton, question) {
     clickedButton.classList.add('option-button-select');
   }
 
+  function deselectOptions(question) {
+    // empty selected input
+    var queryInput = '#' + question + ' input';
+    document.querySelectorAll(queryInput)[0].value = "";
+
+    // change button formatting to deselected
+    var queryButton = '#' + question + ' button';
+    var buttons = document.querySelectorAll(queryButton);
+    buttons.forEach(function(button) {
+        button.classList.remove('option-button-select');
+      });
+    // clickedButton.classList.add('option-button-select');
+  }
+
 function showQuestion (question_container) {
     var question = document.getElementById(question_container);
     question.classList.remove('hidden');
