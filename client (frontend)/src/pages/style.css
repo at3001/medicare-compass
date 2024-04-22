@@ -181,7 +181,7 @@
 
 .content-container{
   background-color: #eeeeee;
-  width: 90vw; 
+  width: 85vw; 
   height: 60vh; /* added height for scroll bar in content container */
   margin: auto;
   padding-left: 2.5vw;

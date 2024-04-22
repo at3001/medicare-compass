@@ -48,7 +48,7 @@ function increaseProgress() {
     progressBar.style.width = newWidth + '%';
   }
 
-// dynamic timeline
+  // dynamic timeline
 
 function generateTimeline() {
     var birthdate = new Date (document.getElementById('birthdate').value);
@@ -63,8 +63,11 @@ function generateTimeline() {
         age--;
     }
 
+    var immigration = document.getElementById('immigration-input').value;
+    var current_insurance = document.getElementById('current-insurance-input').value;
+
     var initialEnrollmentEnd = calculateEnrollmentPeriod (birthdate);
-    checkImmigrationStatus(age);
+    writeTimelineOne(age, immigration, current_insurance);
     writeTimelineThree(initialEnrollmentEnd);
 }
 
@@ -90,9 +93,8 @@ function calculateEnrollmentPeriod(birthdate) {
     return enddate;
 }
 
-function checkImmigrationStatus(age) {
-    var immigration = document.getElementById('immigration-input').value;
-
+function writeTimelineOne(age, immigration, current_insurance) {
+    
     if (immigration === "other" && age < 65) {
         document.getElementById('timeline-one-eng').textContent = 
             "Become eligible for Medicare. It is possible you will not be eligible for Medicare when you turn 65 because of your current immigration status. Once you become either a US citizen or a Green Card holder with 5+ years of continuous US residency, you will be eligible for Medicare when you turn 65.";
@@ -120,6 +122,13 @@ function checkImmigrationStatus(age) {
         document.getElementById('timeline-one-cn').textContent = 
             "请注意您的时间表以及何时开始计划。 大多数人在 65 岁时就有资格享受 Medicare。根据您的回答，您距离达到此年龄还有" + (65-age) + "年 - 但开始学习永远不会太早！ 我们建议在 65 岁之前至少一年认真规划 Medicare。";
     }
+
+    else if (immigration !== "other" && age >= 65 && current_insurance == "no") {
+        document.getElementById('timeline-one-eng').textContent = 
+            "Learn about Medicare and make a plan ASAP. According to your responses, you are age 65 or over and do not have health insurance, which means you may have a gap in coverage. Use this course to start your research now!";
+        document.getElementById('timeline-one-cn').textContent = 
+            "了解 Medicare 并制定计划。 根据您的回答，您很快就会年满 65 岁，届时人们就有资格享受 Medicare。 现在就使用本课程开始您的研究！";
+    }
 }
 
 function writeTimelineThree(initialEnrollmentEnd) {
@@ -141,6 +150,34 @@ function writeTimelineThree(initialEnrollmentEnd) {
     
     document.getElementById('timeline-three-head-eng').textContent = openEnrollmentStartFormattedEng + " - " + openEnrollmentEndFormattedEng + ":";
     document.getElementById('timeline-three-head-cn').textContent = openEnrollmentStartFormattedCn + " - " + openEnrollmentEndFormattedCn + ":";
+}
+
+function selectOption(option, clickedButton, question) {
+    // store selected input
+    var queryInput = '#' + question + ' input';
+    document.querySelectorAll(queryInput)[0].value = option;
+
+    // change button formatting to selected
+    var queryButton = '#' + question + ' button';
+    var buttons = document.querySelectorAll(queryButton);
+    buttons.forEach(function(button) {
+        button.classList.remove('option-button-select');
+      });
+    clickedButton.classList.add('option-button-select');
+  }
+
+function showQuestion (question_container) {
+    var question = document.getElementById(question_container);
+    question.classList.remove('hidden');
+    var elem = document.getElementsByClassName('content-container')[0];
+    elem.scrollTop = elem.scrollHeight;
+}
+
+function hideQuestion (question_container) {
+    var question = document.getElementById(question_container);
+    question.classList.add('hidden');
+    var elem = document.getElementsByClassName('content-container')[0];
+    elem.scrollTop = elem.scrollHeight;
 }
 
 // Akshat's functions
@@ -181,19 +218,7 @@ function saveTimeline(event){
     
 }
 
-function selectOption(option, clickedButton, question) {
-    // store selected input
-    var queryInput = '#' + question + ' input';
-    document.querySelectorAll(queryInput)[0].value = option;
 
-    // change button formatting to selected
-    var queryButton = '#' + question + ' button';
-    var buttons = document.querySelectorAll(queryButton);
-    buttons.forEach(function(button) {
-        button.classList.remove('option-button-select');
-      });
-    clickedButton.classList.add('option-button-select');
-  }
 
 
 function showReadingAid(event, reference) {

@@ -93,25 +93,25 @@
                         <span class="question-sub">Do you currently have health insurance?</span>
                     </p>
                     <div id="current-insurance" class="question-options">
-                        <button type="button" class="option-button" onclick="selectOption('yes', this, 'current-insurance')">有<br>Yes</button>
-                        <button type="button" class="option-button" onclick="selectOption('no', this, 'current-insurance')">没有<br>No</button>
+                        <button type="button" class="option-button" onclick="selectOption('yes', this, 'current-insurance'); showQuestion('question-four-container')">有<br>Yes</button>
+                        <button type="button" class="option-button" onclick="selectOption('no', this, 'current-insurance'); hideQuestion('question-four-container')">没有<br>No</button>
                         <input type="hidden" id="current-insurance-input">
                     </div>
                 </div>
-                <div class="question">
+                <div id="question-four-container" class="question hidden">
                     <p id="question-four">
                         <span class="question-head">您有什么类型的健康保险？</span>
                         <br>
                         <span class="question-sub">What type of health insurance do you have?</span>
                     </p>
                     <div id="insurance-type" class="question-options">
-                        <button type="button" class="option-button" onclick="selectOption('employer', this, 'insurance-type')">雇主保险<br>Employer insurance</button>
-                        <button type="button" class="option-button" onclick="selectOption('obamacare', this, 'insurance-type')">奥巴马医改<br>Obamacare</button>
-                        <button type="button" class="option-button" onclick="selectOption('other', this, 'insurance-type')">其他<br>Other</button>
+                        <button type="button" class="option-button" onclick="selectOption('employer', this, 'insurance-type'); showQuestion('question-five-container')">雇主保险<br>Employer insurance</button>
+                        <button type="button" class="option-button" onclick="selectOption('obamacare', this, 'insurance-type'); hideQuestion('question-five-container')">奥巴马医改<br>Obamacare</button>
+                        <button type="button" class="option-button" onclick="selectOption('other', this, 'insurance-type'); hideQuestion('question-five-container')">其他<br>Other</button>
                         <input type="hidden" id="insurance-type-input">
                     </div>
                 </div>
-                <div class="question" style="grid-template-columns: 1.1fr 1fr;">
+                <div id="question-five-container" class="question hidden" style="grid-template-columns: 1.1fr 1fr;">
                     <p id="question-five">
                         <span class="question-head">对于雇主保险：您的退休年龄是多少？</span>
                         <br>
