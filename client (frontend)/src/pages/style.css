@@ -217,6 +217,26 @@
   overflow: auto; /* added scroll bar in content container */
 }
 
+.info-content-container{
+  background-color: white;
+  width: 85vw; 
+  height: 60vh; /* added height for scroll bar in content container */
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  margin-left: 8vh;
+  padding-left: 2.5vw;
+  padding-right: 2.5vw;
+  padding-top: 1px;
+  padding-bottom: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 1fr;
+  gap: 10px;
+  overflow: auto; /* added scroll bar in content container */
+}
+
 .content-container-title {
   grid-column: 1 / -1;
   padding: 10px;
