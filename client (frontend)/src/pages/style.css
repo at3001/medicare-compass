@@ -6,13 +6,14 @@
   font-variation-settings:
     "slnt" 0;
   text-decoration: none;
+  padding: 0;
+  margin: 0;
 }
 
 .navbar{
-  background: #39628c;
-  padding-left: 15px;
-  padding-right: 15px;
-  /* padding: 5px; */
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  padding: 2vh;
 }
 
 .navdiv{
@@ -28,11 +29,10 @@
 .HomePageText{
   margin-top: 15px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   text-align: center;
-
 }
 
 .SearchPageText{
@@ -45,13 +45,25 @@
 }
 
 .titleText{
+  margin-top: 6vh;
+  margin-bottom: 6vh;
   color: #39628c;
   font-size: 5vh;
   font-weight: 600;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.homePagePic {
+  width: 70vh;
+  border-radius: 15px;
+  margin-right: 10vh;
 }
 
 .titleSubtext{
-  /* margin-top: 2.3vh; */
+  margin-top: 8vh;
+  margin-bottom: 4vh;
   color: #39628c;
   font-size: 2vw;
   font-weight: 500;
@@ -63,16 +75,23 @@
   margin-left: 70px;
 }
 
+.left-side {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 .navbarlinks{
   list-style-type: none;
   display: inline-block;
 }
 
 .navbarlinks a{
-  color: white;
+  color: #39628c;
   font-size: 1.2vw;
-  font-weight: bold;
-  margin-right: 4vw;
+  font-weight: 500;
+  margin-right: 2vw;
+  margin-left: 2vw;
 }
 
 .navbarlinksactive{
@@ -88,7 +107,8 @@
 }
 
 #selected a{
-  color: #F8CEBF;
+  color: #39628c;
+  font-weight: 850;
 }
 
 .button-container {
@@ -180,7 +200,7 @@
 }
 
 .content-container{
-  background-color: #eeeeee;
+  background-color: white;
   width: 85vw; 
   height: 60vh; /* added height for scroll bar in content container */
   margin: auto;
@@ -408,7 +428,7 @@
   display: flex;
   padding: 0;
   margin: auto;
-  background: #E6E6E6; /* Light gray background */
+  background: white;
   border-radius: 10px;
   overflow: hidden;
   align-items: center;
@@ -427,10 +447,11 @@
   text-align: center;
   padding: 10px 5px;
   cursor: pointer;
-  background: #E6E6E6;
+  background: white;
   color: #3B5998;
   transition: background-color 0.3s;
-  border-right: 3px solid white; /* White border between items */
+  border-right: 2px groove lightgray;
+  border-radius: 10px;
   font-size: 1.1vw;
 }
 
