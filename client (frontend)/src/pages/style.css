@@ -125,7 +125,7 @@
   display: inline-block;
   width: 20vw;
   height: 17vh;
-  background-color: #D1EBE9;
+  background-color: lightblue;
   border: none;
   border-radius: 20px;
   color: #39628c; 
@@ -187,7 +187,7 @@
 .language-button {
   width: 20vw;
   height: 17vh;
-  background-color: #D1EBE9;
+  background-color: lightblue;
   border: none;
   border-radius: 20px;
   color: #39628c; 
@@ -210,7 +210,7 @@
 .search-language-button {
   width: 10vw;
   height: 10vh;
-  background-color: #D1EBE9;
+  background-color: lightblue;
   border: none;
   border-radius: 20px;
   color: #39628c; 
