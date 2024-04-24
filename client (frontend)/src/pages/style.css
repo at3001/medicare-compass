@@ -13,7 +13,7 @@
 .navbar{
   background: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-  padding: 2vh;
+  padding: 1vh;
 }
 
 .navdiv{
@@ -98,7 +98,7 @@
 .navbarlinks a{
   color: #39628c;
   font-size: 1.2vw;
-  font-weight: 500;
+  font-weight: 400;
   margin-right: 2vw;
   margin-left: 2vw;
 }
