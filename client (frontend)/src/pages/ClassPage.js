@@ -28,9 +28,8 @@ function showNextBite() {
         section.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
         else {
-            // content container scrolls to bottom
-            var elem = document.getElementsByClassName('content-container')[0];
-            elem.scrollTop = elem.scrollHeight;
+        // content container scrolls to bottom
+            bitesRight[currentIndex-1].scrollIntoView({ behavior: 'smooth', block: 'end' });
         }
     
 
