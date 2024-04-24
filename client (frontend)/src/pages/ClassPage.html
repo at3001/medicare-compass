@@ -54,13 +54,13 @@
                 <div class="content-container-left hidden bite-left">
                     <i id = "cn_onepointfive" class="fa-solid fa-volume-low volume-icon" onclick = "speak(event, 'cn', 'onepointfive')"></i>
                     <p id="content-info-cn-onepointfive" class="content-info">
-                        <span class="content-info">为了确保本课程根据您的需求定制, <span style="font-weight: bold"> 让我们回答几个问题：</span> </span>
+                        <span class="content-info">为了确保本课程根据您的需求定制, <span style="font-weight: bold"> 请回答以下问题。</span>您的回复是匿名的，不会用于任何其他目的。</span>
                     </p>
                 </div>
                 <div class="content-container-right hidden bite-right">
                     <i id = "eng_onepointfive" class="fa-solid fa-volume-low volume-icon" onclick = "speak(event, 'eng', 'onepointfive')"></i>
                     <p id = "content-info-eng-onepointfive" class = "content-info">
-                    <span class="content-info">To make sure this course is customized to your needs, <span style="font-weight: bold"> let’s answer a few questions:</span> </span>
+                    <span class="content-info">To make sure this course is customized to your needs, <span style="font-weight: bold"> please answer the following questions.</span> Your responses are anonymous and will not be used for any other purposes.</span>
                 </p>
                 </div>
             </div>
@@ -106,7 +106,7 @@
                     </p>
                     <div id="insurance-type" class="question-options">
                         <button type="button" class="option-button" onclick="selectOption('employer', this, 'insurance-type'); showQuestion('question-five-container')">雇主保险<br>Employer insurance</button>
-                        <button type="button" class="option-button" onclick="selectOption('obamacare', this, 'insurance-type'); hideQuestion('question-five-container')">奥巴马医改<br>Obamacare</button>
+                        <button type="button" class="option-button" onclick="selectOption('medicare', this, 'insurance-type'); hideQuestion('question-five-container')">联邦医疗保险<br>Medicare</button>
                         <button type="button" class="option-button" onclick="selectOption('other', this, 'insurance-type'); hideQuestion('question-five-container')">其他<br>Other</button>
                         <input type="hidden" id="insurance-type-input">
                     </div>
