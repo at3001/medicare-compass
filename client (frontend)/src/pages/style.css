@@ -120,8 +120,56 @@
   font-weight: 850;
 }
 
+.arabic-button {
+  position: relative;
+  display: inline-block;
+  width: 20vw;
+  height: 17vh;
+  background-color: #D1EBE9;
+  border: none;
+  border-radius: 20px;
+  color: #39628c; 
+  font-size: 2vw;
+  cursor: pointer; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  transition: all 0.3s;
+  text-align: center;
+  margin-left: 3vw;
+  margin-right: 3vw;
+  z-index: 1;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  display: inline-flex;
+  align-items: center; 
+  justify-content: center;
+  cursor: pointer; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  border: none;
+  background-color: black;
+  opacity: 85%; 
+  color: white;
+  text-align: center;
+  border-radius: 20px;
+  font-size: 2vw;
+  width: 20vw;
+  height: 17vh;
+  position: absolute;
+  transform: translateX(-130%);
+  margin-left: 3vw;
+  margin-right: 3vw;
+  z-index: 3;
+}
+
+.arabic-button-container:hover .tooltip-text {
+  visibility: visible;
+}
+
 .button-container {
   text-align: center;
+  display: flex;
+  align-items: start;
 }
 
 .card-container {
