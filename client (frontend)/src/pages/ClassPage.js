@@ -182,8 +182,8 @@ function selectOption(option, clickedButton, question) {
 function showQuestion (question_container) {
     var question = document.getElementById(question_container);
     question.classList.remove('hidden');
-    var elem = document.getElementsByClassName('content-container')[0];
-    elem.scrollTop = elem.scrollHeight;
+    var section = document.getElementsByClassName('section')[0];
+    section.scrollIntoView({ behavior: 'smooth', block: 'end' });
 }
 
 function hideQuestion (question_container) {
