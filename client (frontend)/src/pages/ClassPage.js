@@ -662,5 +662,3 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 });
-
-
