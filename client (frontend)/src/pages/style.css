@@ -66,7 +66,7 @@
   margin-top: 6vh;
   margin-bottom: 6vh;
   color: #39628c;
-  font-size: 5vh;
+  font-size: 5.8vh;
   font-weight: 600;
   justify-content: center;
   align-items: center;
@@ -80,10 +80,10 @@
 }
 
 .titleSubtext{
-  margin-top: 8vh;
+  margin-top: 6vh;
   margin-bottom: 4vh;
   color: #39628c;
-  font-size: 2vw;
+  font-size: 1.8vw;
   font-weight: 500;
 }
 
@@ -114,7 +114,7 @@
 
 .navbarlinks a{
   color: #39628c;
-  font-size: 2.5vh;
+  font-size: 2.2vh;
   font-weight: 400;
   margin-right: 2vw;
   margin-left: 2vw;
@@ -138,6 +138,7 @@
 }
 
 .arabic-button {
+  /* changed the arabic button homepage class to be language-button so it's the same as chinese, hope that's ok? -lilly */
   position: relative;
   display: inline-block;
   width: 20vw;
@@ -335,7 +336,7 @@
 .button-container {
   text-align: center;
   display: flex;
-  align-items: start;
+  justify-content: center;
 }
 
 .selected-button-container {
@@ -358,13 +359,13 @@
 }
 
 .language-button {
-  width: 20vw;
+  width: 19vw;
   height: 17vh;
   background-color: lightblue;
   border: none;
   border-radius: 20px;
   color: #39628c; 
-  font-size: 2vw;
+  font-size: 1.8vw;
   cursor: pointer; 
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
   transition: all 0.3s;
@@ -700,6 +701,36 @@
   margin: auto;
   margin-top: 2vh;
   margin-bottom: 2vh;
+}
+
+#homepage-continue {
+  width: 12vw;
+  height: 6vh;
+  background-color: #39628c;
+  border: none;
+  border-radius: 10px;
+  color: white; 
+  font-size: 1.3vw;
+  cursor: pointer; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  transition: all 0.3s;
+  margin: auto;
+  margin-top: 5vh;
+  margin-bottom: 2vh;
+}
+
+.homepage-cn, .homepage-eng {
+  opacity: 0.1;
+  animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+      opacity: 0; /* Start with 0 opacity */
+  }
+  100% {
+      opacity: 1; /* End with full opacity */
+  }
 }
 
 .selected-continue-button {

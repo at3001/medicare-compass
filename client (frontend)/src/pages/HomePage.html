@@ -21,25 +21,36 @@
                 </a></div>
             </div>
         </nav>
-        <h1 class="titleText">Medicare education designed for immigrants.</h1>
+        <h1 class="titleText">
+            <span class="titleText homepage-eng">Medicare education designed for immigrants.</span>
+            <span class="titleText hidden homepage-cn">专为移民设计的Medicare教育。</span>
+        </h1>
         <div class="HomePageText">
             <div class="left-side">
-                <p class="mainPara">Immigrants consistently underuse healthcare in the United States due to <span style="color: #C27760;">language 
+                <p class="mainPara homepage-eng">Immigrants consistently underuse healthcare in the United States due to <span style="color: #C27760;">language 
                     barriers</span> and <span style="color: #C27760;">unfamiliarity with the US healthcare system.</span> Medicare Compass aims 
                     to change this with educational content designed with <span style="color: #C27760;">immigrants first</span> in mind.</p>
-                <h2 class="titleSubtext">To get started, choose your language:</h2>
-                <div class="button-container">
-                    <a href="SearchPage.html"><button class="language-button">中文<br>Chinese</button></a>
+                <p class="mainPara hidden homepage-cn">由于语言障碍和不熟悉美国医疗保健系统，移民在美国的医疗保健服务一直未能得到充分利用。 Medicare Compass 旨在通过首先考虑移民的教育内容来改变这一现状。</p>
+                
+                <h2 class="titleSubtext homepage-eng">To get started, choose your language:</h2>
+                <h2 class="titleSubtext hidden homepage-cn">首先，选择您的语言：</h2>
+                
+                <div id="homepage-language" class="button-container">
+                    <button id="homepage-lang-button-cn" class="language-button" onclick="switchHomepageLanguage('chinese'), selectOption('chinese', this, 'homepage-language')">中文<br>Chinese</button>
                     <div class="arabic-button-container">
-                        <a href="#"><button class="arabic-button">عربي<br>Arabic</button></a>
+                        <a href="#"><button class="language-button">عربي<br>Arabic</button></a>
                         <span class="tooltip-text">Coming soon!</span>
                     </div>
+                </div>
+                <div>
+                    <!-- <a href="SearchPage.html"><button class="homepage-continue homepage-eng">Continue</button></a> -->
+                    <a href="SearchPage.html"><button id="homepage-continue" class="homepage-cn hidden">继续 Continue</button></a>
                 </div>
             </div>
             <div class="right-side">
                 <img src="../images/homePagePhoto.png" alt="Medicare Compass Logo" class="homePagePic">
             </div>
         </div>
-        
     </body>
+    <script src="ClassPage.js"></script>
 </html>

@@ -33,7 +33,6 @@ function showNextBite() {
         // content container scrolls to bottom
             bitesRight[currentIndex-1].scrollIntoView({ behavior: 'smooth', block: 'end' });
         }
-    
 
     if (currentIndex === bitesLeft.length) {
         continueBtn.textContent = "Next section";
@@ -154,10 +153,6 @@ function writeTimelineThree(initialEnrollmentEnd) {
 }
 
 function selectOption(option, clickedButton, question) {
-    // store selected input
-    var queryInput = '#' + question + ' input';
-    document.querySelectorAll(queryInput)[0].value = option;
-
     // change button formatting to selected
     var queryButton = '#' + question + ' button';
     var buttons = document.querySelectorAll(queryButton);
@@ -165,20 +160,23 @@ function selectOption(option, clickedButton, question) {
         button.classList.remove('option-button-select');
       });
     clickedButton.classList.add('option-button-select');
+
+    // store selected input
+    var queryInput = '#' + question + ' input';
+    document.querySelectorAll(queryInput)[0].value = option;
   }
 
   function deselectOptions(question) {
-    // empty selected input
-    var queryInput = '#' + question + ' input';
-    document.querySelectorAll(queryInput)[0].value = "";
-
     // change button formatting to deselected
     var queryButton = '#' + question + ' button';
     var buttons = document.querySelectorAll(queryButton);
     buttons.forEach(function(button) {
         button.classList.remove('option-button-select');
       });
-    // clickedButton.classList.add('option-button-select');
+
+    // empty selected input
+        var queryInput = '#' + question + ' input';
+        document.querySelectorAll(queryInput)[0].value = "";  
   }
 
 function showQuestion (question_container) {
@@ -194,6 +192,43 @@ function hideQuestion (question_container) {
     var elem = document.getElementsByClassName('content-container')[0];
     elem.scrollTop = elem.scrollHeight;
 }
+
+function switchHomepageLanguage(language) {
+    var engHomeElems = document.getElementsByClassName('homepage-eng');
+    var cnHomeElems = document.getElementsByClassName('homepage-cn');
+    var homepageContinue = document.getElementById('homepage-continue');
+
+    if (language === 'chinese') {
+        for (let i = 0; i < engHomeElems.length; i++) {
+            engHomeElems[i].classList.add('hidden');
+        }
+        for (let i = 0; i < cnHomeElems.length; i++) {
+            cnHomeElems[i].classList.remove('hidden');
+        }
+        homepageContinue.classList.remove('hidden');
+
+    }
+
+    else if (language === 'english') {
+        for (let i = 0; i < engHomeElems.length; i++) {
+            engHomeElems[i].classList.remove('hidden');
+        }
+        for (let i = 0; i < cnHomeElems.length; i++) {
+            cnHomeElems[i].classList.add('hidden');
+        }
+        homepageContinue.classList.remove('add');
+    }
+}
+
+// switch homepage language back to english if user deselects chinese
+document.addEventListener('click', function(event) {
+    var homepageCnButton = document.getElementById("homepage-lang-button-cn");
+    var homepageContinue = document.getElementById("homepage-continue");
+    if (event.target !== homepageCnButton && event.target !== homepageContinue) {
+        switchHomepageLanguage('english');
+        deselectOptions('homepage-language'); 
+    };
+});
 
 // Akshat's functions
 
