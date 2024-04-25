@@ -35,6 +35,15 @@
   text-align: center;
 }
 
+.SelectedLanguageText {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 .AboutPageText{
   margin-top: 15px;
   display: flex;
@@ -73,6 +82,14 @@
 .titleSubtext{
   margin-top: 8vh;
   margin-bottom: 4vh;
+  color: #39628c;
+  font-size: 2vw;
+  font-weight: 500;
+}
+
+.selected-titleSubtext {
+  margin-top: 8vh;
+  margin-bottom: 6vh;
   color: #39628c;
   font-size: 2vw;
   font-weight: 500;
@@ -180,6 +197,24 @@
   justify-content: center;
 }
 
+.search-btn {
+  width: 17vw;
+  height: 8vh;
+  background-color: #39628c;
+  border: none;
+  border-radius: 10px;
+  color: #ffffff; 
+  font-size: 2.4vh;
+  cursor: pointer; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  transition: all 0.3s;
+  text-align: center;
+  display: inline-flex;
+  margin-top:3vh;
+  align-items: center;
+  justify-content: center;
+}
+
 .search-tooltip {
   visibility: hidden;
   display: inline-flex;
@@ -197,7 +232,7 @@
   width: 17vw;
   height: 8vh;
   position: absolute;
-  transform: translateX(-108%);
+  transform: translate(-104%, 20%);
   margin: 10px;
   z-index: 3;
 }
@@ -301,6 +336,13 @@
   text-align: center;
   display: flex;
   align-items: start;
+}
+
+.selected-button-container {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .card-container {
@@ -660,6 +702,26 @@
   margin-bottom: 2vh;
 }
 
+.selected-continue-button {
+  width: 14vw;
+  height: 6vh;
+  background-color: #39628c;
+  border: none;
+  border-radius: 5px;
+  color: white; 
+  font-size: 1.5vw;
+  cursor: pointer; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+  transition: all 0.3s;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-top: 7vh;
+  margin-bottom: 2vh;
+}
+
 .progressbar-bottom {
   width: 90vw;
   height: 10vh;
@@ -822,7 +884,6 @@
 .card {
   background-color: #ececec;
   padding-top: 2vh;
-  padding-bottom: 2vh;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 45vh;
