@@ -51,29 +51,9 @@
                         This is why many retirees enroll in Medicare once they become eligible – so they can continue receiving affordable healthcare insurance when they stop working.
                     </p>
                 </div>
-                <div class="content-container-left hidden bite-left">
-                    <i id = "cn_two" class="fa-solid fa-volume-low volume-icon" onclick = "speak(event, 'cn', 'two')"></i>
-                    <p id="content-info-cn-two" class="content-info">
-                        本节将涵盖有关 Medicare 的以下问题：
-                            <a class="content-bullet" style="color:blue" href="#">Medicare由哪几部分组成？</a>
-                            <a class="content-bullet" style="color:blue" href="#">Medicare 费用是多少？</a>
-                            <a class="content-bullet" style="color:blue" href="#">谁有资格享受 Medicare？</a>
-                    </p>
-                </div>
-                <div class="content-container-right hidden bite-right">
-                    <i id = "eng_two" class="fa-solid fa-volume-low volume-icon" onclick = "speak(event, 'eng', 'two')"></i>
-                    <button class = "note-taking-button" onclick="noteTakeAction(event, 'two')">take note</button>
-                    <div id = "note_two" class="input-box-container">
-                        <textarea id = "text_two" type="text" placeholder="Enter text here..." class="input-field"></textarea>
-                        <button class="submit-button" onclick = "submitNote(event, 'two', 2)">Submit</button>
-                    </div>
-                    <p id="content-info-eng-two" class="content-info">
-                        This section will cover the following questions on Medicare:
-                            <a class="content-bullet" style="color:blue" href="#">What are the parts of Medicare?</a>
-                            <a class="content-bullet" style="color:blue" href="#">How much does Medicare cost?</a>
-                            <a class="content-bullet" style="color:blue" href="#">Who is eligible for Medicare?</a>
-                    </p>
-                </div>
+            </div>
+            <div class="section">
+            <div class="content-container-body">
                 <div class="hidden bite-left">
                     <h3 class="content-subtitle">Medicare由哪几部分组成？</h3>
                     <div class="content-container-left">
@@ -97,6 +77,10 @@
                         </p>
                     </div>
                 </div>
+            </div>
+            <img class="medicare-visual" src="../images/medicarePartsVisual.png" alt="Visual of the parts of Medicare and how they fit into Original Medicare vs. Medicare Advantage">
+            </div>
+                
                 <div class="content-container-left hidden bite-left">
                     <i id = "cn_four" class="fa-solid fa-volume-low volume-icon" onclick = "speak(event, 'cn', 'four')"></i>
                     <p id="content-info-cn-four" class="content-info">
@@ -217,8 +201,6 @@
                     </p>
                 </div>
             </div>
-            <img class="medicare-visual hidden bite-left" src="../images/medicarePartsVisual.png" alt="Visual of the parts of Medicare and how they fit into Original Medicare vs. Medicare Advantage">
-            <div class="bite-right"></div>
         </div>
         <div class="button-container">
             <button id="continue-btn" class="continue-button"onclick="nextSection('InfoPrintPage.html'); showNextBite(); increaseProgress()">Continue</button>
