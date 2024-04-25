@@ -97,7 +97,7 @@
 
 .navbarlinks a{
   color: #39628c;
-  font-size: 1.2vw;
+  font-size: 2.5vh;
   font-weight: 400;
   margin-right: 2vw;
   margin-left: 2vw;
@@ -455,6 +455,7 @@
   /* padding-right: 3px;  */
   flex-shrink: 0;
   font-size: 1.3vw;
+  cursor:pointer;
 }
 
 .note-taking-button {
@@ -469,9 +470,9 @@
   height: 3vw;
   border: none; 
   cursor: pointer;
-  text-indent: -9999px;
+  /* text-indent: -9999px; */
   outline: none;
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .input-box-container {
@@ -576,12 +577,41 @@
   padding-bottom: 10px;
 }
 
+.comprehension-subtitle {
+  color: #C27760; 
+  font-size: 1.5vw;
+  margin-top: 10px; 
+  margin-bottom: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.comprehension-options-container {
+  display:flex;
+  flex-direction: row;
+  width: 90%;
+  margin: auto;
+  align-items: flex-start;
+}
+
+.comprehension-option{
+  margin-left: 10px; 
+  /* margin-bottom: 20px; */
+  margin-right: 5px; 
+  /* display: inline-block; */
+}
+
+.comprehension-option-label{
+  display: inline-block;
+  vertical-align: top;
+}
+
 .content-info {
   color: black;
   line-height: 1.5;
   padding: 4px 0;
   text-align: left;
-  font-size: 1.3vw;
+  font-size: 1.2vw;
   margin: 0;
 }
 
@@ -689,6 +719,15 @@
   margin: 10px;
 }
 
+.form-container-comprehension{
+  border-style: solid;
+  border-width: 3px;
+  border-color: #C27760;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 10px;
+}
+
 .question {
   display: grid;
   grid-template-columns: 1fr 1.5fr;
@@ -719,6 +758,10 @@
   margin-left: 10px;
   text-align: left;
   font-size: 1.3vw;
+}
+
+.comprehension-question {
+  padding: 15px;
 }
 
 
@@ -768,10 +811,11 @@
 }
 
 .medicare-visual{
-  width: 90%;
+  width: 85%;
   height: auto;
   margin: 0 auto;
   padding: 10px;
+  display: block;
 }
 
 .card {

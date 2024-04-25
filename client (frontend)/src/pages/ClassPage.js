@@ -2,6 +2,7 @@ const bitesLeft = document.getElementsByClassName('bite-left');
 const bitesRight = document.getElementsByClassName('bite-right');
 const continueBtn = document.getElementById('continue-btn');
 let currentIndex = 0;
+let sectionIndex = 0;
 
 var noteDict = {};
 var timeline_cn = [];
@@ -24,8 +25,9 @@ function showNextBite() {
 
     if (bitesLeft[currentIndex-1].classList.contains("section")) {
         // content container scrolls to next section
-        var section = document.getElementsByClassName('section')[0];
+        var section = document.getElementsByClassName('section')[sectionIndex];
         section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        sectionIndex++;
     }
         else {
         // content container scrolls to bottom
