@@ -225,67 +225,60 @@
                 </div>
             </div>
             <form id="questionnaire" class="form-container-comprehension hidden bite-left bite-right section">
-                
-                    <p id="question-two" class="comprehension-question">
-                        <span class="question-head">您的美国移民身份是什么？</span>
-                        <br>
-                        <span class="question-sub">What does Medicare Part A primarily cover?</span>
-                    </p>
-                    <div class="comprehension-options-container">
-                        <input type="radio" name="choice" value="" class="comprehension-option">
-                            <label for="choice" class="comprehension-option-label">
-                            <span style="font-weight:bold">处方药</span>
-                            <br>Prescription drugs
-                            </label>
-                        <input type="radio" name="choice" value="" class="comprehension-option">
-                            <label for="choice" class="comprehension-option-label">
-                            <span style="font-weight:bold">处方药</span>
-                            <br>Inpatient hospital stays and some home health care
-                            </label>
-                        <input type="radio" name="choice" value="" class="comprehension-option">
-                            <label for="choice" class="comprehension-option-label">
-                            <span style="font-weight:bold">处方药</span>
-                            <br>Outpatient care and durable medical equipment
-                            </label>
-                        <input type="radio" name="choice" value="" class="comprehension-option">
-                            <label for="choice" class="comprehension-option-label">
-                            <span style="font-weight:bold">处方药</span>
-                            <br>Vision, hearing, and dental services
-                            </label>
-                    </div>
-                
-                <div class="question">
-                    <p id="question-three">
-                        <span class="question-head">您目前有健康保险吗？</span>
-                        <br>
-                        <span class="question-sub">Do you currently have health insurance?</span>
-                    </p>
-                    <div id="current-insurance" class="question-options">
-                        <button type="button" class="option-button" onclick="selectOption('yes', this, 'current-insurance'); showQuestion('question-four-container')">有<br>Yes</button>
-                        <button type="button" class="option-button" onclick="selectOption('no', this, 'current-insurance'); hideQuestion('question-four-container'); hideQuestion('question-five-container'); deselectOptions('insurance-type');">没有<br>No</button>
-                        <input type="hidden" id="current-insurance-input">
-                    </div>
+                <p id="question-two" class="comprehension-question">
+                    <span class="question-head">您的美国移民身份是什么？</span>
+                    <br>
+                    <span class="question-sub">What does Medicare Part A primarily cover?</span>
+                </p>
+                <div class="comprehension-options-container">
+                    <input type="radio" name="choice" value="" class="comprehension-option">
+                        <label for="choice" class="comprehension-option-label">
+                        <span style="font-weight:bold">处方药</span>
+                        <br>Prescription drugs
+                        </label>
+                    <input type="radio" name="choice" value="" class="comprehension-option">
+                        <label for="choice" class="comprehension-option-label">
+                        <span style="font-weight:bold">处方药</span>
+                        <br>Inpatient hospital stays and some home health care
+                        </label>
+                    <input type="radio" name="choice" value="" class="comprehension-option">
+                        <label for="choice" class="comprehension-option-label">
+                        <span style="font-weight:bold">处方药</span>
+                        <br>Outpatient care and durable medical equipment
+                        </label>
+                    <input type="radio" name="choice" value="" class="comprehension-option">
+                        <label for="choice" class="comprehension-option-label">
+                        <span style="font-weight:bold">处方药</span>
+                        <br>Vision, hearing, and dental services
+                        </label>
                 </div>
-                <div id="question-four-container" class="question hidden">
-                    <p id="question-four">
-                        <span class="question-head">您有什么类型的健康保险？</span>
-                        <br>
-                        <span class="question-sub">What type of health insurance do you have?</span>
-                    </p>
-                    <div id="insurance-type" class="question-options">
-                        <button type="button" class="option-button" onclick="selectOption('employer', this, 'insurance-type'); showQuestion('question-five-container')">雇主保险<br>Employer insurance</button>
-                        <button type="button" class="option-button" onclick="selectOption('medicare', this, 'insurance-type'); hideQuestion('question-five-container')">联邦医疗保险<br>Medicare</button>
-                        <button type="button" class="option-button" onclick="selectOption('other', this, 'insurance-type'); hideQuestion('question-five-container')">其他<br>Other</button>
-                        <input type="hidden" id="insurance-type-input">
-                    </div>
-                </div>
-                <div id="question-five-container" class="question hidden" style="grid-template-columns: 1.1fr 1fr;">
-                    <p id="question-five">
-                        <span class="question-head">您或您的配偶将在几岁退休？</span>
-                        <br>
-                        <span class="question-sub">What age will you or your spouse retire?</span>
-                    </p>
-                    <input id="retirement-age" class="short-answer" type="number"  placeholder="年龄 Age">
+                
+                <p id="question-two" class="comprehension-question">
+                    <span class="question-head">您的美国移民身份是什么？</span>
+                    <br>
+                    <span class="question-sub">What does Medicare Part A primarily cover?</span>
+                </p>
+                <div class="comprehension-options-container">
+                    <input type="radio" name="choice" value="" class="comprehension-option">
+                        <label for="choice" class="comprehension-option-label">
+                        <span style="font-weight:bold">处方药</span>
+                        <br>Prescription drugs
+                        </label>
+                    <input type="radio" name="choice" value="" class="comprehension-option">
+                        <label for="choice" class="comprehension-option-label">
+                        <span style="font-weight:bold">处方药</span>
+                        <br>Inpatient hospital stays and some home health care
+                        </label>
+                    <input type="radio" name="choice" value="" class="comprehension-option">
+                        <label for="choice" class="comprehension-option-label">
+                        <span style="font-weight:bold">处方药</span>
+                        <br>Outpatient care and durable medical equipment
+                        </label>
+                    <input type="radio" name="choice" value="" class="comprehension-option">
+                        <label for="choice" class="comprehension-option-label">
+                        <span style="font-weight:bold">处方药</span>
+                        <br>Vision, hearing, and dental services
+                        </label>
                 </div>
             </form>
         </div>

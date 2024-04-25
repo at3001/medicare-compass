@@ -604,6 +604,7 @@
 .comprehension-option-label{
   display: inline-block;
   vertical-align: top;
+  margin-bottom: 20px;
 }
 
 .content-info {
