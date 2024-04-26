@@ -242,13 +242,13 @@ function saveTimeline(event){
     console.log('save fired');
 
     if (document.getElementById('continue-btn').textContent == "Next section"){
-        cn_one = document.getElementById('content-info-cn-timeline1').textContent;
-        cn_two = document.getElementById('content-info-cn-timeline2').textContent;
-        cn_three = document.getElementById('content-info-cn-timeline3').textContent;
+        cn_one = document.getElementById('content-info-cn-three').textContent;
+        cn_two = document.getElementById('content-info-cn-four').textContent;
+        cn_three = document.getElementById('content-info-cn-five').textContent;
     
-        eng_one = document.getElementById('content-info-eng-timeline1').textContent;
-        eng_two = document.getElementById('content-info-eng-timeline2').textContent;
-        eng_three = document.getElementById('content-info-eng-timeline3').textContent;
+        eng_one = document.getElementById('content-info-eng-three').textContent;
+        eng_two = document.getElementById('content-info-eng-four').textContent;
+        eng_three = document.getElementById('content-info-eng-five').textContent;
     
         timeline_cn.push(cn_one);
         timeline_cn.push(cn_two);
@@ -344,12 +344,21 @@ function submitNote(event, reference, num) {
 
 function speak(event, lang, reference){
     if(lang == "cn"){
-        textUtterance = document.getElementById("content-info-cn-" + reference).textContent;
+        textUtterance = document.getElementById("content-info-cn-" + reference);
     } else{
-        textUtterance = document.getElementById("content-info-eng-" + reference).textContent;
+        textUtterance = document.getElementById("content-info-eng-" + reference);
+    }
+    var copyUtterance = textUtterance.cloneNode(true);
+
+    var tooltip = copyUtterance.querySelector('.tooltiptext');
+
+    if (tooltip) {
+        tooltip.remove();
     }
 
-    const utterance = new SpeechSynthesisUtterance(textUtterance);
+    var textSpeak = copyUtterance.textContent;
+
+    const utterance = new SpeechSynthesisUtterance(textSpeak);
 
     language = 'en-US'
     if (lang == "cn"){
@@ -412,58 +421,68 @@ document.addEventListener('DOMContentLoaded', function() {
         timeline_cn = JSON.parse(localStorage.getItem('timeline_cn'));
         timeline_eng = JSON.parse(localStorage.getItem('timeline_eng'));
 
+
+
         console.log(timeline_cn);
         
-        pos = 30;
-        dif = 10;
+        
+        
+        notes_pdf.setFontSize(15);
+        notes_pdf.text("Your Timeline", 90, 25);
 
         notes_pdf.setFont('chinese', 'normal');
         notes_pdf.setFontSize(12);
 
-        timelineUrl = "../images/timeline_img.png";
-        notes_pdf.addImage(timelineUrl, 'PNG', 10, 20, 180, 150);
+        pos = 40;
+        dif = 10;
 
-        first_page_pdf = notes_pdf;
+        // timelineUrl = "../images/timeline_img.png";
+        // notes_pdf.addImage(timelineUrl, 'PNG', 10, 20, 180, 150);
+
+        // first_page_pdf = notes_pdf;
+
+        // notes_pdf.addPage();
+
+        for(let i = 0; i < timeline_cn.length; i++){
+            cn_text = timeline_cn[i].replace(/\s+/g, ' ').trim();
+            cn_text = cn_text.replace(/\\n/g, '');
+            cn_text = notes_pdf.splitTextToSize(cn_text, 180);
+
+            notes_pdf.text(cn_text, 10, pos);
+            
+            console.log(cn_text.length);
+            
+            pos = pos + notes_pdf.getTextDimensions(cn_text).h + 10;
+
+            if (pos >= 200) {
+                notes_pdf.addPage();
+                pos = 15;
+            }
+        }
+
+        notes_pdf.setFont('helvetica', 'normal');
+
+        for(let i = 0; i < timeline_cn.length; i++){
+           
+            eng_text = timeline_eng[i].replace(/\s+/g, ' ').trim();
+            eng_text = eng_text.replace(/\\n/g, '');
+            eng_text = notes_pdf.splitTextToSize(eng_text, 180);
+
+            notes_pdf.text(eng_text, 10, pos);
+
+            // pos = pos + eng_text.length * 6;
+            pos = pos + notes_pdf.getTextDimensions(eng_text).h + 10;
+
+            if (pos >= 200) {
+                notes_pdf.addPage();
+                pos = 15;
+            }
+        }
 
         notes_pdf.addPage();
 
-        // for(let i = 0; i < timeline_cn.length; i++){
-        //     cn_text = timeline_cn[i].replace(/\s+/g, ' ').trim();
-        //     cn_text = cn_text.replace(/\\n/g, '');
-        //     cn_text = notes_pdf.splitTextToSize(cn_text, 180);
+        pos = 30;
 
-        //     notes_pdf.text(cn_text, 10, pos);
-            
-        //     console.log(cn_text.length);
-            
-        //     pos = pos + notes_pdf.getTextDimensions(cn_text).h + 10;
-
-        //     if (pos >= 200) {
-        //         notes_pdf.addPage();
-        //         pos = 15;
-        //     }
-        // }
-
-        // notes_pdf.setFont('helvetica', 'normal');
-
-        // for(let i = 0; i < timeline_cn.length; i++){
-           
-        //     eng_text = timeline_eng[i].replace(/\s+/g, ' ').trim();
-        //     eng_text = eng_text.replace(/\\n/g, '');
-        //     eng_text = notes_pdf.splitTextToSize(eng_text, 180);
-
-        //     notes_pdf.text(eng_text, 10, pos);
-
-        //     // pos = pos + eng_text.length * 6;
-        //     pos = pos + notes_pdf.getTextDimensions(eng_text).h + 10;
-
-        //     if (pos >= 200) {
-        //         notes_pdf.addPage();
-        //         pos = 15;
-        //     }
-        // }
-
-        // pos = pos + 20;
         notes_pdf.setFont("helvetica", "normal");
         notes_pdf.setFontSize(20);
         notes_pdf.text("Your Course Notes", 60, pos);
