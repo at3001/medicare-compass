@@ -934,6 +934,17 @@
   color: #899096;
 }
 
+#down-arrow-icon {
+  font-size: 11vh;
+  margin-top: 5vh;
+  color: #39628c;
+}
+
+#down-arrow-icon:hover {
+  color: #6B85D6;
+  cursor: pointer; 
+}
+
 .card-content h1 {
   color: #39628c;
   margin-bottom: 3vh;

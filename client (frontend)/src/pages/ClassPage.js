@@ -238,6 +238,10 @@ function nextSection(url) {
     }
 }
 
+function scrollDown() {
+    document.getElementById('target-section').scrollIntoView({ behavior: 'smooth' });
+}
+
 function saveTimeline(event){
     console.log('save fired');
 
