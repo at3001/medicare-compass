@@ -16,6 +16,27 @@
   padding: 1vh;
 }
 
+
+#target-section {
+  margin-top: 20vh;
+  margin-bottom: 20vh;
+  text-align: center;
+  margin-left:20vh;
+  margin-right:20vh;
+}
+
+.keypoint-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Styles for each column */
+.keypoint-column {
+  flex: 1;
+  padding-bottom: 60vh;
+  border: 1px solid #ccc; 
+}
+
 .navdiv{
   display: flex;
   align-items: center;
