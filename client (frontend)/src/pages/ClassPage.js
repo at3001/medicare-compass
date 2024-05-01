@@ -265,8 +265,8 @@ function saveTimeline(event){
         localStorage.setItem('timeline_cn', JSON.stringify(timeline_cn));
         localStorage.setItem('timeline_eng', JSON.stringify(timeline_eng));
 
-        whole_timeline = document.getElementById("timeline-container");
-        localStorage.setItem("whole_timeline", whole_timeline);
+        // whole_timeline = document.getElementById("timeline-container");
+        // localStorage.setItem("whole_timeline", whole_timeline);
 
     }
     
@@ -387,15 +387,15 @@ for (let i = 0; i < noteElems.length; i++){
     });
 }
 
-function htmlToCanvas(elementId) {
-    // Find the HTML element by ID
-    var element = localStorage.getItem("whole_timeline");
-    console.log(element);
+// function htmlToCanvas(elementId) {
+//     // Find the HTML element by ID
+//     var element = localStorage.getItem("whole_timeline");
+//     console.log(element);
 
 
-    // Use html2canvas library to convert the HTML content to canvas
-    return html2canvas(element);
-}
+//     // Use html2canvas library to convert the HTML content to canvas
+//     return html2canvas(element);
+// }
 
 // Need to change this to have HTML code so it looks better.
 document.addEventListener('DOMContentLoaded', function() {
@@ -425,9 +425,6 @@ document.addEventListener('DOMContentLoaded', function() {
         timeline_cn = JSON.parse(localStorage.getItem('timeline_cn'));
         timeline_eng = JSON.parse(localStorage.getItem('timeline_eng'));
 
-
-
-        console.log(timeline_cn);
         
         
         
@@ -451,6 +448,7 @@ document.addEventListener('DOMContentLoaded', function() {
             cn_text = timeline_cn[i].replace(/\s+/g, ' ').trim();
             cn_text = cn_text.replace(/\\n/g, '');
             cn_text = notes_pdf.splitTextToSize(cn_text, 180);
+            console.log(cn_text);
 
             notes_pdf.text(cn_text, 10, pos);
             
@@ -589,8 +587,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('Page content has been loaded');
-    console.log(window.location.pathname);
     if ((window.location.pathname == '/client%20(frontend)/src/pages/ClassPage.html') || (window.location.pathname == '/client%20(frontend)/src/pages/ClassPage-arabic.html')) {
         if (tutorialAidCompleted == false) {
 
@@ -643,7 +639,6 @@ document.addEventListener('DOMContentLoaded', function() {
             document.addEventListener('click', function(event) {
                 
                 if (tutorialAidCompleted == false) {
-                    console.log('fired')
                     overlay.removeChild(text);
                     document.body.removeChild(overlay);
                     readingAid.style.backgroundColor = 'initial';
@@ -704,7 +699,6 @@ document.addEventListener('DOMContentLoaded', function() {
             document.addEventListener('click', function(event) {
 
                 if (tutorialNoteCompleted == false) {
-                    console.log('fired')
                     overlay.removeChild(text_note);
                     document.body.removeChild(overlay);
 
