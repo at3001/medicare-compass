@@ -250,7 +250,7 @@
   opacity: 85%; 
   color: white;
   text-align: center;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   font-size: 1.6vw;
   width: 15vw;
   height: 5.5vw;
@@ -271,7 +271,7 @@
   opacity: 85%; 
   color: white;
   text-align: center;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   font-size: 1.6vw;
   width: 15vw;
   height: 5.5vw;
@@ -292,7 +292,7 @@
   opacity: 85%; 
   color: white;
   text-align: center;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   font-size: 1.6vw;
   width: 15vw;
   height: 5.5vw;
@@ -631,7 +631,7 @@
 
 .comprehension-options-container {
   display:flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 90%;
   margin: auto;
   align-items: flex-start;
@@ -647,7 +647,8 @@
 .comprehension-option-label{
   display: inline-block;
   vertical-align: top;
-  margin-bottom: 20px;
+  margin-bottom: 1.5vh;
+  font-size: 1.2vw;
 }
 
 .content-info {
