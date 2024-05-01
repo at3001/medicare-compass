@@ -16,6 +16,34 @@
   padding: 1vh;
 }
 
+
+#target-section {
+  margin-top: 20vh;
+  margin-bottom: 20vh;
+  text-align: center;
+  margin-left:20vh;
+  margin-right:20vh;
+}
+
+.keypoint-container {
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+}
+
+/* Styles for each column */
+.keypoint-column {
+  margin-left: 2vh;
+  margin-right: 2vh;
+  font-size:2vh;
+  text-align: center;
+}
+
+.keypoint-column p{
+  margin-bottom: 2vh;
+}
+
+
 .navdiv{
   display: flex;
   align-items: center;
@@ -501,6 +529,14 @@
   cursor:pointer;
 }
 
+.img-container {
+  background-color: lightblue; 
+  width: fit-content; 
+  padding: 3vh;
+}
+
+
+
 .note-taking-button {
   position: absolute;
   left: 105%;
@@ -933,6 +969,17 @@
   margin-top: 1.7vh;
   margin-bottom: 1.7vh;
   color: #899096;
+}
+
+#down-arrow-icon {
+  font-size: 11vh;
+  margin-top: 5vh;
+  color: #39628c;
+}
+
+#down-arrow-icon:hover {
+  color: #6B85D6;
+  cursor: pointer; 
 }
 
 .card-content h1 {
