@@ -278,7 +278,7 @@
   opacity: 85%; 
   color: white;
   text-align: center;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   font-size: 1.6vw;
   width: 15vw;
   height: 5.5vw;
@@ -299,7 +299,7 @@
   opacity: 85%; 
   color: white;
   text-align: center;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   font-size: 1.6vw;
   width: 15vw;
   height: 5.5vw;
@@ -320,7 +320,7 @@
   opacity: 85%; 
   color: white;
   text-align: center;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   font-size: 1.6vw;
   width: 15vw;
   height: 5.5vw;
@@ -665,12 +665,23 @@
   padding-bottom: 10px;
 }
 
+.comprehension-score {
+  color: #C27760; 
+  font-size: 2vw;
+  /* font-weight: bold; */
+  margin: auto;
+  padding-top: 2vh;
+  padding-bottom: 5vh;
+  text-align: center;
+}
+
 .comprehension-options-container {
   display:flex;
-  flex-direction: row;
+  flex-direction: column;
   width: 90%;
   margin: auto;
   align-items: flex-start;
+  padding-bottom: 15px;
 }
 
 .comprehension-option{
@@ -683,7 +694,8 @@
 .comprehension-option-label{
   display: inline-block;
   vertical-align: top;
-  margin-bottom: 20px;
+  margin-bottom: 2.2vh;
+  font-size: 1.2vw;
 }
 
 .content-info {
@@ -892,6 +904,7 @@
 
 .comprehension-question {
   padding: 15px;
+  padding-top: 15px;
 }
 
 
