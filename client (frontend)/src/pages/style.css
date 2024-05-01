@@ -26,16 +26,23 @@
 }
 
 .keypoint-container {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
 }
 
 /* Styles for each column */
 .keypoint-column {
-  flex: 1;
-  padding-bottom: 60vh;
-  border: 1px solid #ccc; 
+  margin-left: 2vh;
+  margin-right: 2vh;
+  font-size:2vh;
+  text-align: center;
 }
+
+.keypoint-column p{
+  margin-bottom: 2vh;
+}
+
 
 .navdiv{
   display: flex;
@@ -521,6 +528,14 @@
   font-size: 1.3vw;
   cursor:pointer;
 }
+
+.img-container {
+  background-color: lightblue; 
+  width: fit-content; 
+  padding: 3vh;
+}
+
+
 
 .note-taking-button {
   position: absolute;
