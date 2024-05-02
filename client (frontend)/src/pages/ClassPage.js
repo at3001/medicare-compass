@@ -354,11 +354,15 @@ function speak(event, lang, reference){
     }
     var copyUtterance = textUtterance.cloneNode(true);
 
-    var tooltip = copyUtterance.querySelector('.tooltiptext');
+    var tooltips = copyUtterance.querySelectorAll('.tooltiptext');
 
-    if (tooltip) {
+    tooltips.forEach(tooltip => {
         tooltip.remove();
-    }
+    });
+
+    // if (tooltip) {
+    //     tooltip.remove();
+    // }
 
     var textSpeak = copyUtterance.textContent;
 
