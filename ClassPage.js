@@ -501,7 +501,7 @@ for (let i = 0; i < noteElems.length; i++){
 
 // Need to change this to have HTML code so it looks better.
 document.addEventListener('DOMContentLoaded', function() {
-    if (window.location.pathname == '/client%20(frontend)/src/pages/InfoPrintPage.html'){
+    if (window.location.pathname == '/InfoPrintPage.html'){
         console.log("pdf fired")
 
         const { jsPDF } = window.jspdf;
@@ -510,11 +510,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
         var first_page_flag = false;
 
-        notes_pdf.addFileToVFS('../images/chinesebase64.txt', 'chinese');
-        notes_pdf.addFont('../images/chinese_font.ttf', 'chinese', 'normal');
+        notes_pdf.addFileToVFS('chinesebase64.txt', 'chinese');
+        notes_pdf.addFont('chinese_font.ttf', 'chinese', 'normal');
 
-        display_pdf.addFileToVFS('../images/chinesebase64.txt', 'chinese');
-        display_pdf.addFont('../images/chinese_font.ttf', 'chinese', 'normal');
+        display_pdf.addFileToVFS('chinesebase64.txt', 'chinese');
+        display_pdf.addFont('chinese_font.ttf', 'chinese', 'normal');
         
         
         noteDict = JSON.parse(localStorage.getItem('noteDict'));
@@ -691,7 +691,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    if ((window.location.pathname == '/client%20(frontend)/src/pages/ClassPage.html') || (window.location.pathname == '/client%20(frontend)/src/pages/ClassPage-arabic.html')) {
+    if ((window.location.pathname == '/ClassPage.html') || (window.location.pathname == '/ClassPage-arabic.html')) {
         if (tutorialAidCompleted == false) {
 
             const overlay = document.createElement('div');
@@ -715,7 +715,7 @@ document.addEventListener('DOMContentLoaded', function() {
             text.style.color = '#E59981';
             text.style.fontWeight = 'bold';
             text.style.fontFamily = 'Arial, Helvetica, sans-serif';
-            if (window.location.pathname == '/client%20(frontend)/src/pages/ClassPage.html') {
+            if (window.location.pathname == '/ClassPage.html') {
                 text.textContent = "单击突出显示部分以获取有关整个课程中某些术语和概念的更多详细信息 \n Click highlights to get more details on certain terms and concepts throughout the course";
             }
             else {
@@ -759,7 +759,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
         }
-    } else if ((window.location.pathname == '/client%20(frontend)/src/pages/WhatIsMedicare.html') || (window.location.pathname == '/client%20(frontend)/src/pages/WhatIsMedicare-arabic.html')) {
+    } else if ((window.location.pathname == '/WhatIsMedicare.html') || (window.location.pathname == '/WhatIsMedicare-arabic.html')) {
         if (tutorialNoteCompleted == false) {
 
             const overlay = document.createElement('div');
@@ -784,7 +784,7 @@ document.addEventListener('DOMContentLoaded', function() {
             text_note.style.color = '#E59981';
             text_note.style.fontWeight = 'bold';
             text_note.style.fontFamily = 'Arial, Helvetica, sans-serif';
-            if (window.location.pathname == '/client%20(frontend)/src/pages/WhatIsMedicare.html') {
+            if (window.location.pathname == '/WhatIsMedicare.html') {
                 text_note.innerHTML = "对任何您可能不清楚的地方留下注释或问题<br>Write and save a note or question on anything you might be unclear on to reference them with your insurance agent";
             }
             else {
