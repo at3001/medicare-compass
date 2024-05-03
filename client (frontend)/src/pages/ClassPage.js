@@ -35,7 +35,7 @@ function showNextBite() {
         }
 
     if (currentIndex === bitesLeft.length) {
-        continueBtn.textContent = "Next section";
+        continueBtn.textContent = "下一节 Next section";
     }
 }
 
@@ -327,7 +327,7 @@ function gradeQuiz() {
 // Akshat's functions
 
 function nextSection(url) {
-    if (continueBtn.textContent === "Next section") {
+    if (continueBtn.textContent === "下一节 Next section") {
         window.location.href = url;
     }
 }
@@ -339,7 +339,7 @@ function scrollDown() {
 function saveTimeline(event){
     console.log('save fired');
 
-    if (document.getElementById('continue-btn').textContent == "Next section"){
+    if (document.getElementById('continue-btn').textContent == "下一节 Next section"){
         cn_one = document.getElementById('content-info-cn-three').textContent;
         cn_two = document.getElementById('content-info-cn-four').textContent;
         cn_three = document.getElementById('content-info-cn-five').textContent;
