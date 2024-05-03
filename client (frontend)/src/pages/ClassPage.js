@@ -424,6 +424,10 @@ function submitNote(event, reference, num) {
 
     var textParagraphChinese = document.getElementById("content-info-cn-"+reference).textContent;
     var textParagraphEnglish = document.getElementById("content-info-eng-"+reference).textContent;
+    
+    if(userNote in noteDict){
+        userNote = userNote + " ";
+    }
 
     noteDict[userNote] = [textParagraphChinese, textParagraphEnglish];
     document.getElementById("text_" + reference).value = "Your note has been submitted!";
@@ -579,7 +583,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
-        notes_pdf.addPage();
+        if (pos != 15){
+            notes_pdf.addPage();
+        }
 
         pos = 30;
 
