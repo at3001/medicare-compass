@@ -230,6 +230,44 @@ document.addEventListener('click', function(event) {
     };
 });
 
+// grade quiz in WhatIsMedicare
+function gradeQuiz() {
+    // Define correct answers for each question
+    const correctAnswers = {
+        "question-one": "correct",
+        "question-two": "correct",
+        "question-three": "correct"
+    };
+
+    // Initialize score
+    let score = 0;
+
+    // Loop through each question
+    for (const questionId in correctAnswers) {
+        // Get selected answer for the current question
+        const selectedAnswer = document.querySelector(`input[name="${questionId}"]:checked`);
+
+        // If an answer is selected and it matches the correct answer, increment score
+        if (selectedAnswer && selectedAnswer.value === correctAnswers[questionId]) {
+            score++;
+        }
+
+        if (selectedAnswer) {
+        var correctOptions = document.querySelectorAll('.correct-option');
+    
+        correctOptions.forEach(correctOption => {
+            correctOption.style.color = "#C27760";
+        });
+        }
+    }
+
+
+
+    // Display the score
+    const scoreElement = document.querySelector('.score-text');
+    scoreElement.textContent = `Your score: ${score}/3`;
+}
+
 // Akshat's functions
 
 function nextSection(url) {

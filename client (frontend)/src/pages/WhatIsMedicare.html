@@ -270,8 +270,8 @@
                         </label>
                     </div>
                     <div>
-                    <input type="radio" name="question-one" value="" class="comprehension-option">
-                        <label for="question-one" class="comprehension-option-label">
+                    <input type="radio" name="question-one" value="correct" class="comprehension-option">
+                        <label for="question-one" class="comprehension-option-label correct-option">
                         <span style="font-weight:bold">住院治疗和一些家庭保健</span>
                         <br>Inpatient hospital stays and some home health care
                         </label>
@@ -320,8 +320,8 @@
                         </label>
                     </div>
                     <div>
-                    <input type="radio" name="question-two" value="" class="comprehension-option">
-                        <label for="question-two" class="comprehension-option-label">
+                    <input type="radio" name="question-two" value="correct" class="comprehension-option">
+                        <label for="question-two" class="comprehension-option-label correct-option">
                         <span style="font-weight:bold">迟到入学处罚</span>
                         <br>A late enrollment penalty
                         </label>
@@ -349,8 +349,8 @@
                         </label>
                     </div>
                     <div>
-                    <input type="radio" name="question-three" value="" class="comprehension-option">
-                        <label for="question-three" class="comprehension-option-label">
+                    <input type="radio" name="question-three" value="correct" class="comprehension-option">
+                        <label for="question-three" class="comprehension-option-label correct-option">
                         <span style="font-weight:bold">它是一家私人公司提供的捆绑计划，包括 A 部分、B 部分，通常还包括 D 部分</span>
                         <br>It is a bundled plan from a private company that includes Part A, Part B, and usually Part D
                         </label>
@@ -366,14 +366,14 @@
 
                 <h3 class="comprehension-score bite-left hidden">
                     <i class="fa-solid fa-star bite-right"></i>
-                    Your score: 3/3
+                    <span class="score-text">Your score: 3/3</span>
                     <i class="fa-solid fa-star"></i>
                 </h3>
 
             </form>
         </div>
         <div class="button-container">
-            <button id="continue-btn" class="continue-button"onclick="nextSection('InfoPrintPage.html'); showNextBite(); increaseProgress()">Continue</button>
+            <button id="continue-btn" class="continue-button"onclick="nextSection('InfoPrintPage.html'); showNextBite(); increaseProgress(); gradeQuiz();">Continue</button>
         </div>
         <ul class="progressbar-bottom">
             <li class="inactive not-coming-soon"><a href="ClassPage.html">Introduction<br>介绍</a></li>
