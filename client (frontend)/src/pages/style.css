@@ -91,7 +91,7 @@
 }
 
 .titleText{
-  margin-top: 6vh;
+  margin-top: 5vh;
   margin-bottom: 6vh;
   color: #39628c;
   font-size: 5.8vh;
@@ -968,10 +968,9 @@
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 45vh;
-  height: 50vh;
+  height: 49vh;
   margin-left: 2.5vw;
   margin-right: 2.5vw;
-  margin-top: 3vh;
   text-align: center;
   display: inline-block;
 }

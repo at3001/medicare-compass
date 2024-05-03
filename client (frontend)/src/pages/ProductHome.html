@@ -12,10 +12,10 @@
         <nav class="navbar">
             <div class="navdiv">
                 <ul>
-                    <li id="selected" class="navbarlinks"><a href="index.html">Home</a></li>
+                    <li class="navbarlinks"><a href="index.html">Home</a></li>
                     <li class="navbarlinks"><a href="ClassPage.html">Medicare Overview</a></li>
                     <li class="navbarlinks"><a href="AboutPage.html">About</a></li>
-                    <li class="navbarlinks"><a href="ProductHome.html">Product Homepage</a></li>
+                    <li id="selected" class="navbarlinks"><a href="ProductHome.html">Product Homepage</a></li>
                 </ul>
                 <div class="logo"><a href="#">
                     <img src="../images/logo.png" alt="Medicare Compass Logo" width="200" style="border-radius: 15px;">
@@ -31,7 +31,7 @@
                 <p class="mainPara homepage-eng">Immigrants consistently underuse healthcare in the United States due to <span style="color: #C27760;">language 
                     barriers</span> and <span style="color: #C27760;">unfamiliarity with the US healthcare system.</span> Medicare Compass aims 
                     to change this with educational content designed with <span style="color: #C27760;">immigrants first</span> in mind.</p>
-                <p class="mainPara hidden homepage-cn">由于语言障碍和不熟悉美国医疗保健系统，移民在美国的医疗保健服务一直未能得到充分利用。 Medicare Compass 旨在通过首先考虑移民的教育内容来改变这一现状。</p>
+                <p class="mainPara hidden homepage-cn">由于<span style="color: #C27760;">语言障碍</span>和<span style="color: #C27760;">不熟悉美国医疗保健系统</span>，移民在美国的医疗保健服务一直未能得到充分利用。 Medicare Compass 旨在通过首先考虑<span style="color: #C27760;">移民</span>的教育内容来改变这一现状。</p>
                 
                 <h2 class="titleSubtext homepage-eng">To get started, choose your language:</h2>
                 <h2 class="titleSubtext hidden homepage-cn">首先，选择您的语言：</h2>
@@ -44,14 +44,45 @@
                     </div>
                 </div>
                 <div>
-                    <!-- <a href="SearchPage.html"><button class="homepage-continue homepage-eng">Continue</button></a> -->
                     <a href="SearchPage.html"><button id="homepage-continue" class="homepage-cn hidden">继续 Continue</button></a>
+                </div>
+                <div class="icon-container">
+                    <a href="#target-section" onclick="scrollDown()"><i class="fa-solid fa-circle-arrow-down" id="down-arrow-icon"></i></a>
                 </div>
             </div>
             <div class="right-side">
                 <img src="../images/homePagePhoto.png" alt="Medicare Compass Logo" class="homePagePic">
             </div>
         </div>
+        <div id="target-section">
+            <h1>Medicare Compass helps you simplify the complexities of Medicare so that you can get access to your desired healthcare plans</h1>
+        </div>
+        <div class="keypoint-container">
+            <div class="keypoint-column">
+                <p>Browse detailed, educational content on Medicare in your native language</p>
+                <div class="img-container">
+                    <img src="../images/first-column-pic.png" alt="Medicare Compass Logo" width="650" style="border-radius: 15px;">
+                </div>
+            </div>
+            <div class="keypoint-column">
+            </div>
+            <div class="keypoint-column">
+            </div>
+            <div class="keypoint-column">
+                <p>Get a customized timeline aligned to your Medicare journey</p>  
+                <div class="img-container">
+                    <img src="../images/medicare-timeline.png" alt="Medicare Compass Logo" width="650" style="border-radius: 15px;">     
+                </div>   
+            </div>
+            <div class="keypoint-column">
+                <p>Write & save notes and record information to be empowered when interacting with insurance agents and other stakeholders</p>
+                <div class="img-container">
+                    <img src="../images/take-notes.png" alt="Medicare Compass Logo" width="650" style="border-radius: 15px;">  
+                </div>      
+            </div>
+            <div class="keypoint-column">
+            </div>
+          </div>
     </body>
     <script src="ClassPage.js"></script>
 </html>
