@@ -65,32 +65,64 @@ function generateTimeline() {
 
     var immigration = document.getElementById('immigration-input').value;
     var current_insurance = document.getElementById('current-insurance-input').value;
+    var retirement_age = document.getElementById('retirement-age').value
 
-    var initialEnrollmentEnd = calculateEnrollmentPeriod (birthdate);
+    var initialEnrollmentEnd = calculateEnrollmentPeriod (birthdate, Number(retirement_age), age, current_insurance);
     writeTimelineOne(age, immigration, current_insurance);
+    writeTimelineTwo(age, current_insurance, Number(retirement_age));
     writeTimelineThree(initialEnrollmentEnd);
 }
 
-function calculateEnrollmentPeriod(birthdate) {
-    var startdate = new Date(birthdate);
-    startdate.setFullYear(startdate.getFullYear() + 65, startdate.getMonth() - 3, 1);
-    var enddate = new Date(startdate);
-    enddate.setMonth(enddate.getMonth()+6);
+function calculateEnrollmentPeriod(birthdate, retirement_age, age, current_insurance, immigration) {
+    if (retirement_age > 65) {
+        var startdate = new Date(birthdate);
+        startdate.setFullYear(startdate.getFullYear() + retirement_age);
+        var enddate = new Date(startdate);
+        enddate.setMonth(enddate.getMonth()+2);
 
-    const dateOptions = {
-        month: "short",
-        year: "numeric"
-    }
-    var startdateFormattedEng = startdate.toLocaleDateString('en-US', dateOptions);
-    var enddateFormattedEng = enddate.toLocaleDateString('en-US', dateOptions);
-
-    var startdateFormattedCn = startdate.getFullYear() + "年" + (startdate.getMonth()+1) + "月";
-    var enddateFormattedCn = enddate.getFullYear() + "年" + (enddate.getMonth()+1) + "月";
+        const dateOptions = {
+            month: "short",
+            year: "numeric"
+        }
+        var startdateFormattedEng = startdate.toLocaleDateString('en-US', dateOptions);
+        var enddateFormattedEng = enddate.toLocaleDateString('en-US', dateOptions);
     
-    document.getElementById('enrollment-period-eng').textContent = startdateFormattedEng + " - " + enddateFormattedEng + ":";
-    document.getElementById('enrollment-period-cn').textContent = startdateFormattedCn + " - " + enddateFormattedCn + ":";
+        var startdateFormattedCn = startdate.getFullYear() + "年" + (startdate.getMonth()+1) + "月";
+        var enddateFormattedCn = enddate.getFullYear() + "年" + (enddate.getMonth()+1) + "月";
+        
+        document.getElementById('enrollment-period-eng').textContent = startdateFormattedEng + " - " + enddateFormattedEng + ":";
+        document.getElementById('enrollment-period-cn').textContent = startdateFormattedCn + " - " + enddateFormattedCn + ":";
+    
+        return enddate;
+    }
 
-    return enddate;
+    else if (age > 65 && current_insurance === "no" && immigration !=="other") {
+        document.getElementById('enrollment-period-eng').textContent = "ASAP:";
+        document.getElementById('enrollment-period-cn').textContent = "尽快:";
+    }
+
+    else {
+        var startdate = new Date(birthdate);
+        startdate.setFullYear(startdate.getFullYear() + 65, startdate.getMonth() - 3, 1);
+        var enddate = new Date(startdate);
+        enddate.setMonth(enddate.getMonth()+6);
+    
+        const dateOptions = {
+            month: "short",
+            year: "numeric"
+        }
+        var startdateFormattedEng = startdate.toLocaleDateString('en-US', dateOptions);
+        var enddateFormattedEng = enddate.toLocaleDateString('en-US', dateOptions);
+    
+        var startdateFormattedCn = startdate.getFullYear() + "年" + (startdate.getMonth()+1) + "月";
+        var enddateFormattedCn = enddate.getFullYear() + "年" + (enddate.getMonth()+1) + "月";
+        
+        document.getElementById('enrollment-period-eng').textContent = startdateFormattedEng + " - " + enddateFormattedEng + ":";
+        document.getElementById('enrollment-period-cn').textContent = startdateFormattedCn + " - " + enddateFormattedCn + ":";
+    
+        return enddate;
+    }
+
 }
 
 function writeTimelineOne(age, immigration, current_insurance) {
@@ -131,25 +163,49 @@ function writeTimelineOne(age, immigration, current_insurance) {
     }
 }
 
-function writeTimelineThree(initialEnrollmentEnd) {
-    var openEnrollmentStart = new Date("10/15/2024");
-    openEnrollmentStart.setFullYear(initialEnrollmentEnd.getFullYear()+1);
-    var openEnrollmentEnd = new Date ("12/07/2024");
-    openEnrollmentEnd.setFullYear(openEnrollmentStart.getFullYear());
-
-    const dateOptions = {
-        month: "short",
-        day: "numeric",
-        year: "numeric",
+function writeTimelineTwo(age, current_insurance, retirement_age) {
+    if (retirement_age > 65 ) {
+        document.getElementById('timeline-two-eng').textContent = 
+            "Enroll in Medicare through a special enrollment period. After you or your spouse retires and your employer sponsored coverage ends, you will have two full months to enroll in Medicare.";
+        document.getElementById('timeline-two-cn').textContent =
+            "在特殊投保期内投保 Medicare。 在您或您的配偶退休并且您的雇主保险结束后，您将有整整两个月的时间参加 Medicare。";
     }
-    var openEnrollmentStartFormattedEng = openEnrollmentStart.toLocaleDateString('en-US', dateOptions);
-    var openEnrollmentEndFormattedEng = openEnrollmentEnd.toLocaleDateString('en-US', dateOptions);
+
+    else if (age > 65 && current_insurance=="no"){
+    document.getElementById('timeline-two-eng').textContent = 
+        "Enroll in Medicare now through a special enrollment period. Because you may have a gap in coverage, you may incur late enrollment penalty fees that will increase the longer you wait to enroll.";
+    document.getElementById('timeline-two-cn').textContent =
+        "立即通过特殊投保期投保 Medicare。 由于您的承保范围可能存在差距，因此您可能会产生延迟注册罚款，等待注册的时间越长，罚款就会增加。";
+    }
+}
+
+function writeTimelineThree(initialEnrollmentEnd) {
+    if (initialEnrollmentEnd) {
+        var openEnrollmentStart = new Date("10/15/2024");
+        openEnrollmentStart.setFullYear(initialEnrollmentEnd.getFullYear()+1);
+        var openEnrollmentEnd = new Date ("12/07/2024");
+        openEnrollmentEnd.setFullYear(openEnrollmentStart.getFullYear());
     
-    var openEnrollmentStartFormattedCn = openEnrollmentStart.getFullYear() + "年" + (openEnrollmentStart.getMonth()+1) + "月" + (openEnrollmentStart.getDate()) + "号";
-    var openEnrollmentEndFormattedCn = openEnrollmentEnd.getFullYear() + "年" + (openEnrollmentEnd.getMonth()+1) + "月" + (openEnrollmentEnd.getDate()) + "号";
+        const dateOptions = {
+            month: "short",
+            day: "numeric",
+            year: "numeric",
+        }
+        var openEnrollmentStartFormattedEng = openEnrollmentStart.toLocaleDateString('en-US', dateOptions);
+        var openEnrollmentEndFormattedEng = openEnrollmentEnd.toLocaleDateString('en-US', dateOptions);
+        
+        var openEnrollmentStartFormattedCn = openEnrollmentStart.getFullYear() + "年" + (openEnrollmentStart.getMonth()+1) + "月" + (openEnrollmentStart.getDate()) + "号";
+        var openEnrollmentEndFormattedCn = openEnrollmentEnd.getFullYear() + "年" + (openEnrollmentEnd.getMonth()+1) + "月" + (openEnrollmentEnd.getDate()) + "号";
+        
+        document.getElementById('timeline-three-head-eng').textContent = openEnrollmentStartFormattedEng + " - " + openEnrollmentEndFormattedEng + ":";
+        document.getElementById('timeline-three-head-cn').textContent = openEnrollmentStartFormattedCn + " - " + openEnrollmentEndFormattedCn + ":";
+    }
+
+    else {
+        document.getElementById('timeline-three-head-eng').textContent = "Oct 15, 2025 - Dec 7, 2025";
+        document.getElementById('timeline-three-head-cn').textContent = "2025年10月15号 - 2025年12月7号";
+    }
     
-    document.getElementById('timeline-three-head-eng').textContent = openEnrollmentStartFormattedEng + " - " + openEnrollmentEndFormattedEng + ":";
-    document.getElementById('timeline-three-head-cn').textContent = openEnrollmentStartFormattedCn + " - " + openEnrollmentEndFormattedCn + ":";
 }
 
 function selectOption(option, clickedButton, question) {
