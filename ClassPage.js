@@ -691,6 +691,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 document.addEventListener('DOMContentLoaded', function() {
+    console.log("window location");
+    console.log(window.location.pathname);
     if ((window.location.pathname == '/ClassPage.html') || (window.location.pathname == '/ClassPage-arabic.html')) {
         if (tutorialAidCompleted == false) {
 
