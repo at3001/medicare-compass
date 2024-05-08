@@ -501,7 +501,7 @@ for (let i = 0; i < noteElems.length; i++){
 
 // Need to change this to have HTML code so it looks better.
 document.addEventListener('DOMContentLoaded', function() {
-    if (window.location.pathname == '/InfoPrintPage.html'){
+    if (window.location.pathname == '/medicare-compass.github.io/InfoPrintPage.html'){
         console.log("pdf fired")
 
         const { jsPDF } = window.jspdf;
