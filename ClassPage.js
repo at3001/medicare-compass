@@ -693,7 +693,7 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
     console.log("window location");
     console.log(window.location.pathname);
-    if ((window.location.pathname == '/ClassPage.html') || (window.location.pathname == '/ClassPage-arabic.html')) {
+    if ((window.location.pathname == '/medicare-compass.github.io/ClassPage.html') || (window.location.pathname == '/medicare-compass.github.io/ClassPage-arabic.html')) {
         if (tutorialAidCompleted == false) {
 
             const overlay = document.createElement('div');
@@ -717,7 +717,7 @@ document.addEventListener('DOMContentLoaded', function() {
             text.style.color = '#E59981';
             text.style.fontWeight = 'bold';
             text.style.fontFamily = 'Arial, Helvetica, sans-serif';
-            if (window.location.pathname == '/ClassPage.html') {
+            if (window.location.pathname == '/medicare-compass.github.io/ClassPage.html') {
                 text.textContent = "单击突出显示部分以获取有关整个课程中某些术语和概念的更多详细信息 \n Click highlights to get more details on certain terms and concepts throughout the course";
             }
             else {
@@ -761,7 +761,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
 
         }
-    } else if ((window.location.pathname == '/WhatIsMedicare.html') || (window.location.pathname == '/WhatIsMedicare-arabic.html')) {
+    } else if ((window.location.pathname == '/medicare-compass.github.io/WhatIsMedicare.html') || (window.location.pathname == '/medicare-compass.github.io/WhatIsMedicare-arabic.html')) {
         if (tutorialNoteCompleted == false) {
 
             const overlay = document.createElement('div');
@@ -786,7 +786,7 @@ document.addEventListener('DOMContentLoaded', function() {
             text_note.style.color = '#E59981';
             text_note.style.fontWeight = 'bold';
             text_note.style.fontFamily = 'Arial, Helvetica, sans-serif';
-            if (window.location.pathname == '/WhatIsMedicare.html') {
+            if (window.location.pathname == '/medicare-compass.github.io/WhatIsMedicare.html') {
                 text_note.innerHTML = "对任何您可能不清楚的地方留下注释或问题<br>Write and save a note or question on anything you might be unclear on to reference them with your insurance agent";
             }
             else {
@@ -796,7 +796,7 @@ document.addEventListener('DOMContentLoaded', function() {
             text_note.style.zindex = '100000';
             text_note.style.fontSize = '25px';
             overlay.appendChild(text_note);
-
+3
             var noteButton = document.getElementById("note_button_one");
 
             noteButton.style.zIndex = '1000000';
