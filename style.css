@@ -103,6 +103,23 @@
   line-height: 4vh;
 }
 
+.AboutQuote{
+  font-size: 1.4vw;
+  text-align: left;
+  line-height: 4vh;
+  margin-left: 5%;
+  margin-bottom: 2%;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.AboutQuoteSpeaker{
+  margin-left: 5%;
+  line-height: 6vh;
+  font-style: italic;
+}
+
 .AboutSubtext{
   margin-top: 6vh;
   margin-bottom: 4vh;
