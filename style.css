@@ -111,6 +111,14 @@
   font-weight: 500;
 }
 
+.AboutSubtext2{
+  margin-top: 6vh;
+  margin-bottom: 4vh;
+  color: #C27760;
+  font-size: 1.6vw;
+  font-weight: 500;
+}
+
 .AboutImg{
   width: 90%;
   filter: drop-shadow(5px 5px 5px rgb(49, 40, 40));
