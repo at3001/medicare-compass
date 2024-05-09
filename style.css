@@ -77,8 +77,32 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  text-align: center;
+  margin-left: 20%;
+  margin-right: 20%;
+  /* align-items: center; */
+  /* text-align: center; */
+}
+
+.AboutPara{
+  font-size: 1.4vw;
+  text-align: left;
+  line-height: 4vh;
+}
+
+.AboutSubtext{
+  margin-top: 6vh;
+  margin-bottom: 4vh;
+  color: #39628c;
+  font-size: 2vw;
+  font-weight: 500;
+}
+
+.AboutImg{
+  width: 90%;
+  filter: drop-shadow(5px 5px 5px rgb(49, 40, 40));
+  margin: auto;
+  padding: 30px;
+
 }
 
 .SearchPageText{
