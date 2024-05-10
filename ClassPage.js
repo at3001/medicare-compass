@@ -389,9 +389,6 @@ function saveTimeline(event){
         localStorage.setItem('timeline_cn', JSON.stringify(timeline_cn));
         localStorage.setItem('timeline_eng', JSON.stringify(timeline_eng));
 
-        // whole_timeline = document.getElementById("timeline-container");
-        // localStorage.setItem("whole_timeline", whole_timeline);
-
     }
     
 }
@@ -488,9 +485,6 @@ function speak(event, lang, reference){
         tooltip.remove();
     });
 
-    // if (tooltip) {
-    //     tooltip.remove();
-    // }
 
     var textSpeak = copyUtterance.textContent;
 
@@ -519,17 +513,6 @@ for (let i = 0; i < noteElems.length; i++){
     });
 }
 
-// function htmlToCanvas(elementId) {
-//     // Find the HTML element by ID
-//     var element = localStorage.getItem("whole_timeline");
-//     console.log(element);
-
-
-//     // Use html2canvas library to convert the HTML content to canvas
-//     return html2canvas(element);
-// }
-
-// Need to change this to have HTML code so it looks better.
 document.addEventListener('DOMContentLoaded', function() {
     if (window.location.pathname == '/medicare-compass.github.io/InfoPrintPage.html'){
         console.log("pdf fired")
@@ -558,8 +541,6 @@ document.addEventListener('DOMContentLoaded', function() {
         timeline_eng = JSON.parse(localStorage.getItem('timeline_eng'));
 
         
-        
-        
         notes_pdf.setFontSize(15);
         notes_pdf.text("Your Timeline", 90, 25);
 
@@ -568,13 +549,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         pos = 40;
         dif = 10;
-
-        // timelineUrl = "../images/timeline_img.png";
-        // notes_pdf.addImage(timelineUrl, 'PNG', 10, 20, 180, 150);
-
-        // first_page_pdf = notes_pdf;
-
-        // notes_pdf.addPage();
 
         for(let i = 0; i < timeline_cn.length; i++){
             cn_text = timeline_cn[i].replace(/\s+/g, ' ').trim();
