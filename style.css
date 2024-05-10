@@ -154,9 +154,30 @@ li::marker {
 
 .AboutImg{
   width: 90%;
-  filter: drop-shadow(5px 5px 5px rgb(49, 40, 40));
+  filter: drop-shadow(5px 5px 5px rgb(135, 134, 134));
   margin: auto;
   padding: 30px;
+}
+
+.prototypeContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: end;
+  gap: 4%;
+  font-size: 1.2vw;
+  padding-top: 2%;
+}
+
+.prototype {
+  width: 31%;
+  text-align: center;
+}
+
+.prototype img{
+  width: 100%;
+  padding-bottom: 6%;
+  filter: drop-shadow(5px 5px 5px rgb(135, 134, 134));
 }
 
 .teamContainer{
